@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+
+<head>
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Skills &amp; Technologies - Portfolio</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script src="js/theme.js"></script>
+    <script src="js/skills-graph.js" defer></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#135bec",
+                        "background-light": "#ffffff", // Changed to white as requested
+                        "background-dark": "#101622",
+                        "card-dark": "#1a202c",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "Noto Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+                        'width-grow': 'widthGrow 1.5s ease-out forwards',
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        widthGrow: {
+                            '0%': { width: '0%' },
+                        }
+                    }
+                },
+            },
+        }
+    </script>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;family=Noto+Sans:wght@400;500;700&amp;display=swap"
+        rel="stylesheet" />
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark font-display text-[#111318] dark:text-white transition-colors duration-200">
+    <div class="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden">
+        <header
+            class="sticky top-0 z-50 flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#e5e7eb] dark:border-b-[#282e39] bg-white/80 dark:bg-[#111318]/90 backdrop-blur-md px-4 md:px-10 py-3">
+            <div class="flex items-center gap-4 text-[#111318] dark:text-white">
+                <div
+                    class="size-8 flex items-center justify-center rounded-lg bg-primary/10 text-primary hover:bg-primary/20 transition-colors duration-300">
+                    <span class="material-symbols-outlined">code</span>
+                </div>
+                <h2 class="text-lg font-bold leading-tight tracking-[-0.015em]">Portfolio</h2>
+            </div>
+            <div class="hidden md:flex flex-1 justify-end gap-8">
+                <nav class="flex items-center gap-6">
+                    <a class="text-sm font-medium leading-normal hover:text-primary transition-colors"
+                        href="index.html">Home</a>
+                    <a class="text-sm font-medium leading-normal hover:text-primary transition-colors"
+                        href="about.html">About</a>
+                    <a class="text-sm font-medium leading-normal hover:text-primary transition-colors"
+                        href="experience.html">Experience</a>
+                    <a class="text-sm font-medium leading-normal hover:text-primary transition-colors"
+                        href="projects.html">Projects</a>
+                    <a class="text-sm font-medium leading-normal text-primary"
+                        href="skills.html">Skills</a>
+                    <a class="text-sm font-medium leading-normal hover:text-primary transition-colors"
+                        href="certifications.html">Certifications</a>
+                    <a class="text-sm font-medium leading-normal hover:text-primary transition-colors"
+                        href="blog.html">Blog</a>
+                    <a class="text-sm font-medium leading-normal hover:text-primary transition-colors"
+                        href="admin.html">Admin</a>
+                    <a class="text-sm font-medium leading-normal hover:text-primary transition-colors"
+                        href="contact.html">Contact</a>
+                </nav>
+                <button onclick="window.toggleTheme()"
+                    class="theme-toggle flex items-center justify-center p-2 rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors text-[#111318] dark:text-white"
+                    aria-label="Toggle Dark Mode">
+                    <span class="material-symbols-outlined">dark_mode</span>
+                </button>
+            </div>
+            <div class="flex items-center gap-2 md:hidden">
+                <button onclick="window.toggleTheme()"
+                    class="theme-toggle flex items-center justify-center p-2 rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors text-[#111318] dark:text-white"
+                    aria-label="Toggle Dark Mode">
+                    <span class="material-symbols-outlined">dark_mode</span>
+                </button>
+                <button id="mobile-menu-btn" class="p-2 text-[#111318] dark:text-white">
+                    <span class="material-symbols-outlined">menu</span>
+                </button>
+            </div>
+        </header>
+
+        <!-- Mobile Navigation Menu (Hidden by default) -->
+        <div id="mobile-menu"
+            class="fixed inset-0 z-50 transform translate-x-full transition-transform duration-300 md:hidden">
+            <div class="absolute inset-0 bg-black/50 backdrop-blur-sm" onclick="toggleMobileMenu()"></div>
+            <div
+                class="absolute right-0 top-0 h-full w-[250px] bg-white dark:bg-[#111318] shadow-xl p-6 flex flex-col gap-6">
+                <div class="flex justify-end">
+                    <button onclick="toggleMobileMenu()" class="p-2 text-[#111318] dark:text-white">
+                        <span class="material-symbols-outlined">close</span>
+                    </button>
+                </div>
+                <nav class="flex flex-col gap-4">
+                    <a class="text-lg font-medium text-[#111318] dark:text-white hover:text-primary transition-colors"
+                        href="index.html">Home</a>
+                    <a class="text-lg font-medium text-[#111318] dark:text-white hover:text-primary transition-colors"
+                        href="about.html">About</a>
+                    <a class="text-lg font-medium text-[#111318] dark:text-white hover:text-primary transition-colors"
+                        href="experience.html">Experience</a>
+                    <a class="text-lg font-medium text-[#111318] dark:text-white hover:text-primary transition-colors"
+                        href="projects.html">Projects</a>
+                    <a class="text-lg font-medium text-[#111318] dark:text-white hover:text-primary transition-colors"
+                        href="skills.html">Skills</a>
+                    <a class="text-lg font-medium text-[#111318] dark:text-white hover:text-primary transition-colors"
+                        href="certifications.html">Certifications</a>
+                    <a class="text-lg font-medium text-[#111318] dark:text-white hover:text-primary transition-colors"
+                        href="blog.html">Blog</a>
+                    <a class="text-lg font-medium text-[#111318] dark:text-white hover:text-primary transition-colors"
+                        href="contact.html">Contact</a>
+                </nav>
+            </div>
+        </div>
+        <div class="layout-container flex h-full grow flex-col">
+            <div class="flex flex-1 justify-center py-5 px-4 md:px-10 lg:px-40">
+                <div class="layout-content-container flex flex-col max-w-[1024px] flex-1">
+                    <div class="flex flex-col gap-4 py-8 md:py-12 animate-fade-in-up">
+                        <div class="flex flex-col gap-2">
+                            <h1
+                                class="text-4xl md:text-5xl font-black leading-tight tracking-[-0.033em] text-[#111318] dark:text-white">
+                                Skills <span class="text-primary animate-pulse-slow">&amp;</span> Technologies
+                            </h1>
+                            <p class="text-[#637588] dark:text-[#9da6b9] text-lg font-normal leading-normal max-w-2xl">
+                                A comprehensive overview of my technical stack and proficiency levels as a Data Science
+                                &amp; Software Engineer.
+                            </p>
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Interactive Network Graph Section -->
+                    <div class="w-full flex justify-center pb-12 animate-fade-in-up delay-100">
+                        <div
+                            class="relative w-full aspect-video bg-white dark:bg-card-dark rounded-2xl border border-[#e5e7eb] dark:border-[#282e39] shadow-sm overflow-hidden group">
+                            <canvas id="skillsNetworkGraph"></canvas>
+                            <div class="absolute bottom-4 right-4 text-xs text-slate-400 pointer-events-none">
+                                Drag nodes to explore
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Search & Filter Controls -->
+                    <div class="flex flex-col items-center gap-6 pb-8 animate-fade-in-up delay-150 relative z-10">
+                        <div class="flex flex-col sm:flex-row gap-4 items-center w-full max-w-2xl">
+                            <!-- Search -->
+                            <div class="relative w-full group">
+                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                    <span
+                                        class="material-symbols-rounded text-slate-400 group-focus-within:text-primary transition-colors">search</span>
+                                </div>
+                                <input type="text" id="skillSearch"
+                                    class="block w-full pl-10 pr-3 py-2.5 border border-slate-200 dark:border-slate-700 rounded-full leading-5 bg-white dark:bg-[#1c2333] text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary sm:text-sm transition-all shadow-sm hover:shadow-md"
+                                    placeholder="Search skills...">
+                            </div>
+
+                            <!-- Heatmap Toggle -->
+                            <div
+                                class="flex items-center gap-3 bg-white dark:bg-[#1c2333] px-4 py-2 rounded-full border border-slate-200 dark:border-slate-700 shadow-sm">
+                                <span
+                                    class="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Map
+                                    Mode</span>
+                                <label class="relative inline-flex items-center cursor-pointer">
+                                    <input type="checkbox" id="heatmapToggle" class="sr-only peer">
+                                    <div
+                                        class="w-11 h-6 bg-slate-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary/20 dark:peer-focus:ring-primary/20 rounded-full peer dark:bg-slate-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-primary">
+                                    </div>
+                                    <span
+                                        class="ml-2 text-sm font-medium text-slate-700 dark:text-slate-300">Heatmap</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Filter Buttons -->
+                        <div class="flex flex-wrap justify-center gap-2">
+                            <button
+                                class="filter-btn px-4 py-2 rounded-full bg-primary text-white text-sm font-bold shadow-md shadow-blue-500/20 transition-all hover:scale-105"
+                                data-category="all">All</button>
+                            <button
+                                class="filter-btn px-4 py-2 rounded-full bg-white dark:bg-[#1c2333] border border-gray-200 dark:border-[#283045] text-slate-600 dark:text-slate-300 text-sm font-medium hover:border-primary hover:text-primary transition-all"
+                                data-category="languages">Languages</button>
+                            <button
+                                class="filter-btn px-4 py-2 rounded-full bg-white dark:bg-[#1c2333] border border-gray-200 dark:border-[#283045] text-slate-600 dark:text-slate-300 text-sm font-medium hover:border-primary hover:text-primary transition-all"
+                                data-category="ml">Data Science & ML</button>
+                            <button
+                                class="filter-btn px-4 py-2 rounded-full bg-white dark:bg-[#1c2333] border border-gray-200 dark:border-[#283045] text-slate-600 dark:text-slate-300 text-sm font-medium hover:border-primary hover:text-primary transition-all"
+                                data-category="tools">Tools</button>
+                        </div>
+                    </div>
+
+                    <!-- Intel Panel (Hidden by default) -->
+                    <div id="intelPanel"
+                        class="fixed right-0 top-1/4 translate-x-full transition-transform duration-300 z-40 w-80 bg-white/90 dark:bg-[#1a202c]/90 backdrop-blur-md border border-slate-200 dark:border-slate-700 rounded-l-2xl shadow-2xl p-6 hidden lg:block">
+                        <button id="closePanel"
+                            class="absolute top-4 right-4 text-slate-400 hover:text-primary transition-colors">
+                            <span class="material-symbols-rounded">close</span>
+                        </button>
+                        <div class="flex flex-col gap-4">
+                            <div class="flex items-center gap-3">
+                                <div id="panelIcon"
+                                    class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary text-2xl font-bold">
+                                    <span class="material-symbols-rounded">code</span>
+                                </div>
+                                <h3 id="panelTitle" class="text-xl font-bold text-slate-800 dark:text-white">Skill Name
+                                </h3>
+                            </div>
+
+                            <div class="h-px bg-slate-200 dark:bg-slate-700 w-full"></div>
+
+                            <div class="grid grid-cols-2 gap-4">
+                                <div
+                                    class="bg-slate-50 dark:bg-slate-800/50 p-3 rounded-xl border border-slate-100 dark:border-slate-700">
+                                    <div class="text-xs text-slate-500 dark:text-slate-400 uppercase font-bold">
+                                        Experience</div>
+                                    <div id="panelExp" class="text-lg font-bold text-primary">0 Years</div>
+                                </div>
+                                <div
+                                    class="bg-slate-50 dark:bg-slate-800/50 p-3 rounded-xl border border-slate-100 dark:border-slate-700">
+                                    <div class="text-xs text-slate-500 dark:text-slate-400 uppercase font-bold">Projects
+                                    </div>
+                                    <div id="panelProj" class="text-lg font-bold text-primary">0</div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="text-xs text-slate-500 dark:text-slate-400 uppercase font-bold mb-2">Key
+                                    Libraries & Frameworks</div>
+                                <div id="panelLibs" class="flex flex-wrap gap-2">
+                                    <!-- Dynamic Tags -->
+                                </div>
+                            </div>
+
+                            <div class="bg-primary/5 dark:bg-primary/10 p-4 rounded-xl border border-primary/10 mt-2">
+                                <div class="text-xs text-primary uppercase font-bold mb-1">Top Project</div>
+                                <div id="panelTopProject" class="font-medium text-slate-700 dark:text-slate-200">
+                                    Processing...</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 pb-20" id="skills-grid">
+                        <div class="skill-category flex flex-col gap-4 rounded-xl border border-[#e5e7eb] dark:border-[#282e39] bg-white dark:bg-card-dark p-6 shadow-sm hover:shadow-md transition-shadow duration-300 animate-fade-in-up [animation-delay:100ms] hover:border-primary/30"
+                            data-category="languages">
+                            <div class="flex items-center gap-3 mb-2">
+                                <div
+                                    class="p-2 rounded-lg bg-primary/10 text-primary transition-transform duration-300 hover:scale-110">
+                                    <span class="material-symbols-outlined">terminal</span>
+                                </div>
+                                <h3 class="text-xl font-bold leading-tight">Programming Languages</h3>
+                            </div>
+                            <div class="flex flex-col gap-2 group skill-item" data-skill="py">
+                                <div class="flex justify-between items-end">
+                                    <span
+                                        class="font-medium text-base group-hover:text-primary transition-colors">Python</span>
+                                    <span
+                                        class="text-xs font-semibold text-primary bg-primary/10 px-2 py-1 rounded">ADVANCED</span>
+                                </div>
+                                <div class="h-2 w-full rounded-full bg-[#e5e7eb] dark:bg-[#3b4354] overflow-hidden">
+                                    <div class="h-full rounded-full bg-primary animate-width-grow" style="width: 95%">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex flex-col gap-2 group skill-item" data-skill="sql">
+                                <div class="flex justify-between items-end">
+                                    <span
+                                        class="font-medium text-base group-hover:text-primary transition-colors">SQL</span>
+                                    <span
+                                        class="text-xs font-semibold text-primary bg-primary/10 px-2 py-1 rounded">ADVANCED</span>
+                                </div>
+                                <div class="h-2 w-full rounded-full bg-[#e5e7eb] dark:bg-[#3b4354] overflow-hidden">
+                                    <div class="h-full rounded-full bg-primary animate-width-grow [animation-delay:200ms]"
+                                        style="width: 85%"></div>
+                                </div>
+                            </div>
+                            <div class="flex flex-col gap-2 group skill-item" data-skill="java">
+                                <div class="flex justify-between items-end">
+                                    <span
+                                        class="font-medium text-base group-hover:text-primary transition-colors">Java</span>
+                                    <span
+                                        class="text-xs font-semibold text-[#637588] dark:text-[#9da6b9] bg-[#e5e7eb] dark:bg-[#282e39] px-2 py-1 rounded">INTERMEDIATE</span>
+                                </div>
+                                <div class="h-2 w-full rounded-full bg-[#e5e7eb] dark:bg-[#3b4354] overflow-hidden">
+                                    <div class="h-full rounded-full bg-primary/70 animate-width-grow [animation-delay:300ms]"
+                                        style="width: 65%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="skill-category flex flex-col gap-4 rounded-xl border border-[#e5e7eb] dark:border-[#282e39] bg-white dark:bg-card-dark p-6 shadow-sm hover:shadow-md transition-shadow duration-300 animate-fade-in-up [animation-delay:200ms] hover:border-primary/30"
+                            data-category="ml">
+                            <div class="flex items-center gap-3 mb-2">
+                                <div
+                                    class="p-2 rounded-lg bg-primary/10 text-primary transition-transform duration-300 hover:scale-110">
+                                    <span class="material-symbols-outlined">analytics</span>
+                                </div>
+                                <h3 class="text-xl font-bold leading-tight">Data Science &amp; ML</h3>
+                            </div>
+                            <div class="flex flex-col gap-2 group skill-item" data-skill="pd">
+                                <div class="flex justify-between items-end">
+                                    <span class="font-medium text-base group-hover:text-primary transition-colors">Data
+                                        Analysis</span>
+                                    <span
+                                        class="text-xs font-semibold text-primary bg-primary/10 px-2 py-1 rounded">ADVANCED</span>
+                                </div>
+                                <div class="h-2 w-full rounded-full bg-[#e5e7eb] dark:bg-[#3b4354] overflow-hidden">
+                                    <div class="h-full rounded-full bg-primary animate-width-grow [animation-delay:150ms]"
+                                        style="width: 90%"></div>
+                                </div>
+                            </div>
+                            <div class="flex flex-col gap-2 group skill-item" data-skill="ml">
+                                <div class="flex justify-between items-end">
+                                    <span
+                                        class="font-medium text-base group-hover:text-primary transition-colors">Machine
+                                        Learning</span>
+                                    <span
+                                        class="text-xs font-semibold text-[#637588] dark:text-[#9da6b9] bg-[#e5e7eb] dark:bg-[#282e39] px-2 py-1 rounded">INTERMEDIATE</span>
+                                </div>
+                                <div class="h-2 w-full rounded-full bg-[#e5e7eb] dark:bg-[#3b4354] overflow-hidden">
+                                    <div class="h-full rounded-full bg-primary/70 animate-width-grow [animation-delay:250ms]"
+                                        style="width: 75%"></div>
+                                </div>
+                            </div>
+                            <div class="flex flex-col gap-2 group skill-item" data-skill="sk">
+                                <div class="flex justify-between items-end">
+                                    <span
+                                        class="font-medium text-base group-hover:text-primary transition-colors">Regression
+                                        &amp; Classification</span>
+                                    <span
+                                        class="text-xs font-semibold text-[#637588] dark:text-[#9da6b9] bg-[#e5e7eb] dark:bg-[#282e39] px-2 py-1 rounded">INTERMEDIATE</span>
+                                </div>
+                                <div class="h-2 w-full rounded-full bg-[#e5e7eb] dark:bg-[#3b4354] overflow-hidden">
+                                    <div class="h-full rounded-full bg-primary/70 animate-width-grow [animation-delay:350ms]"
+                                        style="width: 70%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="skill-category flex flex-col gap-4 rounded-xl border border-[#e5e7eb] dark:border-[#282e39] bg-white dark:bg-card-dark p-6 shadow-sm hover:shadow-md transition-shadow duration-300 animate-fade-in-up [animation-delay:300ms] hover:border-primary/30"
+                            data-category="tools">
+                            <div class="flex items-center gap-3 mb-2">
+                                <div
+                                    class="p-2 rounded-lg bg-primary/10 text-primary transition-transform duration-300 hover:scale-110">
+                                    <span class="material-symbols-outlined">construction</span>
+                                </div>
+                                <h3 class="text-xl font-bold leading-tight">Tools &amp; Frameworks</h3>
+                            </div>
+                            <div class="flex flex-col gap-2 group skill-item" data-skill="np">
+                                <div class="flex justify-between items-end">
+                                    <span
+                                        class="font-medium text-base group-hover:text-primary transition-colors">Pandas
+                                        &amp; NumPy</span>
+                                    <span
+                                        class="text-xs font-semibold text-primary bg-primary/10 px-2 py-1 rounded">ADVANCED</span>
+                                </div>
+                                <div class="h-2 w-full rounded-full bg-[#e5e7eb] dark:bg-[#3b4354] overflow-hidden">
+                                    <div class="h-full rounded-full bg-primary animate-width-grow [animation-delay:200ms]"
+                                        style="width: 85%"></div>
+                                </div>
+                            </div>
+                            <div class="flex flex-col gap-2 group skill-item" data-skill="git">
+                                <div class="flex justify-between items-end">
+                                    <span
+                                        class="font-medium text-base group-hover:text-primary transition-colors">Git</span>
+                                    <span
+                                        class="text-xs font-semibold text-[#637588] dark:text-[#9da6b9] bg-[#e5e7eb] dark:bg-[#282e39] px-2 py-1 rounded">INTERMEDIATE</span>
+                                </div>
+                                <div class="h-2 w-full rounded-full bg-[#e5e7eb] dark:bg-[#3b4354] overflow-hidden">
+                                    <div class="h-full rounded-full bg-primary/70 animate-width-grow [animation-delay:300ms]"
+                                        style="width: 70%"></div>
+                                </div>
+                            </div>
+                            <div class="flex flex-col gap-2 group skill-item" data-skill="tf">
+                                <div class="flex justify-between items-end">
+                                    <span
+                                        class="font-medium text-base group-hover:text-primary transition-colors">Matplotlib</span>
+                                    <span
+                                        class="text-xs font-semibold text-[#637588] dark:text-[#9da6b9] bg-[#e5e7eb] dark:bg-[#282e39] px-2 py-1 rounded">INTERMEDIATE</span>
+                                </div>
+                                <div class="h-2 w-full rounded-full bg-[#e5e7eb] dark:bg-[#3b4354] overflow-hidden">
+                                    <div class="h-full rounded-full bg-primary/70 animate-width-grow [animation-delay:400ms]"
+                                        style="width: 65%"></div>
+                                </div>
+                            </div>
+                            <div class="flex flex-col gap-2 group skill-item" data-skill="tkinter">
+                                <div class="flex justify-between items-end">
+                                    <span
+                                        class="font-medium text-base group-hover:text-primary transition-colors">Tkinter</span>
+                                    <span
+                                        class="text-xs font-semibold text-[#637588] dark:text-[#9da6b9] bg-[#e5e7eb] dark:bg-[#282e39] px-2 py-1 rounded">INTERMEDIATE</span>
+                                </div>
+                                <div class="h-2 w-full rounded-full bg-[#e5e7eb] dark:bg-[#3b4354] overflow-hidden">
+                                    <div class="h-full rounded-full bg-primary/70 animate-width-grow [animation-delay:500ms]"
+                                        style="width: 60%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="skill-category flex flex-col gap-4 rounded-xl border border-[#e5e7eb] dark:border-[#282e39] bg-white dark:bg-card-dark p-6 shadow-sm hover:shadow-md transition-shadow duration-300 animate-fade-in-up [animation-delay:400ms] hover:border-primary/30"
+                            data-category="tools">
+                            <div class="flex items-center gap-3 mb-2">
+                                <div
+                                    class="p-2 rounded-lg bg-primary/10 text-primary transition-transform duration-300 hover:scale-110">
+                                    <span class="material-symbols-outlined">storage</span>
+                                </div>
+                                <h3 class="text-xl font-bold leading-tight">Databases &amp; Systems</h3>
+                            </div>
+                            <div class="flex flex-col gap-2 group skill-item" data-skill="mysql">
+                                <div class="flex justify-between items-end">
+                                    <span
+                                        class="font-medium text-base group-hover:text-primary transition-colors">MySQL</span>
+                                    <span
+                                        class="text-xs font-semibold text-[#637588] dark:text-[#9da6b9] bg-[#e5e7eb] dark:bg-[#282e39] px-2 py-1 rounded">INTERMEDIATE</span>
+                                </div>
+                                <div class="h-2 w-full rounded-full bg-[#e5e7eb] dark:bg-[#3b4354] overflow-hidden">
+                                    <div class="h-full rounded-full bg-primary/70 animate-width-grow [animation-delay:250ms]"
+                                        style="width: 75%"></div>
+                                </div>
+                            </div>
+                            <div class="flex flex-col gap-2 group skill-item" data-skill="dbms">
+                                <div class="flex justify-between items-end">
+                                    <span class="font-medium text-base group-hover:text-primary transition-colors">DBMS
+                                        Concepts</span>
+                                    <span
+                                        class="text-xs font-semibold text-[#637588] dark:text-[#9da6b9] bg-[#e5e7eb] dark:bg-[#282e39] px-2 py-1 rounded">INTERMEDIATE</span>
+                                </div>
+                                <div class="h-2 w-full rounded-full bg-[#e5e7eb] dark:bg-[#3b4354] overflow-hidden">
+                                    <div class="h-full rounded-full bg-primary/70 animate-width-grow [animation-delay:350ms]"
+                                        style="width: 60%"></div>
+                                </div>
+                            </div>
+                            <div class="flex flex-col gap-2 group skill-item" data-skill="os">
+                                <div class="flex justify-between items-end">
+                                    <span class="font-medium text-base group-hover:text-primary transition-colors">OS
+                                        Basics</span>
+                                    <span
+                                        class="text-xs font-semibold text-[#637588] dark:text-[#9da6b9] bg-[#e5e7eb] dark:bg-[#282e39] px-2 py-1 rounded">BEGINNER</span>
+                                </div>
+                                <div class="h-2 w-full rounded-full bg-[#e5e7eb] dark:bg-[#3b4354] overflow-hidden">
+                                    <div class="h-full rounded-full bg-primary/40 animate-width-grow [animation-delay:450ms]"
+                                        style="width: 40%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="js/interactions.js"></script>
+</body>
+
+</html>

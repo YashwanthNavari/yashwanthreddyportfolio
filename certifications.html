@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Certifications &amp; Achievements - Portfolio</title>
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&amp;display=swap"
+        rel="stylesheet" />
+    <!-- Material Symbols -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script src="js/theme.js"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#135bec",
+                        "primary-dark": "#0e46b9",
+                        "background-light": "#ffffff",
+                        "background-dark": "#101622",
+                        "surface-light": "#f6f8fc",
+                        "surface-dark": "#1a2233",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"],
+                        "sans": ["Inter", "sans-serif"],
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.375rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "2xl": "1rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        /* Custom scrollbar for clean look */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: #cbd5e1;
+            border-radius: 20px;
+        }
+
+        /* Animation utilities */
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .delay-100 {
+            animation-delay: 0.1s;
+        }
+
+        .delay-200 {
+            animation-delay: 0.2s;
+        }
+
+        .delay-300 {
+            animation-delay: 0.3s;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark text-[#111318] dark:text-white font-display overflow-x-hidden antialiased">
+    <div class="relative flex flex-col min-h-screen">
+        <!-- Navbar -->
+        <header
+            class="sticky top-0 z-50 flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#f0f2f4] dark:border-b-gray-800 bg-white/80 dark:bg-background-dark/90 backdrop-blur-md px-6 md:px-10 py-3">
+            <div class="flex items-center gap-4 text-primary">
+                <div class="size-8 flex items-center justify-center rounded-lg bg-primary/10">
+                    <span class="material-symbols-outlined text-2xl">data_object</span>
+                </div>
+                <h2 class="text-[#111318] dark:text-white text-lg font-bold leading-tight tracking-tight">Navari
+                    Yashwanth Reddy |
+                    Data Scientist</h2>
+            </div>
+            <div class="hidden md:flex flex-1 justify-end gap-8">
+                <nav class="flex items-center gap-6">
+                    <a class="text-[#616f89] dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-colors text-sm font-medium leading-normal"
+                        href="index.html">Home</a>
+                    <a class="text-[#616f89] dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-colors text-sm font-medium leading-normal"
+                        href="about.html">About</a>
+                    <a class="text-[#616f89] dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-colors text-sm font-medium leading-normal"
+                        href="experience.html">Experience</a>
+                    <a class="text-[#616f89] dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-colors text-sm font-medium leading-normal"
+                        href="projects.html">Projects</a>
+                    <a class="text-[#616f89] dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-colors text-sm font-medium leading-normal"
+                        href="skills.html">Skills</a>
+                    <a class="text-primary text-sm font-bold leading-normal"
+                        href="certifications.html">Certifications</a>
+                    <a class="text-[#616f89] dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-colors text-sm font-medium leading-normal"
+                        href="blog.html">Blog</a>
+                    <a class="text-[#616f89] dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-colors text-sm font-medium leading-normal"
+                        href="admin.html">Admin</a>
+                    <a class="text-[#616f89] dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-colors text-sm font-medium leading-normal"
+                        href="contact.html">Contact</a>
+                </nav>
+                <button onclick="window.toggleTheme()"
+                    class="theme-toggle flex items-center justify-center p-2 rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors text-primary dark:text-white"
+                    aria-label="Toggle Dark Mode">
+                    <span class="material-symbols-outlined">dark_mode</span>
+                </button>
+            </div>
+            <!-- Mobile Menu Icon -->
+            <div class="flex items-center gap-2 md:hidden">
+                <button onclick="window.toggleTheme()"
+                    class="theme-toggle flex items-center justify-center p-2 rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors text-[#111318] dark:text-white"
+                    aria-label="Toggle Dark Mode">
+                    <span class="material-symbols-outlined">dark_mode</span>
+                </button>
+                <button id="mobile-menu-btn" class="p-2 text-[#111318] dark:text-white">
+                    <span class="material-symbols-outlined">menu</span>
+                </button>
+            </div>
+        </header>
+
+        <!-- Mobile Navigation Menu (Hidden by default) -->
+        <div id="mobile-menu"
+            class="fixed inset-0 z-50 transform translate-x-full transition-transform duration-300 md:hidden">
+            <div class="absolute inset-0 bg-black/50 backdrop-blur-sm" onclick="toggleMobileMenu()"></div>
+            <div
+                class="absolute right-0 top-0 h-full w-[250px] bg-white dark:bg-[#101622] shadow-xl p-6 flex flex-col gap-6">
+                <div class="flex justify-end">
+                    <button onclick="toggleMobileMenu()" class="p-2 text-[#111318] dark:text-white">
+                        <span class="material-symbols-outlined">close</span>
+                    </button>
+                </div>
+                <nav class="flex flex-col gap-4">
+                    <a class="text-lg font-medium text-[#111318] dark:text-white hover:text-primary transition-colors"
+                        href="index.html">Home</a>
+                    <a class="text-lg font-medium text-[#111318] dark:text-white hover:text-primary transition-colors"
+                        href="about.html">About</a>
+                    <a class="text-lg font-medium text-[#111318] dark:text-white hover:text-primary transition-colors"
+                        href="experience.html">Experience</a>
+                    <a class="text-lg font-medium text-[#111318] dark:text-white hover:text-primary transition-colors"
+                        href="projects.html">Projects</a>
+                    <a class="text-lg font-medium text-[#111318] dark:text-white hover:text-primary transition-colors"
+                        href="skills.html">Skills</a>
+                    <a class="text-lg font-medium text-[#111318] dark:text-white hover:text-primary transition-colors"
+                        href="certifications.html">Certifications</a>
+                    <a class="text-lg font-medium text-[#111318] dark:text-white hover:text-primary transition-colors"
+                        href="blog.html">Blog</a>
+                    <a class="text-lg font-medium text-[#111318] dark:text-white hover:text-primary transition-colors"
+                        href="contact.html">Contact</a>
+                </nav>
+            </div>
+        </div>
+        <main class="flex-grow">
+            <div class="layout-container flex flex-col items-center w-full">
+                <!-- Hero Section -->
+                <div class="w-full max-w-[1024px] px-4 md:px-6 py-10 md:py-16 fade-in-up">
+                    <div class="flex flex-col gap-4">
+                        <div class="flex items-center gap-2 text-primary font-semibold tracking-wide uppercase text-xs">
+                            <span class="w-8 h-[2px] bg-primary"></span>
+                            <span>Credentials</span>
+                        </div>
+                        <h1
+                            class="text-[#111318] dark:text-white text-4xl md:text-5xl font-black leading-tight tracking-[-0.033em]">
+                            Certifications &amp; <span class="text-primary">Achievements</span>
+                        </h1>
+                        <p
+                            class="text-[#616f89] dark:text-gray-300 text-lg md:text-xl font-normal leading-relaxed max-w-2xl">
+                            A curated timeline of continuous learning, professional milestones, and technical mastery in
+                            Data Science and Software Engineering.
+                        </p>
+                    </div>
+                </div>
+                <!-- Stats Section -->
+                <div class="w-full max-w-[1024px] px-4 md:px-6 pb-12 fade-in-up delay-100">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+                        <div
+                            class="flex flex-col gap-2 rounded-xl p-6 border border-[#dbdfe6] dark:border-gray-700 bg-surface-light dark:bg-surface-dark shadow-sm hover:border-primary/30 transition-colors">
+                            <div
+                                class="size-10 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-2">
+                                <span class="material-symbols-outlined">school</span>
+                            </div>
+                            <p class="text-[#616f89] dark:text-gray-400 text-sm font-medium uppercase tracking-wider">
+                                Certifications</p>
+                            <p class="text-primary text-3xl font-bold leading-tight">15+</p>
+                        </div>
+                        <div
+                            class="flex flex-col gap-2 rounded-xl p-6 border border-[#dbdfe6] dark:border-gray-700 bg-surface-light dark:bg-surface-dark shadow-sm hover:border-primary/30 transition-colors">
+                            <div
+                                class="size-10 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-2">
+                                <span class="material-symbols-outlined">trophy</span>
+                            </div>
+                            <p class="text-[#616f89] dark:text-gray-400 text-sm font-medium uppercase tracking-wider">
+                                Hackathons</p>
+                            <p class="text-primary text-3xl font-bold leading-tight">3 Wins</p>
+                        </div>
+                        <div
+                            class="flex flex-col gap-2 rounded-xl p-6 border border-[#dbdfe6] dark:border-gray-700 bg-surface-light dark:bg-surface-dark shadow-sm hover:border-primary/30 transition-colors">
+                            <div
+                                class="size-10 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-2">
+                                <span class="material-symbols-outlined">workspace_premium</span>
+                            </div>
+                            <p class="text-[#616f89] dark:text-gray-400 text-sm font-medium uppercase tracking-wider">
+                                Awards</p>
+                            <p class="text-primary text-3xl font-bold leading-tight">5</p>
+                        </div>
+                        <div
+                            class="flex flex-col gap-2 rounded-xl p-6 border border-[#dbdfe6] dark:border-gray-700 bg-surface-light dark:bg-surface-dark shadow-sm hover:border-primary/30 transition-colors">
+                            <div
+                                class="size-10 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-2">
+                                <span class="material-symbols-outlined">schedule</span>
+                            </div>
+                            <p class="text-[#616f89] dark:text-gray-400 text-sm font-medium uppercase tracking-wider">
+                                Experience</p>
+                            <p class="text-primary text-3xl font-bold leading-tight">4 Yrs</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Filters -->
+                <div
+                    class="w-full max-w-[1024px] px-4 md:px-6 pb-8 sticky top-[72px] z-40 bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-sm py-2 fade-in-up delay-200">
+                    <div class="flex gap-3 overflow-x-auto pb-2 no-scrollbar">
+                        <button
+                            class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-primary px-6 transition-all hover:bg-primary-dark shadow-md shadow-primary/20">
+                            <span class="text-white text-sm font-semibold">All</span>
+                        </button>
+                        <button
+                            class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-surface-light dark:bg-surface-dark border border-gray-200 dark:border-gray-700 px-6 transition-all hover:bg-gray-100 dark:hover:bg-gray-800 hover:border-primary/30">
+                            <span class="text-[#111318] dark:text-gray-200 text-sm font-medium">Online Courses</span>
+                        </button>
+                        <button
+                            class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-surface-light dark:bg-surface-dark border border-gray-200 dark:border-gray-700 px-6 transition-all hover:bg-gray-100 dark:hover:bg-gray-800 hover:border-primary/30">
+                            <span class="text-[#111318] dark:text-gray-200 text-sm font-medium">Hackathons</span>
+                        </button>
+                        <button
+                            class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-surface-light dark:bg-surface-dark border border-gray-200 dark:border-gray-700 px-6 transition-all hover:bg-gray-100 dark:hover:bg-gray-800 hover:border-primary/30">
+                            <span class="text-[#111318] dark:text-gray-200 text-sm font-medium">Academic</span>
+                        </button>
+                    </div>
+                </div>
+                <!-- Content: Online Courses -->
+                <div class="w-full max-w-[1024px] px-4 md:px-6 pb-16 fade-in-up delay-300">
+                    <div class="flex items-center gap-3 mb-6">
+                        <span class="material-symbols-outlined text-primary text-2xl">laptop_mac</span>
+                        <h2 class="text-[#111318] dark:text-white text-2xl font-bold leading-tight tracking-[-0.015em]">
+                            Online Courses &amp; Certifications</h2>
+                    </div>
+                    <div id="certifications-list-container"
+                        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <!-- Certifications loaded dynamically -->
+                    </div>
+                </div>
+                <!-- Content: Hackathons & Workshops -->
+                <div class="w-full max-w-[1024px] px-4 md:px-6 pb-16 fade-in-up delay-300">
+                    <div class="flex items-center gap-3 mb-6">
+                        <span class="material-symbols-outlined text-primary text-2xl">code</span>
+                        <h2 class="text-[#111318] dark:text-white text-2xl font-bold leading-tight tracking-[-0.015em]">
+                            Hackathons &amp; Workshops</h2>
+                    </div>
+                    <div class="flex flex-col gap-4">
+                        <!-- Hackathon Item 1 -->
+                        <div
+                            class="flex flex-col md:flex-row gap-4 p-5 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-surface-dark transition-all duration-300 hover:border-primary hover:shadow-lg">
+                            <div class="flex-shrink-0">
+                                <div class="w-full md:w-48 h-32 rounded-lg overflow-hidden relative">
+                                    <img class="w-full h-full object-cover"
+                                        data-alt="People working together on laptops at a hackathon event"
+                                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDM1ka6c2malpJUvfu12MjwDBgfRaLiOQBcsN8AN95XuVpiPmJYvFmJMYCrTVDhwChZ4j-pipn17gJYnPbgnYx5xU9qPm0N1HKKMRvRF6BLiha4ECFjGgudT-r4M0srPnqbVJodxNgxBpTOKO6NgZ8f49_hnO9OaNTEJLMVlVvCA3zBOJ-3NhHJNltn39MC4w1RRS3l_bYwWeyP63lVqGBC0hUjzF-Q93tmBDVyMTJInmn3ISGJyGy77KqjFe4UWXR5vyTKvVjiNd3i" />
+                                    <div
+                                        class="absolute top-2 right-2 bg-primary text-white text-xs font-bold px-2 py-1 rounded">
+                                        2nd Place</div>
+                                </div>
+                            </div>
+                            <div class="flex flex-col justify-center flex-grow">
+                                <div class="flex justify-between items-start">
+                                    <h3 class="text-xl font-bold text-[#111318] dark:text-white">Global AI Hackathon
+                                        2023</h3>
+                                    <span class="text-sm text-gray-500 font-medium">Nov 2023</span>
+                                </div>
+                                <p class="text-primary font-medium text-sm mt-1 mb-2">Team Lead &amp; Backend Developer
+                                </p>
+                                <p class="text-sm text-[#616f89] dark:text-gray-400">Built a real-time disaster response
+                                    system using NLP and satellite imagery. Pitched to a panel of industry experts and
+                                    secured the runner-up position among 500+ teams.</p>
+                                <div class="mt-3 flex gap-2">
+                                    <span
+                                        class="px-2 py-1 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 text-xs rounded font-medium">Python</span>
+                                    <span
+                                        class="px-2 py-1 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 text-xs rounded font-medium">TensorFlow</span>
+                                    <span
+                                        class="px-2 py-1 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 text-xs rounded font-medium">FastAPI</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Hackathon Item 2 -->
+                        <div
+                            class="flex flex-col md:flex-row gap-4 p-5 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-surface-dark transition-all duration-300 hover:border-primary hover:shadow-lg">
+                            <div class="flex-shrink-0">
+                                <div class="w-full md:w-48 h-32 rounded-lg overflow-hidden relative">
+                                    <img class="w-full h-full object-cover"
+                                        data-alt="Cloud servers with digital overlay representing cloud computing"
+                                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuB70e_cX9iyHmAL1DCxS4kCD-ekwDp4ydSBx0cRceib9v6lnTXUv5dmEXLWjypxC6m8eiP8PxcEFIR8kqBNxUHJYCjW78KH73jJWh0SzSgoV-bYl7fCIBLZ4wvmO_409K7bvrlOnAO2nsGdWyuFmEhPLbH-FVHvqZtMysMkJQrBnilfObTeTetBp4ko129SgPF4x2XZi5oPkr4fvBwztAJe27W7SoVWFQfFPcbsoecKggqXiGHMtgi_pJDCNZ27ZaPYVr-c4WcRnPXx" />
+                                    <div
+                                        class="absolute top-2 right-2 bg-gray-800 text-white text-xs font-bold px-2 py-1 rounded">
+                                        Participant</div>
+                                </div>
+                            </div>
+                            <div class="flex flex-col justify-center flex-grow">
+                                <div class="flex justify-between items-start">
+                                    <h3 class="text-xl font-bold text-[#111318] dark:text-white">Cloud Computing
+                                        Workshop</h3>
+                                    <span class="text-sm text-gray-500 font-medium">Sep 2023</span>
+                                </div>
+                                <p class="text-primary font-medium text-sm mt-1 mb-2">Active Participant</p>
+                                <p class="text-sm text-[#616f89] dark:text-gray-400">Intensive 3-day workshop focused on
+                                    AWS infrastructure, serverless architecture, and containerization with Docker and
+                                    Kubernetes.</p>
+                                <div class="mt-3 flex gap-2">
+                                    <span
+                                        class="px-2 py-1 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 text-xs rounded font-medium">AWS</span>
+                                    <span
+                                        class="px-2 py-1 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 text-xs rounded font-medium">Docker</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Content: Academic & Internships -->
+                <div class="w-full max-w-[1024px] px-4 md:px-6 pb-20 fade-in-up delay-300">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        <!-- Academic -->
+                        <div class="flex flex-col">
+                            <div class="flex items-center gap-3 mb-6">
+                                <span class="material-symbols-outlined text-primary text-2xl">school</span>
+                                <h2
+                                    class="text-[#111318] dark:text-white text-2xl font-bold leading-tight tracking-[-0.015em]">
+                                    Academic Achievements</h2>
+                            </div>
+                            <div class="flex flex-col gap-3">
+                                <div
+                                    class="flex items-start gap-4 p-4 rounded-xl border border-gray-200 dark:border-gray-700 bg-surface-light dark:bg-surface-dark">
+                                    <div
+                                        class="size-10 shrink-0 rounded-full bg-yellow-100 dark:bg-yellow-900/30 text-yellow-600 dark:text-yellow-400 flex items-center justify-center">
+                                        <span class="material-symbols-outlined">stars</span>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-base font-bold text-[#111318] dark:text-white">Dean's List 2023
+                                        </h4>
+                                        <p class="text-sm text-primary font-medium">University of Tech</p>
+                                        <p class="text-sm text-[#616f89] dark:text-gray-400 mt-1">Awarded for
+                                            maintaining a GPA of 3.9/4.0 during the academic year.</p>
+                                    </div>
+                                </div>
+                                <div
+                                    class="flex items-start gap-4 p-4 rounded-xl border border-gray-200 dark:border-gray-700 bg-surface-light dark:bg-surface-dark">
+                                    <div
+                                        class="size-10 shrink-0 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 flex items-center justify-center">
+                                        <span class="material-symbols-outlined">psychology</span>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-base font-bold text-[#111318] dark:text-white">Best Capstone
+                                            Project</h4>
+                                        <p class="text-sm text-primary font-medium">University of Tech</p>
+                                        <p class="text-sm text-[#616f89] dark:text-gray-400 mt-1">Recognized for
+                                            "Predictive Analytics in Healthcare" research project.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Internships -->
+                        <div class="flex flex-col">
+                            <div class="flex items-center gap-3 mb-6">
+                                <span class="material-symbols-outlined text-primary text-2xl">work</span>
+                                <h2
+                                    class="text-[#111318] dark:text-white text-2xl font-bold leading-tight tracking-[-0.015em]">
+                                    Internship Experience</h2>
+                            </div>
+                            <div class="relative border-l-2 border-primary/20 ml-3 space-y-6">
+                                <div class="relative pl-6">
+                                    <div
+                                        class="absolute -left-[9px] top-0 size-4 rounded-full border-2 border-primary bg-white dark:bg-background-dark">
+                                    </div>
+                                    <div class="flex flex-col gap-1">
+                                        <span class="text-xs font-bold text-primary uppercase tracking-wide">Summer
+                                            2022</span>
+                                        <h4 class="text-lg font-bold text-[#111318] dark:text-white">Data Analyst Intern
+                                        </h4>
+                                        <p class="text-sm font-medium text-gray-700 dark:text-gray-300">TechCorp
+                                            Solutions</p>
+                                        <p class="text-sm text-[#616f89] dark:text-gray-400 mt-1">Analyzed 1TB+ of
+                                            customer data using SQL and Python. Created automated dashboards in Tableau
+                                            decreasing reporting time by 40%.</p>
+                                    </div>
+                                </div>
+                                <div class="relative pl-6">
+                                    <div
+                                        class="absolute -left-[9px] top-0 size-4 rounded-full border-2 border-gray-300 dark:border-gray-600 bg-white dark:bg-background-dark">
+                                    </div>
+                                    <div class="flex flex-col gap-1">
+                                        <span class="text-xs font-bold text-gray-500 uppercase tracking-wide">Summer
+                                            2021</span>
+                                        <h4 class="text-lg font-bold text-[#111318] dark:text-white">Software
+                                            Engineering Intern</h4>
+                                        <p class="text-sm font-medium text-gray-700 dark:text-gray-300">StartUp Inc.</p>
+                                        <p class="text-sm text-[#616f89] dark:text-gray-400 mt-1">Contributed to the
+                                            backend API development using Node.js. Wrote unit tests achieving 95% code
+                                            coverage.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer class="border-t border-[#f0f2f4] dark:border-gray-800 bg-white dark:bg-background-dark py-8 px-10">
+            <div
+                class="layout-container flex flex-col md:flex-row justify-between items-center max-w-[1024px] mx-auto gap-4">
+                <p class="text-sm text-[#616f89] dark:text-gray-400">© 2025 Navari Yashwanth Reddy. All rights reserved.
+                </p>
+                <div class="flex gap-4">
+                    <a class="text-[#616f89] dark:text-gray-400 hover:text-primary transition-colors" href="#">
+                        <span class="material-symbols-outlined">mail</span>
+                    </a>
+                    <a class="text-[#616f89] dark:text-gray-400 hover:text-primary transition-colors" href="#">
+                        <span class="material-symbols-outlined">link</span>
+                    </a>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="js/dynamic-content.js"></script>
+    <script src="js/interactions.js"></script>
+</body>
+
+</html>

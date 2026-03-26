@@ -1,0 +1,42 @@
+[
+    {
+        "id": 1,
+        "name": "Sarah Jenkins",
+        "role": "Project Manager",
+        "avatar": "S",
+        "content": "Navari transformed our raw data into actionable insights. The dashboard he built is now the daily driver for our decision-making process.",
+        "rating": 5
+    },
+    {
+        "id": 2,
+        "name": "Mike Chen",
+        "role": "Tech Lead",
+        "avatar": "M",
+        "content": "Exceptional coding standards and a deep understanding of machine learning algorithms. He delivered the churn prediction model 2 weeks ahead of schedule.",
+        "rating": 5
+    },
+    {
+        "id": 3,
+        "name": "Amanda Low",
+        "role": "CTO, StartUp Inc",
+        "avatar": "A",
+        "content": "A rare combination of technical expertise and design sensibility. The portfolio site he built for us is both beautiful and highly performant.",
+        "rating": 5
+    },
+    {
+        "id": 4,
+        "name": "David Ross",
+        "role": "Lead Data Scientist",
+        "avatar": "D",
+        "content": "Navari's ability to optimize complex neural networks for edge devices was crucial for our mobile deployment. Highly recommended.",
+        "rating": 5
+    },
+    {
+        "id": 5,
+        "name": "Emily White",
+        "role": "Product Owner",
+        "avatar": "E",
+        "content": "Professional, communicative, and incredibly skilled. The full-stack application he delivered exceeded all our expectations.",
+        "rating": 5
+    }
+]

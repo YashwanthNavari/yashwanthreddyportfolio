@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Project Detail Page</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&amp;display=swap"
+        rel="stylesheet" />
+    <!-- Material Symbols -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script src="js/theme.js"></script>
+    <!-- Theme Configuration -->
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#135bec",
+                        "primary-dark": "#0e45b5",
+                        "background-light": "#ffffff",
+                        "background-dark": "#101622",
+                        "surface-light": "#f6f6f8",
+                        "surface-dark": "#1a2333",
+                        "text-main": "#111318",
+                        "text-muted": "#616f89",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.375rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "2xl": "1rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        /* Smooth scrolling for anchor links */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Custom scrollbar for code blocks */
+        .custom-scrollbar::-webkit-scrollbar {
+            height: 8px;
+            width: 8px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #1e293b;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 4px;
+        }
+
+        /* Hide scrollbar for clean look in some containers but keep functionality */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark text-text-main dark:text-white font-display transition-colors duration-300">
+    <!-- Top Navigation -->
+    <header
+        class="sticky top-0 z-50 w-full border-b border-surface-light dark:border-gray-800 bg-white/90 dark:bg-background-dark/90 backdrop-blur-md">
+        <div class="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center gap-3">
+                <div class="flex size-8 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                    <span class="material-symbols-outlined">data_object</span>
+                </div>
+                <h1 class="text-lg font-bold tracking-tight text-primary dark:text-white">DevPortfolio</h1>
+            </div>
+            <nav class="hidden md:flex items-center gap-6">
+                <a class="text-sm font-medium text-text-muted hover:text-primary transition-colors"
+                    href="index.html">Home</a>
+                <a class="text-sm font-medium text-text-muted hover:text-primary transition-colors"
+                    href="about.html">About</a>
+                <a class="text-sm font-medium text-text-muted hover:text-primary transition-colors"
+                    href="experience.html">Experience</a>
+                <a class="text-sm font-medium text-primary" href="projects.html">Projects</a>
+                <a class="text-sm font-medium text-text-muted hover:text-primary transition-colors"
+                    href="skills.html">Skills</a>
+                <a class="text-sm font-medium text-text-muted hover:text-primary transition-colors"
+                    href="certifications.html">Certifications</a>
+                <a class="text-sm font-medium text-text-muted hover:text-primary transition-colors"
+                    href="blog.html">Blog</a>
+                <a class="text-sm font-medium text-text-muted hover:text-primary transition-colors"
+                    href="admin.html">Admin</a>
+                <a class="text-sm font-medium text-text-muted hover:text-primary transition-colors"
+                    href="contact.html">Contact</a>
+            </nav>
+            <div class="flex items-center gap-4">
+                <button onclick="window.toggleTheme()"
+                    class="theme-toggle flex items-center justify-center p-2 rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors text-primary dark:text-white"
+                    aria-label="Toggle Dark Mode">
+                    <span class="material-symbols-outlined">dark_mode</span>
+                </button>
+                <button onclick="window.location.href='contact.html'"
+                    class="rounded-lg bg-primary px-4 py-2 text-sm font-bold text-white transition-all hover:bg-primary-dark hover:shadow-lg hover:shadow-primary/25 hidden md:block">
+                    Contact Me
+                </button>
+                <div class="md:hidden text-primary dark:text-white">
+                    <button id="mobile-menu-btn" class="p-2">
+                        <span class="material-symbols-outlined">menu</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation Menu (Hidden by default) -->
+    <div id="mobile-menu"
+        class="fixed inset-0 z-50 transform translate-x-full transition-transform duration-300 md:hidden">
+        <div class="absolute inset-0 bg-black/50 backdrop-blur-sm" onclick="toggleMobileMenu()"></div>
+        <div
+            class="absolute right-0 top-0 h-full w-[250px] bg-white dark:bg-[#101622] shadow-xl p-6 flex flex-col gap-6">
+            <div class="flex justify-end">
+                <button onclick="toggleMobileMenu()" class="p-2 text-[#111318] dark:text-white">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+            </div>
+            <nav class="flex flex-col gap-4">
+                <a class="text-lg font-medium text-[#111318] dark:text-white hover:text-primary transition-colors"
+                    href="index.html">Home</a>
+                <a class="text-lg font-medium text-[#111318] dark:text-white hover:text-primary transition-colors"
+                    href="about.html">About</a>
+                <a class="text-lg font-medium text-[#111318] dark:text-white hover:text-primary transition-colors"
+                    href="experience.html">Experience</a>
+                <a class="text-lg font-medium text-[#111318] dark:text-white hover:text-primary transition-colors"
+                    href="projects.html">Projects</a>
+                <a class="text-lg font-medium text-[#111318] dark:text-white hover:text-primary transition-colors"
+                    href="skills.html">Skills</a>
+                <a class="text-lg font-medium text-[#111318] dark:text-white hover:text-primary transition-colors"
+                    href="certifications.html">Certifications</a>
+                <a class="text-lg font-medium text-[#111318] dark:text-white hover:text-primary transition-colors"
+                    href="blog.html">Blog</a>
+                <a class="text-lg font-medium text-[#111318] dark:text-white hover:text-primary transition-colors"
+                    href="contact.html">Contact</a>
+            </nav>
+        </div>
+    </div>
+    <div class="mx-auto flex max-w-7xl flex-col lg:flex-row gap-8 px-4 py-10 sm:px-6 lg:px-8">
+        <!-- Sticky Sidebar Navigation (Desktop) -->
+        <aside class="hidden lg:block w-64 shrink-0">
+            <div
+                class="sticky top-24 flex flex-col gap-2 rounded-xl border border-surface-light dark:border-gray-800 bg-white dark:bg-surface-dark p-4 shadow-sm">
+                <p class="mb-2 text-xs font-bold uppercase tracking-wider text-text-muted">Table of Contents</p>
+                <nav class="flex flex-col gap-1">
+                    <a class="group flex items-center gap-3 rounded-lg bg-primary/5 px-3 py-2 text-sm font-medium text-primary"
+                        href="#overview">
+                        <span class="material-symbols-outlined text-[18px]">info</span>
+                        Overview
+                    </a>
+                    <a class="group flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium text-text-muted hover:bg-surface-light hover:text-primary dark:hover:bg-gray-800 transition-colors"
+                        href="#architecture">
+                        <span class="material-symbols-outlined text-[18px]">schema</span>
+                        Architecture
+                    </a>
+                    <a class="group flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium text-text-muted hover:bg-surface-light hover:text-primary dark:hover:bg-gray-800 transition-colors"
+                        href="#algorithm">
+                        <span class="material-symbols-outlined text-[18px]">code</span>
+                        Algorithm
+                    </a>
+                    <a class="group flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium text-text-muted hover:bg-surface-light hover:text-primary dark:hover:bg-gray-800 transition-colors"
+                        href="#gallery">
+                        <span class="material-symbols-outlined text-[18px]">photo_library</span>
+                        Screenshots
+                    </a>
+                    <a class="group flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium text-text-muted hover:bg-surface-light hover:text-primary dark:hover:bg-gray-800 transition-colors"
+                        href="#challenges">
+                        <span class="material-symbols-outlined text-[18px]">construction</span>
+                        Challenges
+                    </a>
+                    <a class="group flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium text-text-muted hover:bg-surface-light hover:text-primary dark:hover:bg-gray-800 transition-colors"
+                        href="#improvements">
+                        <span class="material-symbols-outlined text-[18px]">rocket_launch</span>
+                        Improvements
+                    </a>
+                </nav>
+            </div>
+        </aside>
+        <!-- Main Content Area -->
+        <main class="flex-1 min-w-0">
+            <!-- Hero Section -->
+            <section class="mb-16 scroll-mt-28" id="overview">
+                <div class="mb-6 flex flex-wrap items-center gap-3 text-sm font-medium text-primary">
+                    <span class="rounded-full bg-primary/10 px-3 py-1">Data Science</span>
+                    <span class="h-1 w-1 rounded-full bg-primary"></span>
+                    <span>Sep 2023 - Dec 2023</span>
+                </div>
+                <h1
+                    class="mb-4 text-4xl font-black leading-tight tracking-tight text-primary dark:text-white sm:text-5xl">
+                    Predictive Maintenance System
+                </h1>
+                <p class="mb-8 text-lg leading-relaxed text-text-muted dark:text-gray-300 max-w-3xl">
+                    An end-to-end machine learning pipeline designed to predict equipment failures before they occur. By
+                    analyzing IoT sensor data in real-time using AWS infrastructure, this system reduced downtime by 14%
+                    in simulated environments.
+                </p>
+                <!-- Tech Stack Chips -->
+                <div class="mb-8 flex flex-wrap gap-2">
+                    <div
+                        class="flex items-center gap-2 rounded-lg bg-surface-light dark:bg-surface-dark px-3 py-1.5 border border-transparent hover:border-primary/20 transition-colors">
+                        <span class="material-symbols-outlined text-[18px] text-primary">terminal</span>
+                        <span class="text-sm font-semibold text-text-main dark:text-gray-200">Python 3.9</span>
+                    </div>
+                    <div
+                        class="flex items-center gap-2 rounded-lg bg-surface-light dark:bg-surface-dark px-3 py-1.5 border border-transparent hover:border-primary/20 transition-colors">
+                        <span class="material-symbols-outlined text-[18px] text-primary">psychology</span>
+                        <span class="text-sm font-semibold text-text-main dark:text-gray-200">scikit-learn</span>
+                    </div>
+                    <div
+                        class="flex items-center gap-2 rounded-lg bg-surface-light dark:bg-surface-dark px-3 py-1.5 border border-transparent hover:border-primary/20 transition-colors">
+                        <span class="material-symbols-outlined text-[18px] text-primary">cloud</span>
+                        <span class="text-sm font-semibold text-text-main dark:text-gray-200">AWS Lambda</span>
+                    </div>
+                    <div
+                        class="flex items-center gap-2 rounded-lg bg-surface-light dark:bg-surface-dark px-3 py-1.5 border border-transparent hover:border-primary/20 transition-colors">
+                        <span class="material-symbols-outlined text-[18px] text-primary">database</span>
+                        <span class="text-sm font-semibold text-text-main dark:text-gray-200">DynamoDB</span>
+                    </div>
+                    <div
+                        class="flex items-center gap-2 rounded-lg bg-surface-light dark:bg-surface-dark px-3 py-1.5 border border-transparent hover:border-primary/20 transition-colors">
+                        <span class="material-symbols-outlined text-[18px] text-primary">web</span>
+                        <span class="text-sm font-semibold text-text-main dark:text-gray-200">React</span>
+                    </div>
+                </div>
+                <!-- Action Buttons -->
+                <div class="flex flex-wrap gap-4">
+                    <a class="flex items-center gap-2 rounded-lg bg-primary px-6 py-3 text-sm font-bold text-white transition-transform hover:scale-105 hover:bg-primary-dark"
+                        href="#">
+                        <span class="material-symbols-outlined">code</span>
+                        View on GitHub
+                    </a>
+                    <a class="flex items-center gap-2 rounded-lg bg-surface-light dark:bg-surface-dark px-6 py-3 text-sm font-bold text-text-main dark:text-white border border-gray-200 dark:border-gray-700 transition-transform hover:scale-105 hover:bg-gray-100 dark:hover:bg-gray-800"
+                        href="#">
+                        <span class="material-symbols-outlined">open_in_new</span>
+                        Live Demo
+                    </a>
+                </div>
+            </section>
+            <hr class="mb-16 border-surface-light dark:border-gray-800" />
+            <!-- Architecture Section -->
+            <section class="mb-20 scroll-mt-28" id="architecture">
+                <div class="mb-6 flex items-center gap-3">
+                    <span class="material-symbols-outlined text-3xl text-primary">schema</span>
+                    <h2 class="text-2xl font-bold text-primary dark:text-white">System Architecture</h2>
+                </div>
+                <div class="grid gap-8 lg:grid-cols-3">
+                    <!-- Diagram Card -->
+                    <div
+                        class="lg:col-span-2 overflow-hidden rounded-xl border border-surface-light dark:border-gray-800 bg-white dark:bg-surface-dark shadow-sm">
+                        <div
+                            class="aspect-[16/9] w-full bg-surface-light dark:bg-gray-900 flex items-center justify-center p-4">
+                            <!-- Image Placeholder -->
+                            <div class="w-full h-full bg-cover bg-center rounded-lg shadow-inner"
+                                data-alt="Technical system architecture diagram showing data flowing from sensors to MQTT broker to Lambda functions"
+                                style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC1bSdpoz-WFYuCiLhdRZA4RwJYD3C3MOYich-EGd8UiqaRiKdx8tB5Pce-11GKtJcH4GF2l6VJzm5_tNJoZHASJUatm5gPh2DSabPzURMQRP7BKQHKx2TFYT-_L0Uas7ydzqSZG7hdC4I1fzruccpYBB8SNGs7RRpw7pNNTFwzoDNnYVpc7XkDHRTHjNKxSOq4pUOejyVnssYtFimVCZNwBi5TQ34C-q8AgxHGi9MbdX68KKuQK54yN5xGqhQirFDXm5mZ3tiDJYQT');">
+                            </div>
+                        </div>
+                        <div class="p-4 border-t border-surface-light dark:border-gray-800">
+                            <p class="text-sm text-text-muted italic">Figure 1.1: Serverless Event-Driven Architecture
+                                on AWS</p>
+                        </div>
+                    </div>
+                    <!-- Description -->
+                    <div class="flex flex-col justify-center space-y-4">
+                        <div class="rounded-lg bg-primary/5 p-4 border-l-4 border-primary">
+                            <h3 class="mb-2 font-bold text-primary">Ingestion Layer</h3>
+                            <p class="text-sm text-text-muted dark:text-gray-400">
+                                IoT sensors transmit vibration and temperature data via MQTT to AWS IoT Core, handling
+                                over 5,000 messages per second.
+                            </p>
+                        </div>
+                        <div class="rounded-lg bg-surface-light dark:bg-surface-dark p-4">
+                            <h3 class="mb-2 font-bold text-text-main dark:text-white">Processing Layer</h3>
+                            <p class="text-sm text-text-muted dark:text-gray-400">
+                                Lambda functions trigger on new data, normalizing inputs and running inference against
+                                the pre-trained Scikit-Learn model stored in S3.
+                            </p>
+                        </div>
+                        <div class="rounded-lg bg-surface-light dark:bg-surface-dark p-4">
+                            <h3 class="mb-2 font-bold text-text-main dark:text-white">Storage &amp; Action</h3>
+                            <p class="text-sm text-text-muted dark:text-gray-400">
+                                Predictions are stored in DynamoDB (Hot) and S3 (Cold). Alerts for &gt;90% failure
+                                probability are pushed via SNS to the maintenance team.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Flowchart Subsection -->
+                <div class="mt-12">
+                    <h3 class="mb-4 text-lg font-bold text-text-main dark:text-white">Data Processing Flowchart</h3>
+                    <div
+                        class="w-full overflow-hidden rounded-xl border border-surface-light dark:border-gray-800 bg-surface-light/50 dark:bg-surface-dark p-2">
+                        <div class="w-full h-64 bg-contain bg-no-repeat bg-center"
+                            data-alt="Flowchart showing the step-by-step decision logic of the predictive maintenance algorithm"
+                            style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAWKUxz1Iy9ipCvpNjUzJ_yPdErr4sy8C5NmzNSilVR3v9g3mpT5x0Kr4e3G9RPJvyGxevJBh1wnM1GjoLUDz2ntBN7FmTQ7-EBimx7LnHFZiQ9dDDKZsds4PHzjC5dlBMQkGqQ8JumwlWDG7PBxBTayYq4jd7m0hVYxoNLincWk7paIiefsGl4Vigq9hgiqlSCObpekH5CZ8NhnKqSJic-Nn-ETg5Xcft9wMghzMxzgH6Ds4XMYVJ1KaD32onD16pefTy7jf7yzm6g');">
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Algorithm / Code Section -->
+            <section class="mb-20 scroll-mt-28" id="algorithm">
+                <div class="mb-6 flex items-center gap-3">
+                    <span class="material-symbols-outlined text-3xl text-primary">code_blocks</span>
+                    <h2 class="text-2xl font-bold text-primary dark:text-white">The Algorithm</h2>
+                </div>
+                <p class="mb-6 text-text-muted dark:text-gray-300">
+                    The core prediction engine uses a <strong>Random Forest Classifier</strong> optimized for imbalanced
+                    datasets using SMOTE. Below is a simplified snippet of the feature engineering pipeline executed
+                    within the Lambda function.
+                </p>
+                <!-- Code Block -->
+                <div
+                    class="group relative overflow-hidden rounded-xl bg-[#0d1117] text-gray-300 shadow-2xl ring-1 ring-white/10">
+                    <div class="flex items-center justify-between border-b border-white/10 bg-white/5 px-4 py-2">
+                        <span class="text-xs font-mono text-gray-400">pipeline_processing.py</span>
+                        <div class="flex gap-1.5">
+                            <div class="size-2.5 rounded-full bg-red-500/20"></div>
+                            <div class="size-2.5 rounded-full bg-yellow-500/20"></div>
+                            <div class="size-2.5 rounded-full bg-green-500/20"></div>
+                        </div>
+                    </div>
+                    <div class="overflow-x-auto p-4 custom-scrollbar">
+                        <pre class="font-mono text-sm leading-relaxed"><span class="text-[#ff7b72]">def</span> <span class="text-[#d2a8ff]">process_sensor_data</span>(raw_data):
+    <span class="text-[#8b949e]">"""
+    Normalizes sensor readings and extracts rolling window features.
+    """</span>
+    <span class="text-[#ff7b72]">try</span>:
+        <span class="text-[#8b949e]"># 1. Rolling Window Calculation (Last 10 readings)</span>
+        window <span class="text-[#ff7b72]">=</span> <span class="text-[#79c0ff]">rolling_buffer</span>.get_last(<span class="text-[#79c0ff]">10</span>)
+        
+        <span class="text-[#8b949e]"># 2. Feature Extraction</span>
+        features <span class="text-[#ff7b72]">=</span> {
+            <span class="text-[#a5d6ff]">'vibration_mean'</span>: np.<span class="text-[#d2a8ff]">mean</span>(window[<span class="text-[#a5d6ff]">'vib'</span>]),
+            <span class="text-[#a5d6ff]">'vibration_peak'</span>: np.<span class="text-[#d2a8ff]">max</span>(window[<span class="text-[#a5d6ff]">'vib'</span>]),
+            <span class="text-[#a5d6ff]">'temp_slope'</span>: <span class="text-[#d2a8ff]">calculate_slope</span>(window[<span class="text-[#a5d6ff]">'temp'</span>])
+        }
+        
+        <span class="text-[#8b949e]"># 3. Model Inference</span>
+        probability <span class="text-[#ff7b72]">=</span> <span class="text-[#79c0ff]">model</span>.predict_proba([list(features.values())])[<span class="text-[#79c0ff]">0</span>][<span class="text-[#79c0ff]">1</span>]
+        
+        <span class="text-[#ff7b72]">return</span> probability
+
+    <span class="text-[#ff7b72]">except</span> <span class="text-[#f0883e]">Exception</span> <span class="text-[#ff7b72]">as</span> e:
+        <span class="text-[#79c0ff]">logger</span>.error(<span class="text-[#a5d6ff]f" failed:="" processing="" span="" {e}"<="">)
+        <span class="text-[#ff7b72]">raise</span>
+</span></pre>
+                    </div>
+                    <!-- Copy Button Overlay -->
+                    <button
+                        class="absolute top-12 right-4 rounded p-1.5 text-gray-400 opacity-0 transition hover:bg-white/10 hover:text-white group-hover:opacity-100">
+                        <span class="material-symbols-outlined text-[18px]">content_copy</span>
+                    </button>
+                </div>
+            </section>
+            <!-- Screenshots Gallery -->
+            <section class="mb-20 scroll-mt-28" id="gallery">
+                <div class="mb-6 flex items-center gap-3">
+                    <span class="material-symbols-outlined text-3xl text-primary">photo_library</span>
+                    <h2 class="text-2xl font-bold text-primary dark:text-white">Screenshots</h2>
+                </div>
+                <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
+                    <div
+                        class="group relative aspect-[4/3] w-full overflow-hidden rounded-xl bg-gray-100 dark:bg-gray-800 shadow-md transition-all hover:shadow-xl hover:shadow-primary/10 cursor-zoom-in">
+                        <div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
+                            data-alt="Main dashboard view showing real-time status of all connected machinery"
+                            style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBMhF6hVolnyvlRFXYA6yLmxBFiCqGen6WgqYGWNniTv6boDWsWhZSyXWdW7vYP_rl2YrjofwnOZEBoK1oyOkh4dqMIeaCamqTz8nw5aj8QgUjO4hfZ980lTy1hzYN8yHxAaZIl-cP0a6fwdrFPr2HtbQymoWop6EsUCqDKPjN6HKP50seIQN7JUW4MCDMFucyViaQJDqCyeC5ftZGHL00S7YJrTUf7q_nNgTuKJfoYABl1hxMxwjDsoPta6qobFrJ9r6XUnIc1vtXD');">
+                        </div>
+                        <div
+                            class="absolute inset-x-0 bottom-0 translate-y-full bg-black/60 p-3 text-white backdrop-blur-sm transition-transform duration-300 group-hover:translate-y-0">
+                            <p class="text-sm font-medium">Main Dashboard View</p>
+                        </div>
+                    </div>
+                    <div
+                        class="group relative aspect-[4/3] w-full overflow-hidden rounded-xl bg-gray-100 dark:bg-gray-800 shadow-md transition-all hover:shadow-xl hover:shadow-primary/10 cursor-zoom-in">
+                        <div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
+                            data-alt="Detailed view of a specific alert with historical sensor data graphs"
+                            style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBhOWRCumsqt9sMxN6pWp0_ouUco7WGH8r4umQOHsW59n_bYmRGn0AYHyiOHK1O7Lqu1gu8LvGuo3sSCtAo63897uRL1TOQZCphxWbvR8vMrtfhscVj5fV6Q0Zd7XUNBHOGvxCdYIolbEpWvjbqfOEFxphjs6eeNg9Xdsu7ZEBs-rpWGin6ZXGS5Uhgt3gb4rEA5udw-7A8r12UiqKg-9PQxoJOTIAEa44bOOi1WelNDtTJs5oTUjmdWpkRV3UvmRftfGddru7lMJ4d');">
+                        </div>
+                        <div
+                            class="absolute inset-x-0 bottom-0 translate-y-full bg-black/60 p-3 text-white backdrop-blur-sm transition-transform duration-300 group-hover:translate-y-0">
+                            <p class="text-sm font-medium">Anomaly Detection Alert Detail</p>
+                        </div>
+                    </div>
+                    <div
+                        class="group relative aspect-[4/3] w-full overflow-hidden rounded-xl bg-gray-100 dark:bg-gray-800 shadow-md transition-all hover:shadow-xl hover:shadow-primary/10 cursor-zoom-in">
+                        <div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
+                            data-alt="Settings page for configuring sensor thresholds and notification preferences"
+                            style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBB43HsNQzCLDBrGJQAYJyo3soT9UK_Bdx4fNgovbH9zpTtIj7N2a4u2ICT_2LSsKb9NWW2YnAsN0X4j7Nexg0MsZDbQn3yiwzXOuehwohHwSmS1owtKeXIxffwpjrDjzPCzFdMJ4tl_rDLTMJuk2XC5fGmLd3BLBlqbg5wVyBMlJrvHcdl0ahWx6ZpE7-IuZBh2R0GccQS37Hs8MUcadBGbnY9o0FB_kEZ7gTCdkxJVxBeG_qqDDtfFxk-jIqZsBmHhLiKk8LVr4yW');">
+                        </div>
+                        <div
+                            class="absolute inset-x-0 bottom-0 translate-y-full bg-black/60 p-3 text-white backdrop-blur-sm transition-transform duration-300 group-hover:translate-y-0">
+                            <p class="text-sm font-medium">Sensor Configuration</p>
+                        </div>
+                    </div>
+                    <div
+                        class="group relative aspect-[4/3] w-full overflow-hidden rounded-xl bg-gray-100 dark:bg-gray-800 shadow-md transition-all hover:shadow-xl hover:shadow-primary/10 cursor-zoom-in">
+                        <div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
+                            data-alt="Mobile responsive view of the application showing notification list"
+                            style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCu2kaunFooFnQ-gOazJ1vV_eyDIvvwcaOY8T8nQV1Mf6iZIH3yWeIKv0URhD8iS_74at4qn2mTMIRiTBLpt667OtXWHS1Xfi-aBct2BNZlEFp68vgbkXWrQnBqalojb4vFMIA6keDibxz9AN_AesFxJOyLm-41kk9Onptaq9Kt7oty4erQlELjB7k101-QRG7HpUKE5Ky-YCoWe1H23yXqWc59Rqsl9MqimJIx7SkUHNaMytQIz4Zu_TmKcHHT_MWU4pifCv4yVubs');">
+                        </div>
+                        <div
+                            class="absolute inset-x-0 bottom-0 translate-y-full bg-black/60 p-3 text-white backdrop-blur-sm transition-transform duration-300 group-hover:translate-y-0">
+                            <p class="text-sm font-medium">Mobile Responsive Layout</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Challenges & Solutions -->
+            <section class="mb-20 scroll-mt-28" id="challenges">
+                <div class="mb-6 flex items-center gap-3">
+                    <span class="material-symbols-outlined text-3xl text-primary">construction</span>
+                    <h2 class="text-2xl font-bold text-primary dark:text-white">Challenges &amp; Solutions</h2>
+                </div>
+                <div class="grid gap-6 md:grid-cols-2">
+                    <!-- Challenge Card 1 -->
+                    <div
+                        class="rounded-xl border border-surface-light dark:border-gray-800 bg-white dark:bg-surface-dark p-6 shadow-sm transition-all hover:shadow-md">
+                        <div
+                            class="mb-4 flex size-10 items-center justify-center rounded-lg bg-red-100 text-red-600 dark:bg-red-900/30 dark:text-red-400">
+                            <span class="material-symbols-outlined">warning</span>
+                        </div>
+                        <h3 class="mb-2 text-lg font-bold text-text-main dark:text-white">Handling Imbalanced Data</h3>
+                        <p class="mb-4 text-sm text-text-muted">
+                            Failures are rare events (0.1% of data), causing the model to bias heavily towards "Normal"
+                            states.
+                        </p>
+                        <div class="border-t border-dashed border-gray-200 dark:border-gray-700 pt-3">
+                            <p class="text-sm font-medium text-primary">Solution: SMOTE &amp; Weighted Loss</p>
+                            <p class="mt-1 text-xs text-text-muted">
+                                Implemented Synthetic Minority Over-sampling Technique (SMOTE) to balance the training
+                                set and applied class weights during training.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- Challenge Card 2 -->
+                    <div
+                        class="rounded-xl border border-surface-light dark:border-gray-800 bg-white dark:bg-surface-dark p-6 shadow-sm transition-all hover:shadow-md">
+                        <div
+                            class="mb-4 flex size-10 items-center justify-center rounded-lg bg-red-100 text-red-600 dark:bg-red-900/30 dark:text-red-400">
+                            <span class="material-symbols-outlined">speed</span>
+                        </div>
+                        <h3 class="mb-2 text-lg font-bold text-text-main dark:text-white">Lambda Cold Starts</h3>
+                        <p class="mb-4 text-sm text-text-muted">
+                            Loading the 500MB ML model on every function invocation caused 5s+ latency for real-time
+                            inference.
+                        </p>
+                        <div class="border-t border-dashed border-gray-200 dark:border-gray-700 pt-3">
+                            <p class="text-sm font-medium text-primary">Solution: Provisioned Concurrency</p>
+                            <p class="mt-1 text-xs text-text-muted">
+                                Used Provisioned Concurrency for Lambda and optimized model format to ONNX to reduce
+                                loading time to &lt;200ms.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Future Improvements -->
+            <section class="mb-20 scroll-mt-28" id="improvements">
+                <div class="rounded-2xl bg-gradient-to-br from-primary/5 to-transparent p-8">
+                    <div class="mb-6 flex items-center gap-3">
+                        <span class="material-symbols-outlined text-3xl text-primary">rocket_launch</span>
+                        <h2 class="text-2xl font-bold text-primary dark:text-white">Future Improvements</h2>
+                    </div>
+                    <ul class="grid gap-4 sm:grid-cols-2">
+                        <li class="flex items-start gap-3 rounded-lg bg-white dark:bg-surface-dark p-4 shadow-sm">
+                            <span class="material-symbols-outlined mt-0.5 text-primary">check_circle</span>
+                            <div>
+                                <h4 class="font-bold text-text-main dark:text-white">Edge Deployment</h4>
+                                <p class="text-sm text-text-muted">Deploy model directly to IoT Gateway devices using
+                                    AWS Greengrass for offline inference.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3 rounded-lg bg-white dark:bg-surface-dark p-4 shadow-sm">
+                            <span class="material-symbols-outlined mt-0.5 text-primary">check_circle</span>
+                            <div>
+                                <h4 class="font-bold text-text-main dark:text-white">Visual Inspection</h4>
+                                <p class="text-sm text-text-muted">Integrate Computer Vision to analyze camera feeds for
+                                    visible signs of wear and tear.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3 rounded-lg bg-white dark:bg-surface-dark p-4 shadow-sm">
+                            <span class="material-symbols-outlined mt-0.5 text-primary">check_circle</span>
+                            <div>
+                                <h4 class="font-bold text-text-main dark:text-white">Digital Twin</h4>
+                                <p class="text-sm text-text-muted">Create a 3D digital twin of the factory floor to
+                                    visualize alerts spatially.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3 rounded-lg bg-white dark:bg-surface-dark p-4 shadow-sm">
+                            <span class="material-symbols-outlined mt-0.5 text-primary">check_circle</span>
+                            <div>
+                                <h4 class="font-bold text-text-main dark:text-white">Automated Retraining</h4>
+                                <p class="text-sm text-text-muted">Build a pipeline that automatically retrains the
+                                    model when data drift is detected.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+            <!-- Footer Navigation -->
+            <div
+                class="flex flex-col justify-between gap-4 border-t border-surface-light dark:border-gray-800 pt-10 sm:flex-row">
+                <a class="group flex w-full flex-col gap-1 rounded-xl border border-surface-light dark:border-gray-800 p-6 text-left transition-all hover:border-primary/50 hover:bg-surface-light dark:hover:bg-surface-dark sm:w-1/2"
+                    href="#">
+                    <span class="flex items-center gap-1 text-xs font-bold uppercase tracking-wider text-text-muted">
+                        <span
+                            class="material-symbols-outlined text-sm transition-transform group-hover:-translate-x-1">arrow_back</span>
+                        Previous Project
+                    </span>
+                    <span class="text-lg font-bold text-text-main group-hover:text-primary dark:text-white">Stock Market
+                        Analyzer</span>
+                </a>
+                <a class="group flex w-full flex-col gap-1 rounded-xl border border-surface-light dark:border-gray-800 p-6 text-right transition-all hover:border-primary/50 hover:bg-surface-light dark:hover:bg-surface-dark sm:w-1/2"
+                    href="#">
+                    <span
+                        class="flex items-center justify-end gap-1 text-xs font-bold uppercase tracking-wider text-text-muted">
+                        Next Project
+                        <span
+                            class="material-symbols-outlined text-sm transition-transform group-hover:translate-x-1">arrow_forward</span>
+                    </span>
+                    <span class="text-lg font-bold text-text-main group-hover:text-primary dark:text-white">NLP Chatbot
+                        Service</span>
+                </a>
+            </div>
+        </main>
+    </div>
+    <!-- Footer -->
+    <footer class="mt-20 border-t border-surface-light dark:border-gray-800 bg-white dark:bg-background-dark py-12">
+        <div
+            class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 px-4 text-center sm:flex-row sm:text-left">
+            <p class="text-sm text-text-muted">
+                © 2025 Navari Yashwanth Reddy. Built with Love &amp; Code.
+            </p>
+            <div class="flex gap-6">
+                <a class="text-text-muted hover:text-primary transition-colors" href="#">
+                    <span class="material-symbols-outlined">mail</span>
+                </a>
+                <a class="text-text-muted hover:text-primary transition-colors" href="#">
+                    <div
+                        class="w-6 h-6 flex items-center justify-center font-bold border border-current rounded text-xs">
+                        In</div>
+                </a>
+                <a class="text-text-muted hover:text-primary transition-colors" href="#">
+                    <div
+                        class="w-6 h-6 flex items-center justify-center font-bold border border-current rounded-full text-xs">
+                        Gh</div>
+                </a>
+            </div>
+        </div>
+    </footer>
+    <script src="js/interactions.js"></script>
+</body>
+
+</html>

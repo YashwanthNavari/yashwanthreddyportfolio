@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1,
+        "title": "Optimizing Neural Networks for Edge Devices",
+        "excerpt": "Techniques for model quantization and pruning to run advanced AI on mobile hardware.",
+        "date": "Dec 15, 2024",
+        "category": "Machine Learning",
+        "readTime": "5 min read",
+        "image": "https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&q=80&w=1000",
+        "link": "blog.html#post-1"
+    },
+    {
+        "id": 2,
+        "title": "The Future of Web Assembly in Data Science",
+        "excerpt": "How WASM is processing heavy datasets directly in the browser with near-native performance.",
+        "date": "Nov 28, 2024",
+        "category": "Web Development",
+        "readTime": "8 min read",
+        "image": "https://images.unsplash.com/photo-1550439062-609e1531270e?auto=format&fit=crop&q=80&w=1000",
+        "link": "blog.html#post-2"
+    },
+    {
+        "id": 3,
+        "title": "Building Scalable ETL Pipelines with Python",
+        "excerpt": "Best practices for handling large-scale data ingestion and transformation using Airflow and Pandas.",
+        "date": "Nov 10, 2024",
+        "category": "Data Engineering",
+        "readTime": "6 min read",
+        "image": "https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&q=80&w=1000",
+        "link": "blog.html#post-3"
+    }
+]

@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+
+<head>
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>About Me - Professional Portfolio</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Noto+Sans:wght@400;500;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script src="js/theme.js"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1173d4",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                        "surface-light": "#ffffff",
+                        "surface-dark": "#1a2632",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"],
+                        "body": ["Noto Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "2xl": "1rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark text-[#111418] dark:text-gray-100 font-display min-h-screen flex flex-col">
+    <header
+        class="sticky top-0 z-50 bg-surface-light/95 dark:bg-surface-dark/95 backdrop-blur-sm border-b border-[#f0f2f4] dark:border-gray-800">
+        <div class="max-w-[1200px] mx-auto px-6 md:px-10 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="size-8 bg-primary/10 rounded-lg flex items-center justify-center text-primary">
+                    <span class="material-symbols-outlined text-xl">terminal</span>
+                </div>
+                <h2 class="text-lg font-bold tracking-tight">Navari Yashwanth Reddy</h2>
+            </div>
+            <nav class="hidden md:flex items-center gap-6">
+                <a class="text-sm font-medium hover:text-primary transition-colors text-gray-600 dark:text-gray-300"
+                    href="index.html">Home</a>
+                <a class="text-sm font-medium text-primary" href="about.html">About</a>
+                <a class="text-sm font-medium hover:text-primary transition-colors text-gray-600 dark:text-gray-300"
+                    href="experience.html">Experience</a>
+                <a class="text-sm font-medium hover:text-primary transition-colors text-gray-600 dark:text-gray-300"
+                    href="projects.html">Projects</a>
+                <a class="text-sm font-medium hover:text-primary transition-colors text-gray-600 dark:text-gray-300"
+                    href="skills.html">Skills</a>
+                <a class="text-[#111318] dark:text-gray-300 hover:text-primary text-sm font-medium leading-normal transition-colors"
+                    href="certifications.html">Certifications</a>
+                <a class="text-[#111318] dark:text-gray-300 hover:text-primary text-sm font-medium leading-normal transition-colors"
+                    href="blog.html">Blog</a>
+                <a class="text-[#111318] dark:text-gray-300 hover:text-primary text-sm font-medium leading-normal transition-colors"
+                    href="admin.html">Admin</a>
+                <a class="text-sm font-medium hover:text-primary transition-colors text-gray-600 dark:text-gray-300"
+                    href="contact.html">Contact</a>
+            </nav>
+            <button onclick="window.location.href='resume.html'"
+                class="flex items-center gap-2 bg-primary hover:bg-primary/90 text-white px-4 py-2 rounded-lg text-sm font-bold transition-all">
+                <span class="material-symbols-outlined text-[18px]">description</span>
+                <span>Resume</span>
+            </button>
+            <button onclick="window.toggleTheme()"
+                class="theme-toggle flex items-center justify-center p-2 rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors text-[#111418] dark:text-white"
+                aria-label="Toggle Dark Mode">
+                <span class="material-symbols-outlined">dark_mode</span>
+            </button>
+            <div class="flex md:hidden items-center gap-2">
+                <button id="mobile-menu-btn" class="p-2 text-[#111418] dark:text-white">
+                    <span class="material-symbols-outlined">menu</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation Menu (Hidden by default) -->
+    <div id="mobile-menu"
+        class="fixed inset-0 z-50 transform translate-x-full transition-transform duration-300 md:hidden">
+        <div class="absolute inset-0 bg-black/50 backdrop-blur-sm" onclick="toggleMobileMenu()"></div>
+        <div
+            class="absolute right-0 top-0 h-full w-[250px] bg-white dark:bg-[#101922] shadow-xl p-6 flex flex-col gap-6">
+            <div class="flex justify-end">
+                <button onclick="toggleMobileMenu()" class="p-2 text-[#111418] dark:text-white">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+            </div>
+            <nav class="flex flex-col gap-4">
+                <a class="text-lg font-medium text-[#111418] dark:text-white hover:text-primary transition-colors"
+                    href="index.html">Home</a>
+                <a class="text-lg font-medium text-[#111418] dark:text-white hover:text-primary transition-colors"
+                    href="about.html">About</a>
+                <a class="text-lg font-medium text-[#111418] dark:text-white hover:text-primary transition-colors"
+                    href="experience.html">Experience</a>
+                <a class="text-lg font-medium text-[#111418] dark:text-white hover:text-primary transition-colors"
+                    href="projects.html">Projects</a>
+                <a class="text-lg font-medium text-[#111418] dark:text-white hover:text-primary transition-colors"
+                    href="skills.html">Skills</a>
+                <a class="text-lg font-medium text-[#111418] dark:text-white hover:text-primary transition-colors"
+                    href="certifications.html">Certifications</a>
+                <a class="text-lg font-medium text-[#111418] dark:text-white hover:text-primary transition-colors"
+                    href="blog.html">Blog</a>
+                <a class="text-lg font-medium text-[#111418] dark:text-white hover:text-primary transition-colors"
+                    href="contact.html">Contact</a>
+            </nav>
+        </div>
+    </div>
+    <main class="flex-grow w-full max-w-[1200px] mx-auto px-6 md:px-10 py-10 md:py-16 flex flex-col gap-16">
+        <section class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
+            <div class="lg:col-span-4 flex justify-center lg:justify-start">
+                <div
+                    class="relative w-full max-w-[400px] aspect-[4/5] rounded-2xl overflow-hidden shadow-xl ring-1 ring-black/5 dark:ring-white/10 group">
+                    <div class="absolute inset-0 bg-primary/20 mix-blend-overlay z-10"></div>
+                    <img alt="Professional headshot of Navari Yashwanth Reddy"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        data-alt="Professional headshot of a data scientist"
+                        src="https://image2url.com/images/1765825518035-1dbec68f-23c2-4ad8-b356-fc06aeee01c2.jpeg" />
+                </div>
+            </div>
+            <div class="lg:col-span-8 flex flex-col justify-center gap-6">
+                <div class="flex flex-col gap-2">
+                    <h1
+                        class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-[#111418] dark:text-white leading-tight">
+                        Data Scientist &amp; <br />
+                        <span class="text-primary">Software Engineer</span>
+                    </h1>
+                    <p class="text-gray-500 dark:text-gray-400 text-lg font-medium">Bridging raw data and actionable
+                        software.</p>
+                </div>
+                <div class="bg-surface-light dark:bg-surface-dark border-l-4 border-primary pl-6 py-2">
+                    <p class="text-base md:text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+                        I am a dedicated engineer with a passion for uncovering insights through rigorous data analysis
+                        and building efficient software systems. My expertise lies in architecting scalable machine
+                        learning pipelines and integrating them into robust backend infrastructures. I focus on creating
+                        clean, maintainable code that solves complex business challenges, ensuring that data-driven
+                        decisions are backed by reliable engineering.
+                    </p>
+                </div>
+                <div class="flex flex-wrap gap-3 mt-2">
+                    <div
+                        class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-light dark:bg-surface-dark border border-gray-200 dark:border-gray-700 text-xs font-medium uppercase tracking-wider text-gray-600 dark:text-gray-300">
+                        <span class="material-symbols-outlined text-sm text-primary">location_on</span>
+                        Hyderabad, Telangana, India
+                    </div>
+                    <div
+                        class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-light dark:bg-surface-dark border border-gray-200 dark:border-gray-700 text-xs font-medium uppercase tracking-wider text-gray-600 dark:text-gray-300">
+                        <span class="material-symbols-outlined text-sm text-primary">work</span>
+                        Open to Opportunities
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="flex flex-col gap-8">
+                <div class="flex items-center gap-4">
+                    <h2 class="text-3xl font-bold tracking-tight">Professional Narrative</h2>
+                    <div class="h-px bg-gray-200 dark:bg-gray-800 flex-1"></div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div
+                        class="bg-surface-light dark:bg-surface-dark p-8 rounded-xl border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-md transition-shadow flex flex-col gap-4">
+                        <div
+                            class="size-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary mb-2">
+                            <span class="material-symbols-outlined text-2xl">psychology</span>
+                        </div>
+                        <h3 class="text-xl font-bold">Why Data Science?</h3>
+                        <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
+                            It represents the perfect intersection of mathematical rigor and creative coding. I am
+                            driven by the ability to turn ambiguous, high-volume data streams into clear, quantized
+                            predictions that drive strategy.
+                        </p>
+                    </div>
+                    <div
+                        class="bg-surface-light dark:bg-surface-dark p-8 rounded-xl border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-md transition-shadow flex flex-col gap-4">
+                        <div
+                            class="size-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary mb-2">
+                            <span class="material-symbols-outlined text-2xl">precision_manufacturing</span>
+                        </div>
+                        <h3 class="text-xl font-bold">Problem Solving</h3>
+                        <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
+                            I thrive on optimization challenges and scalability bottlenecks. My approach is systematic:
+                            decompose the complexity, identify the constraints, and engineer a solution that is both
+                            robust and performant.
+                        </p>
+                    </div>
+                    <div
+                        class="bg-surface-light dark:bg-surface-dark p-8 rounded-xl border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-md transition-shadow flex flex-col gap-4">
+                        <div
+                            class="size-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary mb-2">
+                            <span class="material-symbols-outlined text-2xl">trending_up</span>
+                        </div>
+                        <h3 class="text-xl font-bold">Growth Focus</h3>
+                        <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
+                            I am actively expanding my expertise in MLOps and Ethical AI. My goal is to not just build
+                            models, but to manage their lifecycle in production environments responsibly and
+                            efficiently.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16">
+            <div class="flex flex-col gap-6">
+                <div class="flex items-center gap-4 mb-2">
+                    <span class="material-symbols-outlined text-primary text-3xl">school</span>
+                    <h2 class="text-2xl font-bold tracking-tight">Education</h2>
+                </div>
+                <div class="space-y-8 relative pl-2">
+                    <div class="absolute left-[9px] top-2 bottom-2 w-px bg-gray-200 dark:bg-gray-800"></div>
+                    <div class="relative pl-8 group">
+                        <div
+                            class="absolute left-0 top-1.5 size-[18px] bg-white dark:bg-surface-dark border-2 border-primary rounded-full z-10 group-hover:scale-110 transition-transform">
+                        </div>
+                        <div class="flex flex-col gap-1">
+                            <h3 class="text-lg font-bold">B.Tech in CSE Data Science</h3>
+                            <div class="text-primary font-medium text-sm">Woxsen University</div>
+                            <span class="text-gray-500 text-sm">2024 - 2028</span>
+                        </div>
+                    </div>
+                    <div class="relative pl-8 group">
+                        <div
+                            class="absolute left-0 top-1.5 size-[18px] bg-white dark:bg-surface-dark border-2 border-gray-300 dark:border-gray-600 rounded-full z-10 group-hover:border-primary transition-colors">
+                        </div>
+                        <div class="flex flex-col gap-1">
+                            <h3 class="text-lg font-bold">10th Grade</h3>
+                            <div class="text-primary font-medium text-sm">Vignan Bo Tree School</div>
+                            <span class="text-gray-500 text-sm">Secondary Education</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="flex flex-col gap-10">
+                <div class="flex flex-col gap-6">
+                    <div class="flex items-center gap-4 mb-2">
+                        <span class="material-symbols-outlined text-primary text-3xl">bolt</span>
+                        <h2 class="text-2xl font-bold tracking-tight">Personal Strengths</h2>
+                    </div>
+                    <div class="flex flex-wrap gap-3">
+                        <span
+                            class="px-4 py-2 bg-background-light dark:bg-background-dark border border-gray-200 dark:border-gray-700 rounded-lg text-sm font-semibold hover:border-primary hover:text-primary transition-colors cursor-default">
+                            Analytical Thinking
+                        </span>
+                        <span
+                            class="px-4 py-2 bg-background-light dark:bg-background-dark border border-gray-200 dark:border-gray-700 rounded-lg text-sm font-semibold hover:border-primary hover:text-primary transition-colors cursor-default">
+                            System Design
+                        </span>
+                        <span
+                            class="px-4 py-2 bg-background-light dark:bg-background-dark border border-gray-200 dark:border-gray-700 rounded-lg text-sm font-semibold hover:border-primary hover:text-primary transition-colors cursor-default">
+                            Cross-functional Collaboration
+                        </span>
+                        <span
+                            class="px-4 py-2 bg-background-light dark:bg-background-dark border border-gray-200 dark:border-gray-700 rounded-lg text-sm font-semibold hover:border-primary hover:text-primary transition-colors cursor-default">
+                            Adaptability
+                        </span>
+                        <span
+                            class="px-4 py-2 bg-background-light dark:bg-background-dark border border-gray-200 dark:border-gray-700 rounded-lg text-sm font-semibold hover:border-primary hover:text-primary transition-colors cursor-default">
+                            Algorithmic Optimization
+                        </span>
+                    </div>
+                </div>
+                <div class="flex flex-col gap-4 p-6 bg-primary/5 rounded-xl border border-primary/10">
+                    <div class="flex items-center gap-3">
+                        <span class="material-symbols-outlined text-primary">target</span>
+                        <h3 class="text-lg font-bold">Career Objective</h3>
+                    </div>
+                    <p class="text-gray-700 dark:text-gray-200 leading-relaxed text-sm md:text-base">
+                        To leverage my dual background in statistical analysis and software engineering to lead
+                        high-impact data initiatives. I aim to join a forward-thinking team where I can contribute to
+                        building scalable data infrastructure and deploying machine learning models that solve
+                        real-world problems.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="bg-surface-light dark:bg-surface-dark border-t border-[#f0f2f4] dark:border-gray-800 py-10 mt-10">
+        <div class="max-w-[1200px] mx-auto px-6 md:px-10 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="text-sm text-gray-500">
+                © 2024 Navari Yashwanth Reddy. All rights reserved.
+            </div>
+            <div class="flex items-center gap-6">
+                <a class="text-gray-500 hover:text-primary transition-colors" href="#">
+                    <span class="sr-only">LinkedIn</span>
+                    <svg aria-hidden="true" class="size-5" fill="currentColor" viewBox="0 0 24 24">
+                        <path clip-rule="evenodd"
+                            d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
+                            fill-rule="evenodd"></path>
+                    </svg>
+                </a>
+                <a class="text-gray-500 hover:text-primary transition-colors" href="#">
+                    <span class="sr-only">GitHub</span>
+                    <svg aria-hidden="true" class="size-5" fill="currentColor" viewBox="0 0 24 24">
+                        <path clip-rule="evenodd"
+                            d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+                            fill-rule="evenodd"></path>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+    <script src="js/interactions.js"></script>
+</body>
+
+</html>

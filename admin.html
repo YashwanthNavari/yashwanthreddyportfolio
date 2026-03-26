@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+
+<head>
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Admin Dashboard - Navari Yashwanth Reddy</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700&amp;family=Noto+Sans:wght@400;500;700&amp;display=swap"
+        rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script src="js/theme.js"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#3b82f6",
+                        "background-light": "#eff6ff",
+                        "background-dark": "#0f172a",
+                    },
+                    fontFamily: {
+                        "display": ["Spline Sans", "sans-serif"],
+                        "body": ["Noto Sans", "sans-serif"],
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark text-[#172554] dark:text-[#f1f5f9] font-display overflow-x-hidden transition-colors duration-300">
+    <div class="max-w-3xl mx-auto px-6 py-10">
+        <header class="mb-10 flex justify-between items-center border-b border-gray-200 dark:border-gray-700 pb-6">
+            <div>
+                <h1 class="text-3xl font-black text-[#172554] dark:text-white">Admin Dashboard</h1>
+                <p class="text-gray-500 dark:text-gray-400 mt-2">Upload new content to your portfolio.</p>
+            </div>
+            <div class="flex items-center gap-4">
+                <a href="index.html"
+                    class="hidden md:block text-sm font-medium text-primary hover:underline">Back to Home</a>
+                <div class="md:hidden text-[#172554] dark:text-white">
+                    <button id="mobile-menu-btn" class="p-2">
+                        <span class="material-symbols-outlined">menu</span>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Mobile Navigation Menu (Hidden by default) -->
+        <div id="mobile-menu"
+            class="fixed inset-0 z-50 transform translate-x-full transition-transform duration-300 md:hidden">
+            <div class="absolute inset-0 bg-black/50 backdrop-blur-sm" onclick="toggleMobileMenu()"></div>
+            <div
+                class="absolute right-0 top-0 h-full w-[250px] bg-white dark:bg-[#0f172a] shadow-xl p-6 flex flex-col gap-6">
+                <div class="flex justify-end">
+                    <button onclick="toggleMobileMenu()" class="p-2 text-[#172554] dark:text-white">
+                        <span class="material-symbols-outlined">close</span>
+                    </button>
+                </div>
+                <nav class="flex flex-col gap-4">
+                    <a class="text-lg font-medium text-[#172554] dark:text-white hover:text-primary transition-colors"
+                        href="index.html">Home</a>
+                    <a class="text-lg font-medium text-[#172554] dark:text-white hover:text-primary transition-colors"
+                        href="about.html">About</a>
+                    <a class="text-lg font-medium text-[#172554] dark:text-white hover:text-primary transition-colors"
+                        href="experience.html">Experience</a>
+                    <a class="text-lg font-medium text-[#172554] dark:text-white hover:text-primary transition-colors"
+                        href="projects.html">Projects</a>
+                    <a class="text-lg font-medium text-[#172554] dark:text-white hover:text-primary transition-colors"
+                        href="skills.html">Skills</a>
+                    <a class="text-lg font-medium text-[#172554] dark:text-white hover:text-primary transition-colors"
+                        href="certifications.html">Certifications</a>
+                    <a class="text-lg font-medium text-[#172554] dark:text-white hover:text-primary transition-colors"
+                        href="blog.html">Blog</a>
+                    <a class="text-lg font-medium text-[#172554] dark:text-white hover:text-primary transition-colors"
+                        href="contact.html">Contact</a>
+                </nav>
+            </div>
+        </div>
+
+        <form id="uploadForm" class="space-y-6">
+            <!-- Content Type -->
+            <div>
+                <label class="block text-sm font-medium mb-2 dark:text-gray-300">Content Type</label>
+                <select name="type" required
+                    class="w-full rounded-xl border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-800 p-3 shadow-sm focus:border-primary focus:ring-primary">
+                    <option value="projects">Project</option>
+                    <option value="certifications">Certification</option>
+                </select>
+            </div>
+
+            <!-- Title -->
+            <div>
+                <label class="block text-sm font-medium mb-2 dark:text-gray-300">Title</label>
+                <input type="text" name="title" required placeholder="e.g., AI Traffic Monitor"
+                    class="w-full rounded-xl border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-800 p-3 shadow-sm focus:border-primary focus:ring-primary text-black dark:text-white">
+            </div>
+
+            <!-- Category -->
+            <div>
+                <label class="block text-sm font-medium mb-2 dark:text-gray-300">Category</label>
+                <input type="text" name="category" required placeholder="e.g., Machine Learning"
+                    class="w-full rounded-xl border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-800 p-3 shadow-sm focus:border-primary focus:ring-primary text-black dark:text-white">
+            </div>
+
+            <!-- Tags -->
+            <div>
+                <label class="block text-sm font-medium mb-2 dark:text-gray-300">Tags (comma separated)</label>
+                <input type="text" name="tags" placeholder="Python, TensorFlow, React"
+                    class="w-full rounded-xl border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-800 p-3 shadow-sm focus:border-primary focus:ring-primary text-black dark:text-white">
+            </div>
+
+            <!-- Description -->
+            <div>
+                <label class="block text-sm font-medium mb-2 dark:text-gray-300">Description</label>
+                <textarea name="description" rows="4" required placeholder="Describe the project..."
+                    class="w-full rounded-xl border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-800 p-3 shadow-sm focus:border-primary focus:ring-primary text-black dark:text-white"></textarea>
+            </div>
+
+            <!-- Link -->
+            <div>
+                <label class="block text-sm font-medium mb-2 dark:text-gray-300">Link URL (GitHub/Live Demo)</label>
+                <input type="url" name="link" placeholder="https://github.com/..."
+                    class="w-full rounded-xl border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-800 p-3 shadow-sm focus:border-primary focus:ring-primary text-black dark:text-white">
+            </div>
+
+            <!-- Image -->
+            <div>
+                <label class="block text-sm font-medium mb-2 dark:text-gray-300">Cover Image</label>
+                <input type="file" name="image" accept="image/*" required class="block w-full text-sm text-slate-500
+                    file:mr-4 file:py-2 file:px-4
+                    file:rounded-full file:border-0
+                    file:text-sm file:font-semibold
+                    file:bg-primary/10 file:text-primary
+                    hover:file:bg-primary/20 cursor-pointer">
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit"
+                class="w-full bg-primary hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-xl shadow-lg transition-transform active:scale-95">
+                Upload Content
+            </button>
+        </form>
+
+        <div id="statusMessage" class="mt-6 hidden p-4 rounded-xl text-center font-medium"></div>
+    </div>
+
+    <script src="js/admin.js"></script>
+    <script src="js/interactions.js"></script>
+</body>
+
+</html>

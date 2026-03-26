@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+
+<head>
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Blog - Navari Yashwanth Reddy</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700&amp;family=Noto+Sans:wght@400;500;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script src="js/theme.js"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#3b82f6", // Blue 500
+                        "background-light": "#eff6ff", // Blue 50
+                        "background-dark": "#0f172a", // Slate 900
+                    },
+                    fontFamily: {
+                        "display": ["Spline Sans", "sans-serif"],
+                        "body": ["Noto Sans", "sans-serif"],
+                    },
+                    borderRadius: { "DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark text-[#172554] dark:text-[#f1f5f9] font-display overflow-x-hidden transition-colors duration-300">
+    <div class="relative flex min-h-screen flex-col">
+        <header class="w-full px-4 sm:px-10 py-6">
+            <div
+                class="mx-auto flex max-w-7xl items-center justify-between border-b border-[#cbd5e1] dark:border-[#1e293b] pb-4">
+                <div class="flex items-center gap-3">
+                    <div class="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-white">
+                        <span class="material-symbols-outlined font-bold">terminal</span>
+                    </div>
+                    <h2 class="text-xl font-bold tracking-tight text-[#172554] dark:text-white">NYR</h2>
+                </div>
+                <nav class="hidden md:flex items-center gap-6">
+                    <a class="text-sm font-medium hover:text-[#2563eb] dark:hover:text-primary transition-colors"
+                        href="about.html">About</a>
+                    <a class="text-sm font-medium hover:text-[#2563eb] dark:hover:text-primary transition-colors"
+                        href="experience.html">Experience</a>
+                    <a class="text-sm font-medium hover:text-[#2563eb] dark:hover:text-primary transition-colors"
+                        href="projects.html">Projects</a>
+                    <a class="text-sm font-medium hover:text-[#2563eb] dark:hover:text-primary transition-colors"
+                        href="skills.html">Skills</a>
+                    <a class="text-sm font-medium hover:text-[#2563eb] dark:hover:text-primary transition-colors"
+                        href="certifications.html">Certifications</a>
+                    <a class="text-sm font-medium text-primary" href="blog.html">Blog</a>
+                    <a class="text-sm font-medium hover:text-[#2563eb] dark:hover:text-primary transition-colors"
+                        href="admin.html">Admin</a>
+                    <a class="text-sm font-medium hover:text-[#2563eb] dark:hover:text-primary transition-colors"
+                        href="contact.html">Contact</a>
+                </nav>
+                <div class="flex items-center gap-2">
+                    <button onclick="window.toggleTheme()"
+                        class="theme-toggle flex items-center justify-center p-2 rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors text-[#172554] dark:text-white"
+                        aria-label="Toggle Dark Mode">
+                        <span class="material-symbols-outlined">dark_mode</span>
+                    </button>
+                    <div class="flex md:hidden">
+                        <button id="mobile-menu-btn" class="p-2 text-[#172554] dark:text-white">
+                            <span class="material-symbols-outlined">menu</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Mobile Navigation Menu (Hidden by default) -->
+        <div id="mobile-menu"
+            class="fixed inset-0 z-50 transform translate-x-full transition-transform duration-300 md:hidden">
+            <div class="absolute inset-0 bg-black/50 backdrop-blur-sm" onclick="toggleMobileMenu()"></div>
+            <div
+                class="absolute right-0 top-0 h-full w-[250px] bg-white dark:bg-[#0f172a] shadow-xl p-6 flex flex-col gap-6">
+                <div class="flex justify-end">
+                    <button onclick="toggleMobileMenu()" class="p-2 text-[#172554] dark:text-white">
+                        <span class="material-symbols-outlined">close</span>
+                    </button>
+                </div>
+                <nav class="flex flex-col gap-4">
+                    <a class="text-lg font-medium text-[#172554] dark:text-white hover:text-primary transition-colors"
+                        href="index.html">Home</a>
+                    <a class="text-lg font-medium text-[#172554] dark:text-white hover:text-primary transition-colors"
+                        href="about.html">About</a>
+                    <a class="text-lg font-medium text-[#172554] dark:text-white hover:text-primary transition-colors"
+                        href="experience.html">Experience</a>
+                    <a class="text-lg font-medium text-[#172554] dark:text-white hover:text-primary transition-colors"
+                        href="projects.html">Projects</a>
+                    <a class="text-lg font-medium text-[#172554] dark:text-white hover:text-primary transition-colors"
+                        href="skills.html">Skills</a>
+                    <a class="text-lg font-medium text-[#172554] dark:text-white hover:text-primary transition-colors"
+                        href="certifications.html">Certifications</a>
+                    <a class="text-lg font-medium text-[#172554] dark:text-white hover:text-primary transition-colors"
+                        href="blog.html">Blog</a>
+                    <a class="text-lg font-medium text-[#172554] dark:text-white hover:text-primary transition-colors"
+                        href="contact.html">Contact</a>
+                </nav>
+            </div>
+        </div>
+
+        <main class="flex-1 flex flex-col px-4 sm:px-10 py-10 lg:py-16">
+            <div class="mx-auto w-full max-w-7xl flex flex-col gap-12">
+                <!-- Header Section -->
+                <div class="flex flex-col gap-4 max-w-2xl">
+                    <h1 class="text-4xl md:text-5xl font-black text-[#172554] dark:text-white tracking-tight">
+                        Thoughts &amp; Insights
+                    </h1>
+                    <p class="text-lg text-[#475569] dark:text-[#94a3b8] leading-relaxed">
+                        Exploring the intersection of data science, software engineering, and system architecture.
+                        Here I document my learning journey and technical discoveries.
+                    </p>
+                </div>
+
+                <!-- Blog Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Post 1 -->
+                    <article class="flex flex-col gap-4 group cursor-pointer">
+                        <div
+                            class="w-full aspect-video rounded-2xl bg-white dark:bg-[#1e293b] overflow-hidden border border-[#cbd5e1] dark:border-[#334155] shadow-sm hover:shadow-lg transition-all duration-300 group-hover:-translate-y-1">
+                            <div
+                                class="w-full h-full bg-slate-200 dark:bg-slate-700 flex items-center justify-center text-slate-400">
+                                <span class="material-symbols-outlined text-6xl">code_blocks</span>
+                            </div>
+                        </div>
+                        <div class="flex flex-col gap-2">
+                            <div class="flex items-center gap-3 text-xs font-medium text-primary">
+                                <span>Software Engineering</span>
+                                <span class="size-1 rounded-full bg-slate-300 dark:bg-slate-600"></span>
+                                <span>Dec 15, 2025</span>
+                            </div>
+                            <h3
+                                class="text-xl font-bold text-[#172554] dark:text-white group-hover:text-primary transition-colors">
+                                Building Scalable ML Pipelines with Node.js
+                            </h3>
+                            <p class="text-sm text-[#64748b] dark:text-[#94a3b8] line-clamp-3">
+                                Learn how to integrate machine learning models into high-throughput Node.js applications
+                                using microservices architecture and message queues.
+                            </p>
+                        </div>
+                    </article>
+
+                    <!-- Post 2 -->
+                    <article class="flex flex-col gap-4 group cursor-pointer">
+                        <div
+                            class="w-full aspect-video rounded-2xl bg-white dark:bg-[#1e293b] overflow-hidden border border-[#cbd5e1] dark:border-[#334155] shadow-sm hover:shadow-lg transition-all duration-300 group-hover:-translate-y-1">
+                            <div
+                                class="w-full h-full bg-slate-200 dark:bg-slate-700 flex items-center justify-center text-slate-400">
+                                <span class="material-symbols-outlined text-6xl">neurology</span>
+                            </div>
+                        </div>
+                        <div class="flex flex-col gap-2">
+                            <div class="flex items-center gap-3 text-xs font-medium text-primary">
+                                <span>AI &amp; Research</span>
+                                <span class="size-1 rounded-full bg-slate-300 dark:bg-slate-600"></span>
+                                <span>Nov 28, 2025</span>
+                            </div>
+                            <h3
+                                class="text-xl font-bold text-[#172554] dark:text-white group-hover:text-primary transition-colors">
+                                The Future of Ethical AI in Healthcare
+                            </h3>
+                            <p class="text-sm text-[#64748b] dark:text-[#94a3b8] line-clamp-3">
+                                Discussing the challenges and solutions for implementing unbiased, transparent AI
+                                systems in sensitive medical environments.
+                            </p>
+                        </div>
+                    </article>
+
+                    <!-- Post 3 -->
+                    <article class="flex flex-col gap-4 group cursor-pointer">
+                        <div
+                            class="w-full aspect-video rounded-2xl bg-white dark:bg-[#1e293b] overflow-hidden border border-[#cbd5e1] dark:border-[#334155] shadow-sm hover:shadow-lg transition-all duration-300 group-hover:-translate-y-1">
+                            <div
+                                class="w-full h-full bg-slate-200 dark:bg-slate-700 flex items-center justify-center text-slate-400">
+                                <span class="material-symbols-outlined text-6xl">database</span>
+                            </div>
+                        </div>
+                        <div class="flex flex-col gap-2">
+                            <div class="flex items-center gap-3 text-xs font-medium text-primary">
+                                <span>Data Engineering</span>
+                                <span class="size-1 rounded-full bg-slate-300 dark:bg-slate-600"></span>
+                                <span>Oct 10, 2025</span>
+                            </div>
+                            <h3
+                                class="text-xl font-bold text-[#172554] dark:text-white group-hover:text-primary transition-colors">
+                                Optimizing PostgreSQL for Big Data Analytics
+                            </h3>
+                            <p class="text-sm text-[#64748b] dark:text-[#94a3b8] line-clamp-3">
+                                A deep dive into indexing strategies, partitioning, and query optimization techniques
+                                for handling large-scale datasets.
+                            </p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </main>
+
+        <footer class="w-full px-4 sm:px-10 py-10 mt-auto">
+            <div
+                class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 border-t border-[#cbd5e1] dark:border-[#1e293b] pt-8 sm:flex-row">
+                <p class="text-sm text-[#64748b] dark:text-[#94a3b8]">© 2025 Navari Yashwanth Reddy. All rights
+                    reserved.</p>
+                <div class="flex items-center gap-6">
+                    <a class="group flex items-center gap-2 text-[#172554] dark:text-white hover:text-[#2563eb] dark:hover:text-primary transition-colors"
+                        href="#">
+                        <span class="material-symbols-outlined text-2xl" data-icon="LinkedinLogo">account_circle</span>
+                        <span class="sr-only">LinkedIn</span>
+                    </a>
+                    <a class="group flex items-center gap-2 text-[#172554] dark:text-white hover:text-[#2563eb] dark:hover:text-primary transition-colors"
+                        href="#">
+                        <span class="material-symbols-outlined text-2xl" data-icon="GitBranch">code</span>
+                        <span class="sr-only">GitHub</span>
+                    </a>
+                    <a class="group flex items-center gap-2 text-[#172554] dark:text-white hover:text-[#2563eb] dark:hover:text-primary transition-colors"
+                        href="#">
+                        <span class="material-symbols-outlined text-2xl" data-icon="FileCsv">dataset</span>
+                        <span class="sr-only">Kaggle</span>
+                    </a>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const articles = document.querySelectorAll('article');
+            articles.forEach(article => {
+                const text = article.innerText;
+                const words = text.trim().split(/\s+/).length;
+                const readTime = Math.ceil(words / 200); // 200 words per minute
+
+                const metaContainer = article.querySelector('.flex.items-center.gap-3');
+                if (metaContainer) {
+                    const dot = document.createElement('span');
+                    dot.className = 'size-1 rounded-full bg-slate-300 dark:bg-slate-600';
+
+                    const timeSpan = document.createElement('span');
+                    timeSpan.textContent = `${readTime} min read`;
+
+                    metaContainer.appendChild(dot);
+                    metaContainer.appendChild(timeSpan);
+                }
+            });
+        });
+    </script>
+    <script src="js/interactions.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page Not Found | Navari Yashwanth Reddy</title>
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0ea5e9", // Sky Blue
+                        "secondary": "#2563eb", // Blue 600
+                        "background-dark": "#020617" // Slate 950
+                    },
+                    fontFamily: {
+                        "display": ["Outfit", "sans-serif"],
+                        "body": ["Plus Jakarta Sans", "sans-serif"],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background-dark text-slate-100 font-body min-h-screen flex items-center justify-center overflow-hidden relative selection:bg-primary/30 selection:text-white">
+    <!-- Matrix Particle Canvas -->
+    <canvas id="error-canvas" class="absolute inset-0 w-full h-full -z-10 opacity-30"></canvas>
+    <div class="absolute top-0 left-0 w-full h-full overflow-hidden -z-10 pointer-events-none">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-primary/20 blur-[120px] mix-blend-screen opacity-50 pulse-slow"></div>
+    </div>
+
+    <div class="text-center p-8 z-10 flex flex-col items-center">
+        <!-- Glitch Effect 404 -->
+        <div class="relative inline-block mb-4">
+            <h1 class="text-9xl md:text-[150px] font-black font-display text-transparent bg-clip-text bg-gradient-to-br from-primary to-emerald-400 drop-shadow-2xl">
+                404
+            </h1>
+            <div class="absolute top-0 left-0 w-full h-full flex items-center justify-center opacity-50 blur-[2px] text-primary mix-blend-screen mix-blend-color-dodge -z-10 font-black font-display text-9xl md:text-[150px]">
+                404
+            </div>
+        </div>
+        
+        <h2 class="text-2xl md:text-3xl font-bold text-white mb-4 tracking-wide">SYSTEM <span class="text-emerald-400">UNRESPONSIVE</span></h2>
+        <p class="text-slate-400 max-w-md mx-auto mb-10 text-lg leading-relaxed">
+            The endpoint you are trying to reach has returned a Null Pointer Exception. It seems this document resides in a different dimension.
+        </p>
+
+        <!-- Cyberpunk back button -->
+        <a href="index.html" class="group relative inline-flex items-center justify-center px-8 py-3.5 font-bold text-white transition-all duration-200 bg-slate-900 border border-slate-700 rounded-lg hover:bg-slate-800 hover:border-primary focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary overflow-hidden">
+            <span class="absolute inset-0 w-full h-full -mt-1 rounded-lg opacity-30 bg-gradient-to-b from-transparent via-transparent to-primary"></span>
+            <span class="relative flex items-center gap-2">
+                <span class="material-symbols-outlined text-primary group-hover:-translate-x-1 transition-transform">keyboard_return</span>
+                Return to Main Frame
+            </span>
+        </a>
+    </div>
+
+    <script>
+        // Matrix Rain for Error Page
+        const canvas = document.getElementById('error-canvas');
+        const ctx = canvas.getContext('2d');
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const letters = '01ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        const fontSize = 14;
+        const columns = canvas.width / fontSize;
+
+        const drops = [];
+        for(let x = 0; x < columns; x++) {
+            drops[x] = 1;
+        }
+
+        function draw() {
+            ctx.fillStyle = 'rgba(2, 6, 23, 0.05)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            ctx.fillStyle = '#0ea5e9'; // primary color
+            ctx.font = fontSize + 'px monospace';
+
+            for(let i = 0; i < drops.length; i++) {
+                const text = letters.charAt(Math.floor(Math.random() * letters.length));
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+                
+                if(drops[i] * fontSize > canvas.height && Math.random() > 0.975)
+                    drops[i] = 0;
+                drops[i]++;
+            }
+        }
+        setInterval(draw, 33);
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+    </script>
+</body>
+</html>

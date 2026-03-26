@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Resume - Navari Yashwanth Reddy</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap"
+        rel="stylesheet" />
+    <!-- Material Symbols -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script src="js/theme.js"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#135bec",
+                        "background-light": "#ffffff",
+                        "background-alt": "#f8f9fa",
+                        "background-dark": "#101622",
+                        "text-main": "#111318",
+                        "text-muted": "#616f89",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style>
+        /* Custom scrollbar for webkit */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+
+        /* Subtle fade-in animation */
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .delay-100 {
+            animation-delay: 0.1s;
+        }
+
+        .delay-200 {
+            animation-delay: 0.2s;
+        }
+
+        .delay-300 {
+            animation-delay: 0.3s;
+        }
+    </style>
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark font-display text-text-main antialiased selection:bg-primary/20 selection:text-primary overflow-x-hidden">
+    <div class="relative flex h-auto min-h-screen w-full flex-col">
+        <!-- Navigation -->
+        <header
+            class="sticky top-0 z-50 w-full border-b border-gray-100 bg-white/90 backdrop-blur-md dark:border-gray-800 dark:bg-gray-900/90">
+            <div class="flex items-center justify-between px-6 py-4 lg:px-10 max-w-7xl mx-auto w-full">
+                <div class="flex items-center gap-4">
+                    <div class="flex items-center justify-center size-8 rounded-lg bg-primary/10 text-primary">
+                        <span class="material-symbols-outlined text-[20px]">code</span>
+                    </div>
+                    <h2 class="text-lg font-bold tracking-tight text-gray-900 dark:text-white">Navari Yashwanth Reddy
+                    </h2>
+                </div>
+                <nav class="hidden md:flex items-center gap-6">
+                    <a class="text-sm font-medium text-gray-600 hover:text-primary transition-colors dark:text-gray-300 dark:hover:text-primary"
+                        href="index.html">Home</a>
+                    <a class="text-sm font-medium text-gray-600 hover:text-primary transition-colors dark:text-gray-300 dark:hover:text-primary"
+                        href="about.html">About</a>
+                    <a class="text-sm font-medium text-gray-600 hover:text-primary transition-colors dark:text-gray-300 dark:hover:text-primary"
+                        href="experience.html">Experience</a>
+                    <a class="text-sm font-medium text-gray-600 hover:text-primary transition-colors dark:text-gray-300 dark:hover:text-primary"
+                        href="projects.html">Projects</a>
+                    <a class="text-sm font-medium text-gray-600 hover:text-primary transition-colors dark:text-gray-300 dark:hover:text-primary"
+                        href="skills.html">Skills</a>
+                    <a class="text-sm font-medium text-gray-600 hover:text-primary transition-colors dark:text-gray-300 dark:hover:text-primary"
+                        href="certifications.html">Certifications</a>
+                    <a class="text-sm font-medium text-gray-600 hover:text-primary transition-colors dark:text-gray-300 dark:hover:text-primary"
+                        href="blog.html">Blog</a>
+                    <a class="text-sm font-medium text-gray-600 hover:text-primary transition-colors dark:text-gray-300 dark:hover:text-primary"
+                        href="admin.html">Admin</a>
+                    <a class="text-sm font-medium text-primary font-bold" href="resume.html">Resume</a>
+                    <a class="text-sm font-medium text-gray-600 hover:text-primary transition-colors dark:text-gray-300 dark:hover:text-primary"
+                        href="contact.html">Contact</a>
+                </nav>
+                <div class="flex items-center gap-4">
+                    <button onclick="window.toggleTheme()"
+                        class="theme-toggle flex items-center justify-center p-2 rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors text-gray-900 dark:text-white"
+                        aria-label="Toggle Dark Mode">
+                        <span class="material-symbols-outlined">dark_mode</span>
+                    </button>
+                    <button
+                        class="hidden sm:flex h-9 items-center justify-center rounded-lg bg-primary px-4 text-sm font-bold text-white transition-all hover:bg-blue-700 shadow-sm hover:shadow-md">
+                        <span class="material-symbols-outlined mr-2 text-[18px]">download</span>
+                        Download Resume
+                    </button>
+                    <!-- Mobile Menu Button -->
+                    <button id="mobile-menu-btn" class="md:hidden p-2 text-gray-600 dark:text-gray-300">
+                        <span class="material-symbols-outlined">menu</span>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Mobile Navigation Menu (Hidden by default) -->
+        <div id="mobile-menu"
+            class="fixed inset-0 z-50 transform translate-x-full transition-transform duration-300 md:hidden">
+            <div class="absolute inset-0 bg-black/50 backdrop-blur-sm" onclick="toggleMobileMenu()"></div>
+            <div
+                class="absolute right-0 top-0 h-full w-[250px] bg-white dark:bg-[#101622] shadow-xl p-6 flex flex-col gap-6">
+                <div class="flex justify-end">
+                    <button onclick="toggleMobileMenu()" class="p-2 text-[#111318] dark:text-white">
+                        <span class="material-symbols-outlined">close</span>
+                    </button>
+                </div>
+                <nav class="flex flex-col gap-4">
+                    <a class="text-lg font-medium text-[#111318] dark:text-white hover:text-primary transition-colors"
+                        href="index.html">Home</a>
+                    <a class="text-lg font-medium text-[#111318] dark:text-white hover:text-primary transition-colors"
+                        href="about.html">About</a>
+                    <a class="text-lg font-medium text-[#111318] dark:text-white hover:text-primary transition-colors"
+                        href="experience.html">Experience</a>
+                    <a class="text-lg font-medium text-[#111318] dark:text-white hover:text-primary transition-colors"
+                        href="projects.html">Projects</a>
+                    <a class="text-lg font-medium text-[#111318] dark:text-white hover:text-primary transition-colors"
+                        href="skills.html">Skills</a>
+                    <a class="text-lg font-medium text-[#111318] dark:text-white hover:text-primary transition-colors"
+                        href="certifications.html">Certifications</a>
+                    <a class="text-lg font-medium text-[#111318] dark:text-white hover:text-primary transition-colors"
+                        href="blog.html">Blog</a>
+                    <a class="text-lg font-medium text-[#111318] dark:text-white hover:text-primary transition-colors"
+                        href="contact.html">Contact</a>
+                </nav>
+            </div>
+        </div>
+        <main class="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-12">
+            <!-- Page Heading -->
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-12 fade-in-up">
+                <div class="max-w-2xl">
+                    <h1 class="text-4xl md:text-5xl font-black tracking-tight text-primary mb-3">Resume</h1>
+                    <p class="text-lg text-text-muted dark:text-gray-400 leading-relaxed">
+                        Data Science &amp; Software Engineer specializing in machine learning pipelines and scalable
+                        backend systems.
+                    </p>
+                </div>
+                <div class="flex gap-3">
+                    <button
+                        class="flex h-11 items-center justify-center rounded-lg border border-gray-200 bg-white px-5 text-sm font-bold text-gray-700 shadow-sm hover:bg-gray-50 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-gray-700 transition-all">
+                        <span class="material-symbols-outlined mr-2 text-[20px]">print</span>
+                        Print
+                    </button>
+                    <button
+                        class="flex h-11 items-center justify-center rounded-lg bg-primary px-5 text-sm font-bold text-white shadow-md hover:bg-blue-700 hover:shadow-lg transition-all">
+                        <span class="material-symbols-outlined mr-2 text-[20px]">download</span>
+                        Download PDF
+                    </button>
+                </div>
+            </div>
+            <!-- Main Content Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
+                <!-- Left Column: Highlights (Timeline & Skills) -->
+                <div class="lg:col-span-5 flex flex-col gap-10">
+                    <!-- Highlights Summary Header -->
+                    <div class="fade-in-up delay-100">
+                        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6 flex items-center gap-2">
+                            <span class="material-symbols-outlined text-primary">verified</span>
+                            Resume Highlights
+                        </h2>
+                        <!-- Experience Timeline -->
+                        <div
+                            class="bg-background-alt dark:bg-gray-800/50 rounded-xl p-6 border border-gray-100 dark:border-gray-800 shadow-sm mb-8">
+                            <h3 class="text-sm font-bold uppercase tracking-wider text-text-muted mb-4">Experience</h3>
+                            <div class="grid grid-cols-[32px_1fr] gap-x-3">
+                                <!-- Item 1 -->
+                                <div class="flex flex-col items-center pt-1">
+                                    <div class="size-3 rounded-full bg-primary ring-4 ring-primary/20"></div>
+                                    <div class="w-[2px] bg-gray-200 dark:bg-gray-700 h-full my-1"></div>
+                                </div>
+                                <div class="pb-8">
+                                    <p class="text-base font-bold text-gray-900 dark:text-white">Senior Data Engineer
+                                    </p>
+                                    <p class="text-sm text-primary font-medium">TechCorp</p>
+                                    <p class="text-xs text-text-muted mt-1">2022 - Present</p>
+                                    <p class="text-sm text-gray-600 dark:text-gray-400 mt-2 leading-snug">
+                                        Architecting scalable ETL pipelines and managing a team of 4 data engineers.
+                                    </p>
+                                </div>
+                                <!-- Item 2 -->
+                                <div class="flex flex-col items-center pt-1">
+                                    <div class="size-3 rounded-full bg-gray-300 dark:bg-gray-600"></div>
+                                    <div class="w-[2px] bg-gray-200 dark:bg-gray-700 h-full my-1"></div>
+                                </div>
+                                <div class="pb-8">
+                                    <p class="text-base font-bold text-gray-900 dark:text-white">Software Engineer</p>
+                                    <p class="text-sm text-primary font-medium">StartupInc</p>
+                                    <p class="text-xs text-text-muted mt-1">2020 - 2022</p>
+                                    <p class="text-sm text-gray-600 dark:text-gray-400 mt-2 leading-snug">
+                                        Developed microservices using Go and Python. Reduced API latency by 40%.
+                                    </p>
+                                </div>
+                                <!-- Item 3 -->
+                                <div class="flex flex-col items-center pt-1">
+                                    <div class="size-3 rounded-full bg-gray-300 dark:bg-gray-600"></div>
+                                </div>
+                                <div class="">
+                                    <p class="text-base font-bold text-gray-900 dark:text-white">Junior Developer</p>
+                                    <p class="text-sm text-primary font-medium">DevStudio</p>
+                                    <p class="text-xs text-text-muted mt-1">2018 - 2020</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Technical Skills Chips -->
+                        <div
+                            class="bg-background-alt dark:bg-gray-800/50 rounded-xl p-6 border border-gray-100 dark:border-gray-800 shadow-sm">
+                            <h3 class="text-sm font-bold uppercase tracking-wider text-text-muted mb-4">Technical Skills
+                            </h3>
+                            <div class="flex flex-wrap gap-2">
+                                <span
+                                    class="inline-flex items-center rounded-md bg-white border border-gray-200 px-2.5 py-1.5 text-sm font-medium text-gray-900 shadow-sm hover:border-primary hover:text-primary transition-colors cursor-default dark:bg-gray-800 dark:border-gray-700 dark:text-gray-100">
+                                    Python
+                                </span>
+                                <span
+                                    class="inline-flex items-center rounded-md bg-white border border-gray-200 px-2.5 py-1.5 text-sm font-medium text-gray-900 shadow-sm hover:border-primary hover:text-primary transition-colors cursor-default dark:bg-gray-800 dark:border-gray-700 dark:text-gray-100">
+                                    SQL
+                                </span>
+                                <span
+                                    class="inline-flex items-center rounded-md bg-white border border-gray-200 px-2.5 py-1.5 text-sm font-medium text-gray-900 shadow-sm hover:border-primary hover:text-primary transition-colors cursor-default dark:bg-gray-800 dark:border-gray-700 dark:text-gray-100">
+                                    TensorFlow
+                                </span>
+                                <span
+                                    class="inline-flex items-center rounded-md bg-white border border-gray-200 px-2.5 py-1.5 text-sm font-medium text-gray-900 shadow-sm hover:border-primary hover:text-primary transition-colors cursor-default dark:bg-gray-800 dark:border-gray-700 dark:text-gray-100">
+                                    AWS
+                                </span>
+                                <span
+                                    class="inline-flex items-center rounded-md bg-white border border-gray-200 px-2.5 py-1.5 text-sm font-medium text-gray-900 shadow-sm hover:border-primary hover:text-primary transition-colors cursor-default dark:bg-gray-800 dark:border-gray-700 dark:text-gray-100">
+                                    Docker
+                                </span>
+                                <span
+                                    class="inline-flex items-center rounded-md bg-white border border-gray-200 px-2.5 py-1.5 text-sm font-medium text-gray-900 shadow-sm hover:border-primary hover:text-primary transition-colors cursor-default dark:bg-gray-800 dark:border-gray-700 dark:text-gray-100">
+                                    React
+                                </span>
+                                <span
+                                    class="inline-flex items-center rounded-md bg-white border border-gray-200 px-2.5 py-1.5 text-sm font-medium text-gray-900 shadow-sm hover:border-primary hover:text-primary transition-colors cursor-default dark:bg-gray-800 dark:border-gray-700 dark:text-gray-100">
+                                    Kubernetes
+                                </span>
+                                <span
+                                    class="inline-flex items-center rounded-md bg-white border border-gray-200 px-2.5 py-1.5 text-sm font-medium text-gray-900 shadow-sm hover:border-primary hover:text-primary transition-colors cursor-default dark:bg-gray-800 dark:border-gray-700 dark:text-gray-100">
+                                    PyTorch
+                                </span>
+                            </div>
+                        </div>
+                        <!-- Education & Certs Small Cards -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">
+                            <div
+                                class="rounded-xl border border-gray-100 bg-white p-4 shadow-sm dark:bg-gray-800 dark:border-gray-700 flex flex-col gap-2">
+                                <div
+                                    class="size-8 rounded-full bg-blue-50 flex items-center justify-center text-primary dark:bg-blue-900/20">
+                                    <span class="material-symbols-outlined text-[20px]">school</span>
+                                </div>
+                                <div>
+                                    <p class="font-bold text-sm text-gray-900 dark:text-white">M.S. Comp Sci</p>
+                                    <p class="text-xs text-text-muted">University of Tech, 2021</p>
+                                </div>
+                            </div>
+                            <div
+                                class="rounded-xl border border-gray-100 bg-white p-4 shadow-sm dark:bg-gray-800 dark:border-gray-700 flex flex-col gap-2">
+                                <div
+                                    class="size-8 rounded-full bg-blue-50 flex items-center justify-center text-primary dark:bg-blue-900/20">
+                                    <span class="material-symbols-outlined text-[20px]">workspace_premium</span>
+                                </div>
+                                <div>
+                                    <p class="font-bold text-sm text-gray-900 dark:text-white">AWS Architect</p>
+                                    <p class="text-xs text-text-muted">Certified Solutions Assoc.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Right Column: PDF Viewer -->
+                <div class="lg:col-span-7 fade-in-up delay-200">
+                    <div class="flex items-center justify-between mb-4">
+                        <h2 class="text-xl font-bold text-gray-900 dark:text-white">Document Preview</h2>
+                        <div class="flex gap-2">
+                            <button
+                                class="p-2 text-gray-500 hover:text-primary hover:bg-gray-100 rounded-lg transition-colors dark:text-gray-400 dark:hover:bg-gray-800">
+                                <span class="material-symbols-outlined text-[20px]">zoom_out</span>
+                            </button>
+                            <button
+                                class="p-2 text-gray-500 hover:text-primary hover:bg-gray-100 rounded-lg transition-colors dark:text-gray-400 dark:hover:bg-gray-800">
+                                <span class="material-symbols-outlined text-[20px]">zoom_in</span>
+                            </button>
+                            <button
+                                class="p-2 text-gray-500 hover:text-primary hover:bg-gray-100 rounded-lg transition-colors dark:text-gray-400 dark:hover:bg-gray-800">
+                                <span class="material-symbols-outlined text-[20px]">open_in_new</span>
+                            </button>
+                        </div>
+                    </div>
+                    <!-- PDF Viewer Container -->
+                    <div
+                        class="relative w-full aspect-[8.5/11] bg-gray-200 dark:bg-gray-800 rounded-xl overflow-hidden shadow-inner border border-gray-300 dark:border-gray-700 flex flex-col group">
+                        <!-- Loading / Fallback Placeholder (Visual only, simulates a loaded PDF) -->
+                        <div class="flex-1 w-full bg-gray-500/10 flex items-center justify-center p-8 overflow-y-auto">
+                            <!-- Simulated Resume Page Paper -->
+                            <div
+                                class="w-full h-full max-w-[600px] bg-white shadow-2xl transition-transform duration-300 ease-out group-hover:scale-[1.01] flex flex-col">
+                                <!-- Paper Header -->
+                                <div
+                                    class="h-24 bg-primary/5 p-8 flex justify-between items-center border-b border-gray-100">
+                                    <div class="w-1/2">
+                                        <div class="h-6 w-32 bg-primary/20 rounded mb-2"></div>
+                                        <div class="h-3 w-48 bg-gray-200 rounded"></div>
+                                    </div>
+                                    <div class="size-12 rounded-full bg-gray-200"></div>
+                                </div>
+                                <!-- Paper Body -->
+                                <div class="p-8 flex-1 space-y-6">
+                                    <!-- Section 1 -->
+                                    <div class="space-y-2">
+                                        <div class="h-4 w-24 bg-gray-300 rounded"></div>
+                                        <div class="h-2 w-full bg-gray-100 rounded"></div>
+                                        <div class="h-2 w-full bg-gray-100 rounded"></div>
+                                        <div class="h-2 w-5/6 bg-gray-100 rounded"></div>
+                                    </div>
+                                    <!-- Section 2 -->
+                                    <div class="space-y-3 pt-2">
+                                        <div class="flex justify-between">
+                                            <div class="h-4 w-32 bg-gray-300 rounded"></div>
+                                            <div class="h-3 w-16 bg-gray-200 rounded"></div>
+                                        </div>
+                                        <div class="h-2 w-full bg-gray-100 rounded"></div>
+                                        <div class="h-2 w-11/12 bg-gray-100 rounded"></div>
+                                    </div>
+                                    <!-- Section 3 -->
+                                    <div class="space-y-3 pt-2">
+                                        <div class="flex justify-between">
+                                            <div class="h-4 w-40 bg-gray-300 rounded"></div>
+                                            <div class="h-3 w-16 bg-gray-200 rounded"></div>
+                                        </div>
+                                        <div class="h-2 w-full bg-gray-100 rounded"></div>
+                                        <div class="h-2 w-10/12 bg-gray-100 rounded"></div>
+                                        <div class="h-2 w-11/12 bg-gray-100 rounded"></div>
+                                    </div>
+                                    <!-- Section 4 -->
+                                    <div class="grid grid-cols-2 gap-4 pt-2">
+                                        <div class="space-y-2">
+                                            <div class="h-3 w-20 bg-gray-300 rounded"></div>
+                                            <div class="h-2 w-full bg-gray-100 rounded"></div>
+                                            <div class="h-2 w-full bg-gray-100 rounded"></div>
+                                        </div>
+                                        <div class="space-y-2">
+                                            <div class="h-3 w-20 bg-gray-300 rounded"></div>
+                                            <div class="h-2 w-full bg-gray-100 rounded"></div>
+                                            <div class="h-2 w-full bg-gray-100 rounded"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Overlay Button (If PDF not supported or for mobile) -->
+                        <div
+                            class="absolute inset-0 bg-black/5 pointer-events-none flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <!-- Can add overlay controls here if needed -->
+                        </div>
+                    </div>
+                    <p class="text-xs text-center text-text-muted mt-3">Preview of resume.pdf (2.4 MB)</p>
+                </div>
+            </div>
+        </main>
+        <!-- Footer -->
+        <footer class="border-t border-gray-100 bg-white py-12 px-10 dark:border-gray-800 dark:bg-gray-900 mt-12">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6 max-w-7xl mx-auto">
+                <div class="flex items-center gap-2 text-text-main dark:text-white">
+                    <span class="font-bold text-lg">Navari Yashwanth Reddy</span>
+                    <span class="text-text-muted text-sm">— Portfolio 2024</span>
+                </div>
+                <div class="flex gap-6">
+                    <a class="text-text-muted hover:text-primary transition-colors text-sm" href="#">LinkedIn</a>
+                    <a class="text-text-muted hover:text-primary transition-colors text-sm" href="#">GitHub</a>
+                    <a class="text-text-muted hover:text-primary transition-colors text-sm" href="#">Twitter</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="js/interactions.js"></script>
+</body>
+
+</html>

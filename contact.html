@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Contact - Data Science Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script src="js/theme.js"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#135bec",
+                        "primary-dark": "#0e45b5",
+                        "background-light": "#ffffff",
+                        "background-dark": "#101622",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"],
+                        "sans": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark text-[#111318] dark:text-white font-display overflow-x-hidden flex flex-col min-h-screen">
+    <!-- Header -->
+    <div
+        class="w-full border-b border-solid border-b-[#f0f2f4] dark:border-b-gray-800 bg-white dark:bg-background-dark sticky top-0 z-50">
+        <header
+            class="layout-container flex items-center justify-between whitespace-nowrap px-4 md:px-10 py-3 mx-auto max-w-[1200px]">
+            <div class="flex items-center gap-4 text-[#111318] dark:text-white">
+                <div class="size-8 flex items-center justify-center text-primary">
+                    <span class="material-symbols-outlined text-3xl">terminal</span>
+                </div>
+                <h2 class="text-[#111318] dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">Navari
+                    Yashwanth Reddy
+                    | Data Scientist</h2>
+            </div>
+            <div class="hidden md:flex flex-1 justify-end gap-8 items-center">
+                <div class="flex items-center gap-6">
+                    <a class="text-[#111318] dark:text-gray-200 text-sm font-medium hover:text-primary transition-colors duration-200"
+                        href="index.html">Home</a>
+                    <a class="text-[#111318] dark:text-gray-200 text-sm font-medium hover:text-primary transition-colors duration-200"
+                        href="about.html">About</a>
+                    <a class="text-[#111318] dark:text-gray-200 text-sm font-medium hover:text-primary transition-colors duration-200"
+                        href="experience.html">Experience</a>
+                    <a class="text-[#111318] dark:text-gray-200 text-sm font-medium hover:text-primary transition-colors duration-200"
+                        href="projects.html">Projects</a>
+                    <a class="text-[#111318] dark:text-gray-200 text-sm font-medium hover:text-primary transition-colors duration-200"
+                        href="skills.html">Skills</a>
+                    <a class="text-[#111318] dark:text-gray-200 text-sm font-medium hover:text-primary transition-colors duration-200"
+                        href="certifications.html">Certifications</a>
+                    <a class="text-[#111318] dark:text-gray-200 text-sm font-medium hover:text-primary transition-colors duration-200"
+                        href="blog.html">Blog</a>
+                    <a class="text-[#111318] dark:text-gray-200 text-sm font-medium hover:text-primary transition-colors duration-200"
+                        href="admin.html">Admin</a>
+                    <a class="text-primary text-sm font-bold leading-normal" href="contact.html">Contact</a>
+                </div>
+                <button onclick="window.toggleTheme()"
+                    class="theme-toggle flex items-center justify-center p-2 rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors text-[#111318] dark:text-white mr-4"
+                    aria-label="Toggle Dark Mode">
+                    <span class="material-symbols-outlined">dark_mode</span>
+                </button>
+                <button onclick="window.location.href='resume.html'"
+                    class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary hover:bg-primary-dark transition-colors duration-200 text-white text-sm font-bold leading-normal tracking-[0.015em]">
+                    <span class="truncate">View Resume</span>
+                </button>
+            </div>
+            <!-- Mobile Menu Icon -->
+            <div class="md:hidden flex items-center gap-2">
+                <button onclick="window.toggleTheme()"
+                    class="theme-toggle flex items-center justify-center p-2 rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors text-[#111318] dark:text-white"
+                    aria-label="Toggle Dark Mode">
+                    <span class="material-symbols-outlined">dark_mode</span>
+                </button>
+                <button id="mobile-menu-btn" class="p-2 text-[#111318] dark:text-white">
+                    <span class="material-symbols-outlined">menu</span>
+                </button>
+            </div>
+        </header>
+
+        <!-- Mobile Navigation Menu (Hidden by default) -->
+        <div id="mobile-menu"
+            class="fixed inset-0 z-50 transform translate-x-full transition-transform duration-300 md:hidden">
+            <div class="absolute inset-0 bg-black/50 backdrop-blur-sm" onclick="toggleMobileMenu()"></div>
+            <div
+                class="absolute right-0 top-0 h-full w-[250px] bg-white dark:bg-[#101622] shadow-xl p-6 flex flex-col gap-6">
+                <div class="flex justify-end">
+                    <button onclick="toggleMobileMenu()" class="p-2 text-[#111318] dark:text-white">
+                        <span class="material-symbols-outlined">close</span>
+                    </button>
+                </div>
+                <nav class="flex flex-col gap-4">
+                    <a class="text-lg font-medium text-[#111318] dark:text-white hover:text-primary transition-colors"
+                        href="index.html">Home</a>
+                    <a class="text-lg font-medium text-[#111318] dark:text-white hover:text-primary transition-colors"
+                        href="about.html">About</a>
+                    <a class="text-lg font-medium text-[#111318] dark:text-white hover:text-primary transition-colors"
+                        href="experience.html">Experience</a>
+                    <a class="text-lg font-medium text-[#111318] dark:text-white hover:text-primary transition-colors"
+                        href="projects.html">Projects</a>
+                    <a class="text-lg font-medium text-[#111318] dark:text-white hover:text-primary transition-colors"
+                        href="skills.html">Skills</a>
+                    <a class="text-lg font-medium text-[#111318] dark:text-white hover:text-primary transition-colors"
+                        href="certifications.html">Certifications</a>
+                    <a class="text-lg font-medium text-[#111318] dark:text-white hover:text-primary transition-colors"
+                        href="blog.html">Blog</a>
+                    <a class="text-lg font-medium text-[#111318] dark:text-white hover:text-primary transition-colors"
+                        href="contact.html">Contact</a>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <!-- Main Content -->
+    <main class="flex-grow flex flex-col items-center justify-center w-full px-4 md:px-10 py-12 md:py-20">
+        <div class="layout-content-container flex flex-col w-full max-w-[1200px] gap-12">
+            <!-- Hero / Heading Section -->
+            <div class="flex flex-col md:flex-row justify-between items-start gap-10">
+                <div class="flex flex-col gap-6 max-w-2xl">
+                    <h1
+                        class="text-[#111318] dark:text-white text-4xl md:text-5xl font-black leading-tight tracking-[-0.033em]">
+                        Ready to turn data into <span class="text-primary">impact</span>?<br /> Let's build something
+                        together.
+                    </h1>
+                    <p class="text-[#616f89] dark:text-gray-400 text-lg font-normal leading-relaxed max-w-xl">
+                        Whether you have a question about my research, a project idea involving machine learning, or
+                        just want to discuss the latest in software engineering, my inbox is always open.
+                    </p>
+                    <!-- Social Proof / Links -->
+                    <div class="flex items-center gap-6 mt-2">
+                        <a class="group flex items-center justify-center size-10 rounded-full bg-[#f0f2f4] dark:bg-gray-800 hover:bg-primary/10 transition-all duration-300 hover:-translate-y-1"
+                            href="#">
+                            <!-- Simple abstract representation for brand icons using material symbols or similar if brand icons aren't available, but adapting to standard unicode or svg if needed. Using placeholders here as requested to stick to material symbols where possible or generic SVG -->
+                            <svg aria-hidden="true"
+                                class="size-5 fill-[#616f89] group-hover:fill-primary transition-colors"
+                                data-alt="GitHub Icon" viewbox="0 0 24 24">
+                                <path
+                                    d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z">
+                                </path>
+                            </svg>
+                        </a>
+                        <a class="group flex items-center justify-center size-10 rounded-full bg-[#f0f2f4] dark:bg-gray-800 hover:bg-primary/10 transition-all duration-300 hover:-translate-y-1"
+                            href="#">
+                            <svg aria-hidden="true"
+                                class="size-5 fill-[#616f89] group-hover:fill-primary transition-colors"
+                                data-alt="LinkedIn Icon" viewbox="0 0 24 24">
+                                <path
+                                    d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z">
+                                </path>
+                            </svg>
+                        </a>
+                        <a class="group flex items-center justify-center size-10 rounded-full bg-[#f0f2f4] dark:bg-gray-800 hover:bg-primary/10 transition-all duration-300 hover:-translate-y-1"
+                            href="#">
+                            <svg aria-hidden="true"
+                                class="size-5 fill-[#616f89] group-hover:fill-primary transition-colors"
+                                data-alt="Twitter Icon" viewbox="0 0 24 24">
+                                <path
+                                    d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z">
+                                </path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <!-- Direct Contact Info Card -->
+                <div
+                    class="hidden lg:flex flex-col gap-4 p-6 bg-[#f8fafc] dark:bg-[#1a2230] rounded-xl border border-[#e5e7eb] dark:border-gray-700 w-full max-w-sm shadow-sm">
+                    <div class="flex items-start gap-3">
+                        <div class="mt-1 text-primary">
+                            <span class="material-symbols-outlined">mail</span>
+                        </div>
+                        <div>
+                            <p class="text-xs font-semibold uppercase tracking-wider text-[#616f89] dark:text-gray-400">
+                                Email Me</p>
+                            <a class="text-[#111318] dark:text-white font-medium hover:text-primary transition-colors"
+                                href="mailto:ekomotsu@gmail.com">ekomotsu@gmail.com</a>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3 mt-2">
+                        <div class="mt-1 text-primary">
+                            <span class="material-symbols-outlined">location_on</span>
+                        </div>
+                        <div>
+                            <p class="text-xs font-semibold uppercase tracking-wider text-[#616f89] dark:text-gray-400">
+                                Location</p>
+                            <p class="text-[#111318] dark:text-white font-medium">Hyderabad, Telangana, India</p>
+                            <p class="text-sm text-[#616f89] dark:text-gray-500">Open to Remote</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Form & Map Section (Grid) -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+                <!-- Form Container -->
+                <div
+                    class="w-full bg-white dark:bg-background-dark rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-none dark:border dark:border-gray-700 p-6 md:p-10 border border-[#f0f2f4]">
+                    <form id="contactForm" class="flex flex-col gap-6">
+                        <div class="flex flex-col md:flex-row gap-6">
+                            <label class="flex flex-col flex-1 group">
+                                <p
+                                    class="text-[#111318] dark:text-gray-200 text-sm font-semibold leading-normal pb-2 group-focus-within:text-primary transition-colors">
+                                    Name</p>
+                                <input id="name" name="name" required
+                                    class="form-input w-full rounded-lg border border-[#dbdfe6] dark:border-gray-600 bg-white dark:bg-background-dark h-12 px-4 text-base text-[#111318] dark:text-white placeholder:text-[#9ca3af] focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition-all duration-200 shadow-sm"
+                                    placeholder="Navari Yashwanth Reddy" type="text" />
+                            </label>
+                            <label class="flex flex-col flex-1 group">
+                                <p
+                                    class="text-[#111318] dark:text-gray-200 text-sm font-semibold leading-normal pb-2 group-focus-within:text-primary transition-colors">
+                                    Email Address</p>
+                                <input id="email" name="email" required
+                                    class="form-input w-full rounded-lg border border-[#dbdfe6] dark:border-gray-600 bg-white dark:bg-background-dark h-12 px-4 text-base text-[#111318] dark:text-white placeholder:text-[#9ca3af] focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition-all duration-200 shadow-sm"
+                                    placeholder="ekomotsu@gmail.com" type="email" />
+                            </label>
+                        </div>
+                        <label class="flex flex-col group w-full">
+                            <p
+                                class="text-[#111318] dark:text-gray-200 text-sm font-semibold leading-normal pb-2 group-focus-within:text-primary transition-colors">
+                                What's this regarding?</p>
+                            <div class="relative">
+                                <select id="subject" name="subject"
+                                    class="form-select w-full rounded-lg border border-[#dbdfe6] dark:border-gray-600 bg-white dark:bg-background-dark h-12 px-4 text-base text-[#111318] dark:text-white focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition-all duration-200 shadow-sm appearance-none">
+                                    <option disabled="" selected="" value="">Select a topic...</option>
+                                    <option value="project">Project Collaboration</option>
+                                    <option value="freelance">Freelance Opportunity</option>
+                                    <option value="job">Full-time Opportunity</option>
+                                    <option value="other">Just saying hi</option>
+                                </select>
+                                <div
+                                    class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-gray-500">
+                                    <span class="material-symbols-outlined">expand_more</span>
+                                </div>
+                            </div>
+                        </label>
+                        <label class="flex flex-col group w-full">
+                            <p
+                                class="text-[#111318] dark:text-gray-200 text-sm font-semibold leading-normal pb-2 group-focus-within:text-primary transition-colors">
+                                Your Message</p>
+                            <textarea id="message" name="message" required
+                                class="form-textarea w-full rounded-lg border border-[#dbdfe6] dark:border-gray-600 bg-white dark:bg-background-dark min-h-[160px] p-4 text-base text-[#111318] dark:text-white placeholder:text-[#9ca3af] focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition-all duration-200 shadow-sm resize-y"
+                                placeholder="Tell me about your project or idea..."></textarea>
+                        </label>
+                        <div class="flex justify-end pt-2">
+                            <button
+                                class="group relative flex w-full md:w-auto min-w-[180px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-8 bg-primary hover:bg-primary-dark transition-all duration-300 text-white text-base font-bold shadow-md hover:shadow-lg hover:-translate-y-0.5"
+                                type="submit">
+                                <span class="mr-2">Send Message</span>
+                                <span
+                                    class="material-symbols-outlined text-sm transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1">send</span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Map Container -->
+                <div
+                    class="rounded-2xl border border-[#e5e7eb] dark:border-gray-700 overflow-hidden h-full min-h-[400px] shadow-sm relative z-0">
+                    <div id="map" class="w-full h-full"></div>
+                </div>
+            </div>
+
+            <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+                integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+            <script>
+                // Initialize Leaflet Map
+                document.addEventListener('DOMContentLoaded', () => {
+                    // Hyderabad Coordinates
+                    const hyderabad = [17.3850, 78.4867];
+
+                    const map = L.map('map', {
+                        scrollWheelZoom: false // Disable zoom on scroll for UX
+                    }).setView(hyderabad, 11);
+
+                    // Add OpenStreetMap Tile Layer
+                    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                        maxZoom: 19,
+                        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+                    }).addTo(map);
+
+                    // Custom Icon
+                    const customIcon = L.icon({
+                        iconUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png',
+                        iconRetinaUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png',
+                        shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
+                        iconSize: [25, 41],
+                        iconAnchor: [12, 41],
+                        popupAnchor: [1, -34],
+                        shadowSize: [41, 41]
+                    });
+
+                    // Add Marker
+                    const marker = L.marker(hyderabad, { icon: customIcon }).addTo(map)
+                        .bindPopup('<b>Based in Hyderabad</b><br>Available for connections!')
+                        .openPopup();
+
+                    // Add dark mode support to tiles (CSS filter)
+                    const updateMapTheme = () => {
+                        const isDark = document.documentElement.classList.contains('dark');
+                        const tilePane = document.querySelector('.leaflet-tile-pane');
+                        if (tilePane) {
+                            tilePane.style.filter = isDark ? 'invert(100%) hue-rotate(180deg) brightness(95%) contrast(90%)' : 'none';
+                        }
+                    };
+
+                    // Initial theme check
+                    updateMapTheme();
+
+                    // Listen for theme changes (optional observers or event overriding could be used here)
+                    const observer = new MutationObserver(updateMapTheme);
+                    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+                });
+            </script>
+
+            <script>
+                document.getElementById('contactForm').addEventListener('submit', async function (e) {
+                    e.preventDefault();
+
+                    const formData = {
+                        name: document.getElementById('name').value,
+                        email: document.getElementById('email').value,
+                        subject: document.getElementById('subject').value,
+                        message: document.getElementById('message').value
+                    };
+
+                    const button = this.querySelector('button[type="submit"]');
+                    const originalText = button.innerHTML;
+                    button.innerHTML = 'Sending...';
+                    button.disabled = true;
+
+                    try {
+                        const response = await fetch('/api/contact', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify(formData)
+                        });
+
+                        const result = await response.json();
+
+                        if (result.success) {
+                            alert('Message sent successfully!');
+                            this.reset();
+                        } else {
+                            alert('Failed to send message. Please try again.');
+                        }
+                    } catch (error) {
+                        console.error('Error:', error);
+                        alert('An error occurred. Please try again later.');
+                    } finally {
+                        button.innerHTML = originalText;
+                        button.disabled = false;
+                    }
+                });
+            </script>
+            <!-- Mobile Only Contact Info (Visible only on small screens) -->
+            <div class="lg:hidden flex flex-col gap-6 border-t border-gray-200 dark:border-gray-800 pt-8">
+                <div class="flex flex-col gap-2">
+                    <h3 class="text-sm font-bold uppercase tracking-wider text-[#616f89] dark:text-gray-400">Contact
+                        Details</h3>
+                    <a class="flex items-center gap-3 text-[#111318] dark:text-white font-medium"
+                        href="mailto:ekomotsu@gmail.com">
+                        <span class="material-symbols-outlined text-primary">mail</span>
+                        ekomotsu@gmail.com
+                    </a>
+                    <div class="flex items-center gap-3 text-[#111318] dark:text-white font-medium">
+                        <span class="material-symbols-outlined text-primary">location_on</span>
+                        Hyderabad, Telangana, India
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- Footer -->
+    <footer class="w-full py-8 mt-auto border-t border-gray-100 dark:border-gray-800 bg-white dark:bg-background-dark">
+        <div
+            class="layout-container px-4 md:px-10 mx-auto max-w-[1200px] flex flex-col md:flex-row justify-between items-center gap-4">
+            <p class="text-[#637588] dark:text-gray-400 text-sm font-normal leading-normal">
+                © 2025 Navari Yashwanth Reddy. All rights reserved.
+            </p>
+            <div class="flex items-center gap-6">
+                <a class="text-sm text-[#616f89] hover:text-primary dark:text-gray-500 dark:hover:text-primary transition-colors"
+                    href="#">Privacy Policy</a>
+                <a class="text-sm text-[#616f89] hover:text-primary dark:text-gray-500 dark:hover:text-primary transition-colors"
+                    href="#">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+    <script src="js/contact.js"></script>
+    <script src="js/interactions.js"></script>
+</body>
+
+</html>

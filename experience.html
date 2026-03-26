@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Experience - DS Portfolio</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap"
+        rel="stylesheet" />
+    <!-- Material Symbols -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script src="js/theme.js"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#135bec",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101622",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Subtle fade-in animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+
+        .delay-100 {
+            animation-delay: 0.1s;
+        }
+
+        .delay-200 {
+            animation-delay: 0.2s;
+        }
+
+        .delay-300 {
+            animation-delay: 0.3s;
+        }
+    </style>
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark font-display text-[#111318] dark:text-white antialiased overflow-x-hidden">
+    <div class="relative flex min-h-screen w-full flex-col group/design-root">
+        <!-- Top Navigation -->
+        <header
+            class="sticky top-0 z-50 flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#f0f2f4] dark:border-gray-800 bg-white/80 dark:bg-[#101622]/80 backdrop-blur-md px-4 sm:px-10 py-3">
+            <div class="flex items-center gap-4 text-[#111318] dark:text-white">
+                <div class="size-8 text-primary">
+                    <span class="material-symbols-outlined text-3xl">data_object</span>
+                </div>
+                <h2 class="text-[#111318] dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">DS
+                    Portfolio</h2>
+            </div>
+            <div class="flex flex-1 justify-end gap-8 hidden md:flex">
+                <div class="flex items-center gap-6">
+                    <a class="text-[#111318] dark:text-gray-300 hover:text-primary text-sm font-medium leading-normal transition-colors"
+                        href="index.html">Home</a>
+                    <a class="text-[#111318] dark:text-gray-300 hover:text-primary text-sm font-medium leading-normal transition-colors"
+                        href="about.html">About</a>
+                    <a class="text-primary text-sm font-bold leading-normal"
+                        href="experience.html">Experience</a>
+                    <a class="text-[#111318] dark:text-gray-300 hover:text-primary text-sm font-medium leading-normal transition-colors"
+                        href="projects.html">Projects</a>
+                    <a class="text-[#111318] dark:text-gray-300 hover:text-primary text-sm font-medium leading-normal transition-colors"
+                        href="skills.html">Skills</a>
+                    <a class="text-[#111318] dark:text-gray-300 hover:text-primary text-sm font-medium leading-normal transition-colors"
+                        href="certifications.html">Certifications</a>
+                    <a class="text-[#111318] dark:text-gray-300 hover:text-primary text-sm font-medium leading-normal transition-colors"
+                        href="blog.html">Blog</a>
+                    <a class="text-[#111318] dark:text-gray-300 hover:text-primary text-sm font-medium leading-normal transition-colors"
+                        href="admin.html">Admin</a>
+                    <a class="text-[#111318] dark:text-gray-300 hover:text-primary text-sm font-medium leading-normal transition-colors"
+                        href="contact.html">Contact</a>
+                </div>
+                <button onclick="window.location.href='resume.html'"
+                    class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary hover:bg-blue-700 transition-colors text-white text-sm font-bold leading-normal tracking-[0.015em]">
+                    <span class="flex items-center gap-2">
+                        <span class="material-symbols-outlined text-[18px]">description</span>
+                        <span class="truncate">Resume</span>
+                    </span>
+                </button>
+            </div>
+    </div>
+    <div class="flex items-center gap-2">
+        <button onclick="window.toggleTheme()"
+            class="theme-toggle flex items-center justify-center p-2 rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors text-[#111318] dark:text-white"
+            aria-label="Toggle Dark Mode">
+            <span class="material-symbols-outlined">dark_mode</span>
+        </button>
+        <!-- Mobile Menu Icon -->
+        <div class="md:hidden">
+            <button id="mobile-menu-btn" class="p-2 text-[#111318] dark:text-white">
+                <span class="material-symbols-outlined">menu</span>
+            </button>
+        </div>
+    </div>
+    </header>
+
+    <!-- Mobile Navigation Menu (Hidden by default) -->
+    <div id="mobile-menu"
+        class="fixed inset-0 z-50 transform translate-x-full transition-transform duration-300 md:hidden">
+        <div class="absolute inset-0 bg-black/50 backdrop-blur-sm" onclick="toggleMobileMenu()"></div>
+        <div
+            class="absolute right-0 top-0 h-full w-[250px] bg-white dark:bg-[#101622] shadow-xl p-6 flex flex-col gap-6">
+            <div class="flex justify-end">
+                <button onclick="toggleMobileMenu()" class="p-2 text-[#111418] dark:text-white">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+            </div>
+            <nav class="flex flex-col gap-4">
+                <a class="text-lg font-medium text-[#111418] dark:text-white hover:text-primary transition-colors"
+                    href="index.html">Home</a>
+                <a class="text-lg font-medium text-[#111418] dark:text-white hover:text-primary transition-colors"
+                    href="about.html">About</a>
+                <a class="text-lg font-medium text-[#111418] dark:text-white hover:text-primary transition-colors"
+                    href="experience.html">Experience</a>
+                <a class="text-lg font-medium text-[#111418] dark:text-white hover:text-primary transition-colors"
+                    href="projects.html">Projects</a>
+                <a class="text-lg font-medium text-[#111418] dark:text-white hover:text-primary transition-colors"
+                    href="skills.html">Skills</a>
+                <a class="text-lg font-medium text-[#111418] dark:text-white hover:text-primary transition-colors"
+                    href="certifications.html">Certifications</a>
+                <a class="text-lg font-medium text-[#111418] dark:text-white hover:text-primary transition-colors"
+                    href="blog.html">Blog</a>
+                <a class="text-lg font-medium text-[#111418] dark:text-white hover:text-primary transition-colors"
+                    href="contact.html">Contact</a>
+            </nav>
+        </div>
+    </div>
+    <div class="layout-container flex h-full grow flex-col">
+        <div class="flex flex-1 justify-center pt-6 pb-12 px-4 md:px-10 lg:px-40">
+            <div class="layout-content-container flex flex-col max-w-[960px] flex-1 gap-6">
+                <!-- Breadcrumb -->
+                <div class="flex items-center gap-2 text-sm text-[#616f89] dark:text-gray-400 animate-fade-in">
+                    <a href="index.html" class="hover:text-primary transition-colors">Home</a>
+                    <span class="material-symbols-outlined text-[10px]">arrow_forward_ios</span>
+                    <span class="text-[#111318] dark:text-white font-medium">Experience</span>
+                </div>
+
+                <!-- Page Heading -->
+                <div class="flex flex-col gap-6 pb-8 animate-fade-in delay-100">
+                    <div class="flex flex-wrap justify-between items-end gap-4">
+                        <div class="flex min-w-72 flex-col gap-3">
+                            <h1
+                                class="text-[#111318] dark:text-white text-4xl sm:text-5xl font-black leading-tight tracking-[-0.033em]">
+                                Professional Experience</h1>
+                            <p class="text-[#616f89] dark:text-gray-400 text-lg font-normal leading-normal max-w-2xl">
+                                My journey in Data Science &amp; Engineering, delivering impact through code,
+                                analysis, and scalable solutions.
+                            </p>
+                        </div>
+                        <!-- Segmented Control for Filter -->
+                        <div class="flex h-12 bg-[#f0f2f4] dark:bg-gray-800 p-1.5 rounded-xl self-start sm:self-end">
+                            <label
+                                class="group flex cursor-pointer items-center justify-center rounded-lg px-4 py-1 transition-all has-[:checked]:bg-white dark:has-[:checked]:bg-[#1A202C] has-[:checked]:shadow-sm">
+                                <input checked="" class="invisible w-0 h-0" name="experience-type" type="radio"
+                                    value="industry" />
+                                <span
+                                    class="text-[#616f89] dark:text-gray-400 font-medium text-sm group-has-[:checked]:text-[#111318] dark:group-has-[:checked]:text-white group-has-[:checked]:font-bold">Industry</span>
+                            </label>
+                            <label
+                                class="group flex cursor-pointer items-center justify-center rounded-lg px-4 py-1 transition-all has-[:checked]:bg-white dark:has-[:checked]:bg-[#1A202C] has-[:checked]:shadow-sm">
+                                <input class="invisible w-0 h-0" name="experience-type" type="radio" value="academic" />
+                                <span
+                                    class="text-[#616f89] dark:text-gray-400 font-medium text-sm group-has-[:checked]:text-[#111318] dark:group-has-[:checked]:text-white group-has-[:checked]:font-bold">Academic
+                                    / Research</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <!-- Experience List -->
+                <div class="flex flex-col gap-6">
+                    <!-- Experience Timeline -->
+                    <div class="relative border-l-2 border-gray-200 dark:border-gray-800 ml-4 md:ml-6 space-y-12">
+
+                        <!-- Item 1: Machine Learning Intern -->
+                        <div class="relative pl-8 md:pl-12 group">
+                            <!-- Timeline Dot -->
+                            <div
+                                class="absolute -left-[9px] top-8 w-4 h-4 rounded-full bg-white dark:bg-[#101622] border-2 border-primary group-hover:scale-125 transition-transform duration-300 z-10">
+                            </div>
+
+                            <div
+                                class="flex flex-col bg-white dark:bg-[#1A202C] rounded-xl shadow-sm border border-gray-100 dark:border-gray-800 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300 relative">
+                                <!-- Glow Effect -->
+                                <div
+                                    class="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity rounded-xl pointer-events-none">
+                                </div>
+
+                                <div class="p-6 sm:p-8 flex flex-col gap-6 relative z-10">
+                                    <!-- Header Row -->
+                                    <div class="flex flex-col sm:flex-row justify-between items-start gap-4">
+                                        <div class="flex items-start gap-4">
+                                            <div class="hidden sm:block w-12 h-12 rounded-lg bg-gray-100 dark:bg-gray-800 bg-center bg-cover border border-gray-200 dark:border-gray-700 shrink-0 shadow-inner"
+                                                data-alt="Logo of Tech Corp"
+                                                style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCKlM9dVE4t5ymB4RfCjgJOq4sKfnfKyq0GYJC9kqLVRFhri07HHU3jJfFJiTTDhvgjePaSd5gXBQ2NRysp7c6WU_3VlJMZFQsJ-blABBailsMKWVW7yd6KCmMvWRHHDyufBVyBfEdqC_Wp_Ja8rWXz76z7rHWgbmY2pfYomtwtyB7Ui0ZeaBjWZyJLmufx8loTnRp7zrzQJhR9b_GHiv7YLnmqqviXj4jEXlQc44fiRNRDwRmNUwcRf1trdUNuWZx16yz2IWB5W2sr');">
+                                            </div>
+                                            <div>
+                                                <h3
+                                                    class="text-xl font-bold text-[#111318] dark:text-white leading-tight group-hover:text-primary transition-colors">
+                                                    Machine Learning Intern</h3>
+                                                <div class="text-primary font-semibold text-base mt-1">Tech Corp</div>
+                                            </div>
+                                        </div>
+                                        <div
+                                            class="flex flex-col sm:items-end gap-1 text-[#616f89] dark:text-gray-400 text-sm">
+                                            <div class="font-bold bg-gray-100 dark:bg-gray-800 px-3 py-1 rounded-full">
+                                                June 2023 - Aug 2023</div>
+                                            <div class="flex items-center gap-1 mt-1">
+                                                <span class="material-symbols-outlined text-[16px]">location_on</span>
+                                                <span>Hyderabad, Telangana, India</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="w-full h-px bg-[#f0f2f4] dark:bg-gray-700"></div>
+                                    <!-- Details Grid -->
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                                        <div class="flex flex-col gap-3">
+                                            <h4
+                                                class="text-sm font-bold text-[#111318] dark:text-white uppercase tracking-wider flex items-center gap-2">
+                                                <span
+                                                    class="material-symbols-outlined text-primary text-[18px]">assignment</span>
+                                                Responsibilities
+                                            </h4>
+                                            <ul class="flex flex-col gap-2">
+                                                <li
+                                                    class="flex gap-2 text-[#4a5568] dark:text-gray-300 text-sm leading-relaxed">
+                                                    <span class="text-primary font-bold">•</span>
+                                                    Developed NLP models using PyTorch to analyze customer sentiment
+                                                    from 50k+ support tickets.
+                                                </li>
+                                                <li
+                                                    class="flex gap-2 text-[#4a5568] dark:text-gray-300 text-sm leading-relaxed">
+                                                    <span class="text-primary font-bold">•</span>
+                                                    Collaborated with the engineering team to containerize model
+                                                    inference services using Docker.
+                                                </li>
+                                                <li
+                                                    class="flex gap-2 text-[#4a5568] dark:text-gray-300 text-sm leading-relaxed">
+                                                    <span class="text-primary font-bold">•</span>
+                                                    Optimized data preprocessing pipelines in Python, reducing data
+                                                    loading times by 40%.
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="flex flex-col gap-3">
+                                            <h4
+                                                class="text-sm font-bold text-[#111318] dark:text-white uppercase tracking-wider flex items-center gap-2">
+                                                <span
+                                                    class="material-symbols-outlined text-primary text-[18px]">bolt</span>
+                                                Impact
+                                            </h4>
+                                            <ul class="flex flex-col gap-2">
+                                                <li
+                                                    class="flex gap-2 text-[#4a5568] dark:text-gray-300 text-sm leading-relaxed">
+                                                    <span class="text-primary font-bold">•</span>
+                                                    Achieved a 15% improvement in classification accuracy over the
+                                                    baseline model.
+                                                </li>
+                                                <li
+                                                    class="flex gap-2 text-[#4a5568] dark:text-gray-300 text-sm leading-relaxed">
+                                                    <span class="text-primary font-bold">•</span>
+                                                    Automated sentiment reporting saved the support team ~10 hours of
+                                                    manual review weekly.
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <!-- Tools / Tags -->
+                                    <div class="flex flex-wrap gap-2 pt-2">
+                                        <span
+                                            class="px-2.5 py-1 text-xs font-semibold text-primary bg-primary/10 dark:bg-primary/20 rounded-md border border-primary/20">Python</span>
+                                        <span
+                                            class="px-2.5 py-1 text-xs font-semibold text-primary bg-primary/10 dark:bg-primary/20 rounded-md border border-primary/20">PyTorch</span>
+                                        <span
+                                            class="px-2.5 py-1 text-xs font-semibold text-primary bg-primary/10 dark:bg-primary/20 rounded-md border border-primary/20">Docker</span>
+                                        <span
+                                            class="px-2.5 py-1 text-xs font-semibold text-primary bg-primary/10 dark:bg-primary/20 rounded-md border border-primary/20">AWS</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 2: Data Science Research Assistant -->
+                        <div class="relative pl-8 md:pl-12 group">
+                            <!-- Timeline Dot -->
+                            <div
+                                class="absolute -left-[9px] top-8 w-4 h-4 rounded-full bg-white dark:bg-[#101622] border-2 border-gray-300 dark:border-gray-600 group-hover:border-primary group-hover:scale-125 transition-all duration-300 z-10">
+                            </div>
+
+                            <div
+                                class="flex flex-col bg-white dark:bg-[#1A202C] rounded-xl shadow-sm border border-gray-100 dark:border-gray-800 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300 relative">
+                                <!-- Glow -->
+                                <div
+                                    class="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity rounded-xl pointer-events-none">
+                                </div>
+
+                                <div class="p-6 sm:p-8 flex flex-col gap-6 relative z-10">
+                                    <div class="flex flex-col sm:flex-row justify-between items-start gap-4">
+                                        <div class="flex items-start gap-4">
+                                            <div class="hidden sm:block w-12 h-12 rounded-lg bg-gray-100 dark:bg-gray-800 bg-center bg-cover border border-gray-200 dark:border-gray-700 shrink-0 shadow-inner"
+                                                data-alt="Logo of University Lab"
+                                                style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDG_SvEMpwxlavEmi6TorRr7OfymTIGwv-0hF32spF27eJ1tyuiUbu4I_ZhfgsYfPQcQoBBFMtiqJObM4wZAPTlw5IVUqTd-gJfGN47wbJxIP8Cg-utPfYAamYmKLNLXBQo0BpSi9vavjdLWomDvrWD75za-k1fU2swBEl6YY0jJpWS0AVVLSrj7YFq7cvrSLJ-zFAHr5-eJIAMAfH6B2louQ_61DhWiacjD8ao3dhIBlS5AFBWAAqNmSN7VFP0t9KALxgNqw-8W3pY');">
+                                            </div>
+                                            <div>
+                                                <h3
+                                                    class="text-xl font-bold text-[#111318] dark:text-white leading-tight group-hover:text-primary transition-colors">
+                                                    Data Science Research Assistant</h3>
+                                                <div class="text-primary font-semibold text-base mt-1">University
+                                                    Genomic Lab</div>
+                                            </div>
+                                        </div>
+                                        <div
+                                            class="flex flex-col sm:items-end gap-1 text-[#616f89] dark:text-gray-400 text-sm">
+                                            <div class="font-bold bg-gray-100 dark:bg-gray-800 px-3 py-1 rounded-full">
+                                                Jan 2023 - May 2023</div>
+                                            <div class="flex items-center gap-1 mt-1">
+                                                <span class="material-symbols-outlined text-[16px]">location_on</span>
+                                                <span>Boston, MA</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="w-full h-px bg-[#f0f2f4] dark:bg-gray-700"></div>
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                                        <div class="flex flex-col gap-3">
+                                            <h4
+                                                class="text-sm font-bold text-[#111318] dark:text-white uppercase tracking-wider flex items-center gap-2">
+                                                <span
+                                                    class="material-symbols-outlined text-primary text-[18px]">assignment</span>
+                                                Responsibilities
+                                            </h4>
+                                            <ul class="flex flex-col gap-2">
+                                                <li
+                                                    class="flex gap-2 text-[#4a5568] dark:text-gray-300 text-sm leading-relaxed">
+                                                    <span class="text-primary font-bold">•</span>
+                                                    Conducted statistical analysis on large genomic datasets using R and
+                                                    Python pandas.
+                                                </li>
+                                                <li
+                                                    class="flex gap-2 text-[#4a5568] dark:text-gray-300 text-sm leading-relaxed">
+                                                    <span class="text-primary font-bold">•</span>
+                                                    Visualized complex multi-dimensional data patterns using Tableau and
+                                                    Matplotlib for stakeholder presentations.
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="flex flex-col gap-3">
+                                            <h4
+                                                class="text-sm font-bold text-[#111318] dark:text-white uppercase tracking-wider flex items-center gap-2">
+                                                <span
+                                                    class="material-symbols-outlined text-primary text-[18px]">bolt</span>
+                                                Impact
+                                            </h4>
+                                            <ul class="flex flex-col gap-2">
+                                                <li
+                                                    class="flex gap-2 text-[#4a5568] dark:text-gray-300 text-sm leading-relaxed">
+                                                    <span class="text-primary font-bold">•</span>
+                                                    Identified 3 key gene markers correlated with disease resistance,
+                                                    contributing to a published paper.
+                                                </li>
+                                                <li
+                                                    class="flex gap-2 text-[#4a5568] dark:text-gray-300 text-sm leading-relaxed">
+                                                    <span class="text-primary font-bold">•</span>
+                                                    Presented findings at the Undergraduate Research Symposium 2023.
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="flex flex-wrap gap-2 pt-2">
+                                        <span
+                                            class="px-2.5 py-1 text-xs font-semibold text-primary bg-primary/10 dark:bg-primary/20 rounded-md border border-primary/20">R</span>
+                                        <span
+                                            class="px-2.5 py-1 text-xs font-semibold text-primary bg-primary/10 dark:bg-primary/20 rounded-md border border-primary/20">Tableau</span>
+                                        <span
+                                            class="px-2.5 py-1 text-xs font-semibold text-primary bg-primary/10 dark:bg-primary/20 rounded-md border border-primary/20">Pandas</span>
+                                        <span
+                                            class="px-2.5 py-1 text-xs font-semibold text-primary bg-primary/10 dark:bg-primary/20 rounded-md border border-primary/20">Statistics</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 3: Software Engineering Capstone -->
+                        <div class="relative pl-8 md:pl-12 group">
+                            <!-- Timeline Dot -->
+                            <div
+                                class="absolute -left-[9px] top-8 w-4 h-4 rounded-full bg-white dark:bg-[#101622] border-2 border-gray-300 dark:border-gray-600 group-hover:border-primary group-hover:scale-125 transition-all duration-300 z-10">
+                            </div>
+
+                            <div
+                                class="flex flex-col bg-white dark:bg-[#1A202C] rounded-xl shadow-sm border border-gray-100 dark:border-gray-800 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300 relative">
+                                <!-- Glow -->
+                                <div
+                                    class="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity rounded-xl pointer-events-none">
+                                </div>
+
+                                <div class="p-6 sm:p-8 flex flex-col gap-6 relative z-10">
+                                    <div class="flex flex-col sm:flex-row justify-between items-start gap-4">
+                                        <div class="flex items-start gap-4">
+                                            <div class="hidden sm:block w-12 h-12 rounded-lg bg-gray-100 dark:bg-gray-800 bg-center bg-cover border border-gray-200 dark:border-gray-700 shrink-0 shadow-inner"
+                                                data-alt="Icon representing a team project"
+                                                style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB22vhnI0ID04Wo5JFbI9Ie1k37BspCRaPbvVOCut7ITpK-rw--khHd7w3-M0-KO4L1PACKsJZASJ9Ip8eqVLyvCK9xoz456C-1oT9TXbeCOtq4rwmWC49DgysAFiz9D7Z9gwwvss_msi8NwjiqPhDF-WMFOdVAr2cofEm4lyInMw3FbQ2AMYkrL_VLbj3XoMQDmgO7a--4oIrT3ftpBpwt4-1Y-sDEfP102iaqdrzSFhZZRjEs0ir3yjomDqxmkk0WZ2IdyoiI42yp');">
+                                            </div>
+                                            <div>
+                                                <h3
+                                                    class="text-xl font-bold text-[#111318] dark:text-white leading-tight group-hover:text-primary transition-colors">
+                                                    Software Engineering Lead</h3>
+                                                <div class="text-primary font-semibold text-base mt-1">Senior Capstone
+                                                    Project</div>
+                                            </div>
+                                        </div>
+                                        <div
+                                            class="flex flex-col sm:items-end gap-1 text-[#616f89] dark:text-gray-400 text-sm">
+                                            <div class="font-bold bg-gray-100 dark:bg-gray-800 px-3 py-1 rounded-full">
+                                                Sep 2022 - Dec 2022</div>
+                                            <div class="flex items-center gap-1 mt-1">
+                                                <span class="material-symbols-outlined text-[16px]">school</span>
+                                                <span>University Project</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="w-full h-px bg-[#f0f2f4] dark:bg-gray-700"></div>
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                                        <div class="flex flex-col gap-3">
+                                            <h4
+                                                class="text-sm font-bold text-[#111318] dark:text-white uppercase tracking-wider flex items-center gap-2">
+                                                <span
+                                                    class="material-symbols-outlined text-primary text-[18px]">assignment</span>
+                                                Responsibilities
+                                            </h4>
+                                            <ul class="flex flex-col gap-2">
+                                                <li
+                                                    class="flex gap-2 text-[#4a5568] dark:text-gray-300 text-sm leading-relaxed">
+                                                    <span class="text-primary font-bold">•</span>
+                                                    Led a team of 4 to build a full-stack inventory management web
+                                                    application.
+                                                </li>
+                                                <li
+                                                    class="flex gap-2 text-[#4a5568] dark:text-gray-300 text-sm leading-relaxed">
+                                                    <span class="text-primary font-bold">•</span>
+                                                    Designed the database schema in PostgreSQL and implemented RESTful
+                                                    APIs using Node.js/Express.
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="flex flex-col gap-3">
+                                            <h4
+                                                class="text-sm font-bold text-[#111318] dark:text-white uppercase tracking-wider flex items-center gap-2">
+                                                <span
+                                                    class="material-symbols-outlined text-primary text-[18px]">bolt</span>
+                                                Impact
+                                            </h4>
+                                            <ul class="flex flex-col gap-2">
+                                                <li
+                                                    class="flex gap-2 text-[#4a5568] dark:text-gray-300 text-sm leading-relaxed">
+                                                    <span class="text-primary font-bold">•</span>
+                                                    Delivered a fully functional prototype demoed to industry judges,
+                                                    receiving 'Best UI' award.
+                                                </li>
+                                                <li
+                                                    class="flex gap-2 text-[#4a5568] dark:text-gray-300 text-sm leading-relaxed">
+                                                    <span class="text-primary font-bold">•</span>
+                                                    Implemented CI/CD pipelines which reduced integration bugs by 30%
+                                                    during development.
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="flex flex-wrap gap-2 pt-2">
+                                        <span
+                                            class="px-2.5 py-1 text-xs font-semibold text-primary bg-primary/10 dark:bg-primary/20 rounded-md border border-primary/20">JavaScript</span>
+                                        <span
+                                            class="px-2.5 py-1 text-xs font-semibold text-primary bg-primary/10 dark:bg-primary/20 rounded-md border border-primary/20">React</span>
+                                        <span
+                                            class="px-2.5 py-1 text-xs font-semibold text-primary bg-primary/10 dark:bg-primary/20 rounded-md border border-primary/20">Node.js</span>
+                                        <span
+                                            class="px-2.5 py-1 text-xs font-semibold text-primary bg-primary/10 dark:bg-primary/20 rounded-md border border-primary/20">PostgreSQL</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Bottom CTA -->
+                    <div class="mt-8 flex justify-center pb-10">
+                        <p class="text-[#616f89] dark:text-gray-400 text-sm">
+                            Want to see more details? <a class="text-primary font-bold hover:underline"
+                                href="#">Download my
+                                full Resume</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate-slide-in');
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateX(0)';
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            const timelineItems = document.querySelectorAll('.group > div.flex.flex-col');
+            timelineItems.forEach((item, index) => {
+                // Set initial state
+                item.style.opacity = '0';
+                item.style.transform = 'translateX(-20px)';
+                item.style.transition = 'all 0.6s cubic-bezier(0.16, 1, 0.3, 1)';
+                // Stagger delay
+                item.style.transitionDelay = `${index * 100}ms`;
+
+                observer.observe(item);
+            });
+        });
+    </script>
+
+    <!-- Phase 5: Live Visitor Badge -->
+    <div id="visitor-badge"
+        class="fixed bottom-4 left-4 z-50 flex items-center gap-3 px-4 py-2 bg-white/90 dark:bg-[#1c2333]/90 backdrop-blur-md border border-slate-200 dark:border-slate-700 rounded-full shadow-xl transition-all hover:scale-105 cursor-help animate-fade-in group">
+        <span class="relative flex h-2.5 w-2.5">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500"></span>
+        </span>
+        <span
+            class="text-xs font-mono font-medium text-slate-600 dark:text-slate-300 group-hover:text-primary transition-colors">
+            <span id="visitor-count" class="font-bold">14</span> Live Visitors
+        </span>
+    </div>
+
+    <!-- Visitor Count Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const countEl = document.getElementById('visitor-count');
+            // Random start between 8 and 24
+            let count = 8 + Math.floor(Math.random() * 16);
+            if (countEl) countEl.textContent = count;
+
+            setInterval(() => {
+                if (!countEl) return;
+                // Random walk: -1, 0, or +1 specific bias to stay in range
+                const move = Math.random();
+                let change = 0;
+
+                if (count > 25) change = -1; // trend down if too high
+                else if (count < 5) change = 1; // trend up if too low
+                else change = move > 0.6 ? 1 : (move < 0.4 ? -1 : 0);
+
+                if (change !== 0) {
+                    count += change;
+                    countEl.textContent = count;
+
+                    // Subtle jump animation
+                    countEl.classList.add('text-green-500', 'scale-110');
+                    setTimeout(() => countEl.classList.remove('text-green-500', 'scale-110'), 300);
+                }
+            }, 4000);
+        });
+    </script>
+    <script src="js/interactions.js"></script>
+</body>
+
+</html>

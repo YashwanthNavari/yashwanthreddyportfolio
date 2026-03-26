@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+
+<head>
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Projects Portfolio - Data Science &amp; Engineering</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap"
+        rel="stylesheet" />
+    <!-- Material Icons -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script src="js/theme.js"></script>
+    <script src="js/filter.js" defer></script>
+    <!-- Theme Configuration -->
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#135bec",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101622", // Very dark blue/charcoal
+                        "card-dark": "#1c2333", // Slightly lighter for cards
+                        "card-border": "#283045"
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"],
+                        "body": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Subtle fade-in animation for cards */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+
+        .delay-100 {
+            animation-delay: 0.1s;
+        }
+
+        .delay-200 {
+            animation-delay: 0.2s;
+        }
+
+        .delay-300 {
+            animation-delay: 0.3s;
+        }
+
+        .delay-400 {
+            animation-delay: 0.4s;
+        }
+    </style>
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark min-h-screen flex flex-col font-display text-slate-900 dark:text-slate-100 overflow-x-hidden">
+    <!-- Navbar -->
+    <header
+        class="sticky top-0 z-50 w-full border-b border-gray-200 dark:border-[#282e39] bg-white/80 dark:bg-[#111318]/90 backdrop-blur-md">
+        <div class="px-4 md:px-10 lg:px-40 py-3 flex items-center justify-between">
+            <div class="flex items-center gap-4 text-slate-900 dark:text-white">
+                <div class="size-8 text-primary">
+                    <span class="material-symbols-outlined text-3xl">terminal</span>
+                </div>
+                <h2 class="text-lg font-bold leading-tight tracking-[-0.015em]">DevPortfolio</h2>
+            </div>
+            <div class="hidden md:flex flex-1 justify-end gap-8 items-center">
+                <nav class="flex items-center gap-6">
+                    <a class="text-sm font-medium hover:text-primary transition-colors"
+                        href="index.html">Home</a>
+                    <a class="text-sm font-medium hover:text-primary transition-colors" href="about.html">About</a>
+                    <a class="text-sm font-medium hover:text-primary transition-colors"
+                        href="experience.html">Experience</a>
+                    <a class="text-sm font-medium text-primary" href="projects.html">Projects</a>
+                    <a class="text-sm font-medium hover:text-primary transition-colors"
+                        href="skills.html">Skills</a>
+                    <a class="text-sm font-medium hover:text-primary transition-colors"
+                        href="certifications.html">Certifications</a>
+                    <a class="text-sm font-medium hover:text-primary transition-colors" href="blog.html">Blog</a>
+                    <a class="text-sm font-medium hover:text-primary transition-colors" href="admin.html">Admin</a>
+                    <a class="text-sm font-medium hover:text-primary transition-colors"
+                        href="contact.html">Contact</a>
+                </nav>
+                <button onclick="window.location.href='resume.html'"
+                    class="flex items-center justify-center rounded-lg h-9 px-4 bg-primary text-white text-sm font-bold hover:bg-blue-600 transition-colors shadow-lg shadow-blue-500/20">
+                    View Resume
+                </button>
+            </div>
+            <!-- Mobile Menu Icon -->
+            <div class="flex items-center gap-2">
+                <button onclick="window.toggleTheme()"
+                    class="theme-toggle flex items-center justify-center p-2 rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors text-slate-900 dark:text-white"
+                    aria-label="Toggle Dark Mode">
+                    <span class="material-symbols-outlined">dark_mode</span>
+                </button>
+                <div class="md:hidden text-slate-900 dark:text-white">
+                    <button id="mobile-menu-btn" class="p-2">
+                        <span class="material-symbols-outlined cursor-pointer">menu</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation Menu (Hidden by default) -->
+    <div id="mobile-menu"
+        class="fixed inset-0 z-50 transform translate-x-full transition-transform duration-300 md:hidden">
+        <div class="absolute inset-0 bg-black/50 backdrop-blur-sm" onclick="toggleMobileMenu()"></div>
+        <div
+            class="absolute right-0 top-0 h-full w-[250px] bg-white dark:bg-[#111318] shadow-xl p-6 flex flex-col gap-6">
+            <div class="flex justify-end">
+                <button onclick="toggleMobileMenu()" class="p-2 text-slate-900 dark:text-white">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+            </div>
+            <nav class="flex flex-col gap-4">
+                <a class="text-lg font-medium text-slate-900 dark:text-white hover:text-primary transition-colors"
+                    href="index.html">Home</a>
+                <a class="text-lg font-medium text-slate-900 dark:text-white hover:text-primary transition-colors"
+                    href="about.html">About</a>
+                <a class="text-lg font-medium text-slate-900 dark:text-white hover:text-primary transition-colors"
+                    href="experience.html">Experience</a>
+                <a class="text-lg font-medium text-slate-900 dark:text-white hover:text-primary transition-colors"
+                    href="projects.html">Projects</a>
+                <a class="text-lg font-medium text-slate-900 dark:text-white hover:text-primary transition-colors"
+                    href="skills.html">Skills</a>
+                <a class="text-lg font-medium text-slate-900 dark:text-white hover:text-primary transition-colors"
+                    href="certifications.html">Certifications</a>
+                <a class="text-lg font-medium text-slate-900 dark:text-white hover:text-primary transition-colors"
+                    href="blog.html">Blog</a>
+                <a class="text-lg font-medium text-slate-900 dark:text-white hover:text-primary transition-colors"
+                    href="contact.html">Contact</a>
+            </nav>
+        </div>
+    </div>
+    <main class="flex-grow w-full px-4 md:px-10 lg:px-40 py-8 md:py-12">
+        <div class="max-w-5xl mx-auto flex flex-col gap-10">
+            <!-- Hero Header -->
+            <section class="flex flex-col items-center text-center gap-4 py-8 animate-fade-in">
+                <div
+                    class="inline-flex items-center justify-center px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold tracking-wide uppercase">
+                    Portfolio Showcase
+                </div>
+                <h1 class="text-4xl md:text-5xl font-black tracking-tight text-slate-900 dark:text-white">
+                    Engineering &amp; <span class="text-primary">Data Science</span>
+                </h1>
+                <p class="text-slate-500 dark:text-slate-400 max-w-2xl text-lg">
+                    Showcasing innovative solutions in Software Engineering, IoT, and Machine Learning.
+                    Each project highlights specific problem-solving skills and technical proficiency.
+                </p>
+            </section>
+            <!-- Filters -->
+            <section class="flex flex-wrap justify-center gap-3 animate-fade-in delay-100">
+                <button data-filter="all"
+                    class="filter-btn px-5 py-2 rounded-full bg-primary text-white text-sm font-medium shadow-md shadow-blue-500/20 transition-transform hover:scale-105">
+                    All Projects
+                </button>
+                <button data-filter="software-eng"
+                    class="filter-btn px-5 py-2 rounded-full bg-white dark:bg-[#1c2333] border border-gray-200 dark:border-[#283045] text-slate-600 dark:text-slate-300 text-sm font-medium hover:border-primary hover:text-primary transition-all">
+                    Software Eng
+                </button>
+                <button data-filter="iot"
+                    class="filter-btn px-5 py-2 rounded-full bg-white dark:bg-[#1c2333] border border-gray-200 dark:border-[#283045] text-slate-600 dark:text-slate-300 text-sm font-medium hover:border-primary hover:text-primary transition-all">
+                    IoT &amp; Embedded
+                </button>
+                <button data-filter="ml"
+                    class="filter-btn px-5 py-2 rounded-full bg-white dark:bg-[#1c2333] border border-gray-200 dark:border-[#283045] text-slate-600 dark:text-slate-300 text-sm font-medium hover:border-primary hover:text-primary transition-all">
+                    Machine Learning
+                </button>
+                <button data-filter="dbms"
+                    class="filter-btn px-5 py-2 rounded-full bg-white dark:bg-[#1c2333] border border-gray-200 dark:border-[#283045] text-slate-600 dark:text-slate-300 text-sm font-medium hover:border-primary hover:text-primary transition-all">
+                    DBMS
+                </button>
+            </section>
+
+            <!-- Phase 5: Tech Cloud Filter -->
+            <div class="flex flex-wrap justify-center gap-2 -mt-4 mb-2 max-w-3xl mx-auto animate-fade-in delay-150"
+                id="tech-filters">
+                <button
+                    class="tech-filter-btn px-3 py-1 rounded-full text-xs font-semibold border border-slate-200 dark:border-slate-700 hover:border-primary hover:text-primary transition-colors text-slate-500 dark:text-slate-400"
+                    data-tech="Python">Python</button>
+                <button
+                    class="tech-filter-btn px-3 py-1 rounded-full text-xs font-semibold border border-slate-200 dark:border-slate-700 hover:border-primary hover:text-primary transition-colors text-slate-500 dark:text-slate-400"
+                    data-tech="JavaScript">JavaScript</button>
+                <button
+                    class="tech-filter-btn px-3 py-1 rounded-full text-xs font-semibold border border-slate-200 dark:border-slate-700 hover:border-primary hover:text-primary transition-colors text-slate-500 dark:text-slate-400"
+                    data-tech="HTML">HTML</button>
+                <button
+                    class="tech-filter-btn px-3 py-1 rounded-full text-xs font-semibold border border-slate-200 dark:border-slate-700 hover:border-primary hover:text-primary transition-colors text-slate-500 dark:text-slate-400"
+                    data-tech="CSS">CSS</button>
+                <button
+                    class="tech-filter-btn px-3 py-1 rounded-full text-xs font-semibold border border-slate-200 dark:border-slate-700 hover:border-primary hover:text-primary transition-colors text-slate-500 dark:text-slate-400"
+                    data-tech="React">React</button>
+                <button
+                    class="tech-filter-btn px-3 py-1 rounded-full text-xs font-semibold border border-slate-200 dark:border-slate-700 hover:border-primary hover:text-primary transition-colors text-slate-500 dark:text-slate-400"
+                    data-tech="Tailwind">Tailwind</button>
+                <button
+                    class="tech-filter-btn px-3 py-1 rounded-full text-xs font-semibold border border-slate-200 dark:border-slate-700 hover:border-primary hover:text-primary transition-colors text-slate-500 dark:text-slate-400"
+                    data-tech="SQL">SQL</button>
+                <button
+                    class="tech-filter-btn px-3 py-1 rounded-full text-xs font-semibold border border-slate-200 dark:border-slate-700 hover:border-primary hover:text-primary transition-colors text-slate-500 dark:text-slate-400"
+                    data-tech="Machine Learning">Machine Learning</button>
+                <button
+                    class="tech-filter-btn px-3 py-1 rounded-full text-xs font-semibold border border-slate-200 dark:border-slate-700 hover:border-primary hover:text-primary transition-colors text-slate-500 dark:text-slate-400"
+                    data-tech="IoT">IoT</button>
+            </div>
+
+            <!-- Search Bar -->
+            <section class="flex justify-center max-w-md mx-auto w-full animate-fade-in delay-200">
+                <div class="relative w-full">
+                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                        <span class="material-symbols-outlined text-slate-400">search</span>
+                    </div>
+                    <input type="text" id="projectSearch"
+                        class="block w-full pl-10 pr-3 py-2.5 border border-gray-200 dark:border-[#283045] rounded-xl leading-5 bg-white dark:bg-[#1c2333] text-slate-900 dark:text-gray-100 placeholder-slate-400 focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary sm:text-sm transition-shadow shadow-sm hover:shadow-md"
+                        placeholder="Search projects (e.g., 'Python', 'IoT', 'SQL')...">
+                </div>
+            </section>
+            <!-- Projects Grid -->
+            <div id="projects-list-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-6">
+                <!-- Projects will be loaded dynamically via js/dynamic-content.js -->
+            </div>
+            <div class="space-y-2 pt-2 border-t border-gray-100 dark:border-[#283045] mt-auto">
+                <p class="font-semibold text-slate-900 dark:text-slate-200 text-xs">Key Features</p>
+                <div class="flex flex-wrap gap-2">
+                    <span
+                        class="px-2 py-1 rounded bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-300 text-[10px] font-medium">Real-time
+                        detection</span>
+                    <span
+                        class="px-2 py-1 rounded bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-300 text-[10px] font-medium">Multi-class
+                        recognition</span>
+                </div>
+            </div>
+        </div>
+        </article>
+
+        <!-- Project 12: Organ Donation Application -->
+        <article data-category="dbms"
+            data-description="Database-driven application connecting organ donors, recipients, and hospitals securely. Ensures data privacy and efficient matching."
+            data-outcome="Facilitated safe and efficient organ matching process."
+            class="project-item group relative flex flex-col bg-white dark:bg-[#1c2333] rounded-xl border border-gray-200 dark:border-[#283045] overflow-hidden shadow-sm hover:shadow-xl hover:border-primary/50 transition-all duration-300 animate-fade-in h-full">
+            <div class="w-full h-48 bg-gray-100 dark:bg-[#151a25] relative overflow-hidden shrink-0">
+                <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+                    style="background-image: url('images/dbms.png');">
+                </div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent">
+                </div>
+                <div class="absolute bottom-4 left-4">
+                    <span
+                        class="px-2 py-1 bg-black/50 backdrop-blur text-xs font-bold text-white rounded border border-white/20">Application
+                        / DB</span>
+                </div>
+            </div>
+            <div class="flex-1 p-6 flex flex-col gap-4">
+                <div class="flex justify-between items-start">
+                    <div>
+                        <h3
+                            class="text-xl font-bold text-slate-900 dark:text-white group-hover:text-primary transition-colors line-clamp-1">
+                            Organ Donation App</h3>
+                        <p class="text-slate-500 dark:text-slate-400 text-sm mt-1 line-clamp-1">Database Mgt,
+                            Backend Dev</p>
+                    </div>
+                </div>
+                <div class="space-y-1">
+                    <p class="font-semibold text-slate-900 dark:text-slate-200 flex items-center gap-1 text-sm">
+                        Description</p>
+                    <p class="text-slate-600 dark:text-slate-400 leading-relaxed text-sm line-clamp-3">
+                        Database-driven application connecting organ donors, recipients, and hospitals securely.
+                    </p>
+                </div>
+                <div class="space-y-2 pt-2 border-t border-gray-100 dark:border-[#283045] mt-auto">
+                    <p class="font-semibold text-slate-900 dark:text-slate-200 text-xs">Key Features</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span
+                            class="px-2 py-1 rounded bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-300 text-[10px] font-medium">Donor
+                            registration</span>
+                        <span
+                            class="px-2 py-1 rounded bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-300 text-[10px] font-medium">Secure
+                            database</span>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <!-- Project 13: Face Recognition Login System -->
+        <article data-category="ml"
+            data-description="Biometric login system ensuring secure access authentication via facial recognition technology. Replaces traditional passwords with face ID."
+            data-outcome="Robust security against unauthorized access."
+            class="project-item group relative flex flex-col bg-white dark:bg-[#1c2333] rounded-xl border border-gray-200 dark:border-[#283045] overflow-hidden shadow-sm hover:shadow-xl hover:border-primary/50 transition-all duration-300 animate-fade-in h-full">
+            <div class="w-full h-48 bg-gray-100 dark:bg-[#151a25] relative overflow-hidden shrink-0">
+                <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+                    style="background-image: url('images/ml.png');">
+                </div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent">
+                </div>
+                <div class="absolute bottom-4 left-4">
+                    <span
+                        class="px-2 py-1 bg-black/50 backdrop-blur text-xs font-bold text-white rounded border border-white/20">Security
+                        / CV</span>
+                </div>
+            </div>
+            <div class="flex-1 p-6 flex flex-col gap-4">
+                <div class="flex justify-between items-start">
+                    <div>
+                        <h3
+                            class="text-xl font-bold text-slate-900 dark:text-white group-hover:text-primary transition-colors line-clamp-1">
+                            Face Recognition Login</h3>
+                        <p class="text-slate-500 dark:text-slate-400 text-sm mt-1 line-clamp-1">Python, OpenCV
+                        </p>
+                    </div>
+                </div>
+                <div class="space-y-1">
+                    <p class="font-semibold text-slate-900 dark:text-slate-200 flex items-center gap-1 text-sm">
+                        Description</p>
+                    <p class="text-slate-600 dark:text-slate-400 leading-relaxed text-sm line-clamp-3">
+                        Biometric login system ensuring secure access via facial recognition.
+                    </p>
+                </div>
+                <div class="space-y-2 pt-2 border-t border-gray-100 dark:border-[#283045] mt-auto">
+                    <p class="font-semibold text-slate-900 dark:text-slate-200 text-xs">Key Features</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span
+                            class="px-2 py-1 rounded bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-300 text-[10px] font-medium">Face
+                            authentication</span>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <!-- Project 14: Hospital Management System -->
+        <article data-category="software-eng"
+            data-description="GUI-based system to manage patients, doctors, appointments, and billing efficiently using Python Tkinter and SQL connectivity."
+            data-outcome="Streamlined hospital administration processes."
+            class="project-item group relative flex flex-col bg-white dark:bg-[#1c2333] rounded-xl border border-gray-200 dark:border-[#283045] overflow-hidden shadow-sm hover:shadow-xl hover:border-primary/50 transition-all duration-300 animate-fade-in h-full">
+            <div class="w-full h-48 bg-gray-100 dark:bg-[#151a25] relative overflow-hidden shrink-0">
+                <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+                    style="background-image: url('images/software.png');">
+                </div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent">
+                </div>
+                <div class="absolute bottom-4 left-4">
+                    <span
+                        class="px-2 py-1 bg-black/50 backdrop-blur text-xs font-bold text-white rounded border border-white/20">GUI
+                        Application</span>
+                </div>
+            </div>
+            <div class="flex-1 p-6 flex flex-col gap-4">
+                <div class="flex justify-between items-start">
+                    <div>
+                        <h3
+                            class="text-xl font-bold text-slate-900 dark:text-white group-hover:text-primary transition-colors line-clamp-1">
+                            Hospital Management System</h3>
+                        <p class="text-slate-500 dark:text-slate-400 text-sm mt-1 line-clamp-1">Python, Tkinter,
+                            Database</p>
+                    </div>
+                </div>
+                <div class="space-y-1">
+                    <p class="font-semibold text-slate-900 dark:text-slate-200 flex items-center gap-1 text-sm">
+                        Description</p>
+                    <p class="text-slate-600 dark:text-slate-400 leading-relaxed text-sm line-clamp-3">
+                        GUI-based system to manage patients, doctors, appointments, and billing efficiently.
+                    </p>
+                </div>
+                <div class="space-y-2 pt-2 border-t border-gray-100 dark:border-[#283045] mt-auto">
+                    <p class="font-semibold text-slate-900 dark:text-slate-200 text-xs">Key Features</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span
+                            class="px-2 py-1 rounded bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-300 text-[10px] font-medium">Record
+                            management</span>
+                        <span
+                            class="px-2 py-1 rounded bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-300 text-[10px] font-medium">Appointment
+                            scheduling</span>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <!-- Project 15: MiniGPT -->
+        <article data-category="ml"
+            data-description="Simplified GPT implementation to understand and generate human-like text using Transformer architecture and PyTorch."
+            data-outcome="Demonstrated detailed understanding of LLM architectures."
+            class="project-item group relative flex flex-col bg-white dark:bg-[#1c2333] rounded-xl border border-gray-200 dark:border-[#283045] overflow-hidden shadow-sm hover:shadow-xl hover:border-primary/50 transition-all duration-300 animate-fade-in h-full">
+            <div class="w-full h-48 bg-gray-100 dark:bg-[#151a25] relative overflow-hidden shrink-0">
+                <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+                    style="background-image: url('images/ml.png');">
+                </div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent">
+                </div>
+                <div class="absolute bottom-4 left-4">
+                    <span
+                        class="px-2 py-1 bg-black/50 backdrop-blur text-xs font-bold text-white rounded border border-white/20">AI
+                        / NLP</span>
+                </div>
+            </div>
+            <div class="flex-1 p-6 flex flex-col gap-4">
+                <div class="flex justify-between items-start">
+                    <div>
+                        <h3
+                            class="text-xl font-bold text-slate-900 dark:text-white group-hover:text-primary transition-colors line-clamp-1">
+                            MiniGPT</h3>
+                        <p class="text-slate-500 dark:text-slate-400 text-sm mt-1 line-clamp-1">Python, NLP,
+                            Transformers</p>
+                    </div>
+                </div>
+                <div class="space-y-1">
+                    <p class="font-semibold text-slate-900 dark:text-slate-200 flex items-center gap-1 text-sm">
+                        Description</p>
+                    <p class="text-slate-600 dark:text-slate-400 leading-relaxed text-sm line-clamp-3">
+                        Simplified GPT implementation to understand and generate human-like text.
+                    </p>
+                </div>
+                <div class="space-y-2 pt-2 border-t border-gray-100 dark:border-[#283045] mt-auto">
+                    <p class="font-semibold text-slate-900 dark:text-slate-200 text-xs">Key Features</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span
+                            class="px-2 py-1 rounded bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-300 text-[10px] font-medium">Text
+                            generation</span>
+                        <span
+                            class="px-2 py-1 rounded bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-300 text-[10px] font-medium">Transformer
+                            architecture</span>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <!-- Project 16: A* Path Visualizer -->
+        <article data-category="software-eng"
+            data-description="Interactive visualization tool demonstrating A* pathfinding algorithm for shortest path efficient finding. Allows users to draw obstacles and start/end points."
+            data-outcome="Educational tool for understanding graph traversal algorithms."
+            class="project-item group relative flex flex-col bg-white dark:bg-[#1c2333] rounded-xl border border-gray-200 dark:border-[#283045] overflow-hidden shadow-sm hover:shadow-xl hover:border-primary/50 transition-all duration-300 animate-fade-in h-full">
+            <div class="w-full h-48 bg-gray-100 dark:bg-[#151a25] relative overflow-hidden shrink-0">
+                <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+                    style="background-image: url('images/software.png');">
+                </div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent">
+                </div>
+                <div class="absolute bottom-4 left-4">
+                    <span
+                        class="px-2 py-1 bg-black/50 backdrop-blur text-xs font-bold text-white rounded border border-white/20">Algorithms</span>
+                </div>
+            </div>
+            <div class="flex-1 p-6 flex flex-col gap-4">
+                <div class="flex justify-between items-start">
+                    <div>
+                        <h3
+                            class="text-xl font-bold text-slate-900 dark:text-white group-hover:text-primary transition-colors line-clamp-1">
+                            A* Path Visualizer</h3>
+                        <p class="text-slate-500 dark:text-slate-400 text-sm mt-1 line-clamp-1">Python,
+                            Algorithms, GUI</p>
+                    </div>
+                </div>
+                <div class="space-y-1">
+                    <p class="font-semibold text-slate-900 dark:text-slate-200 flex items-center gap-1 text-sm">
+                        Description</p>
+                    <p class="text-slate-600 dark:text-slate-400 leading-relaxed text-sm line-clamp-3">
+                        Interactive visualization tool demonstrating A* pathfinding algorithm for shortest path
+                        efficient finding.
+                    </p>
+                </div>
+                <div class="space-y-2 pt-2 border-t border-gray-100 dark:border-[#283045] mt-auto">
+                    <p class="font-semibold text-slate-900 dark:text-slate-200 text-xs">Key Features</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span
+                            class="px-2 py-1 rounded bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-300 text-[10px] font-medium">Pathfinding</span>
+                        <span
+                            class="px-2 py-1 rounded bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-300 text-[10px] font-medium">Interactive
+                            grid</span>
+                    </div>
+                </div>
+            </div>
+        </article>
+        </div>
+        <!-- CTA Section -->
+        <section
+            class="mt-12 rounded-2xl bg-[#1c2333] border border-[#283045] p-8 md:p-12 text-center relative overflow-hidden">
+            <div class="absolute top-0 right-0 p-12 opacity-5">
+                <span class="material-symbols-outlined text-9xl">code</span>
+            </div>
+            <div class="absolute bottom-0 left-0 p-12 opacity-5">
+                <span class="material-symbols-outlined text-9xl">terminal</span>
+            </div>
+            <h2 class="text-2xl md:text-3xl font-bold text-white mb-4 relative z-10">Ready to build something
+                amazing?</h2>
+            <p class="text-slate-400 max-w-xl mx-auto mb-8 relative z-10">I am currently open to full-time
+                opportunities in Data Science and Software Engineering. Let's discuss how I can contribute to
+                your
+                team.</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4 relative z-10">
+                <button
+                    class="flex items-center justify-center h-12 px-8 rounded-lg bg-primary text-white font-bold hover:bg-blue-600 transition-colors shadow-lg shadow-blue-600/30">
+                    Download Resume
+                </button>
+                <button
+                    class="flex items-center justify-center h-12 px-8 rounded-lg bg-[#283045] text-white font-bold hover:bg-[#323b52] transition-colors">
+                    Contact Me
+                </button>
+            </div>
+        </section>
+    </main>
+    <!-- Project Details Modal -->
+    <div id="project-modal" class="fixed inset-0 z-[100] hidden" aria-labelledby="modal-title" role="dialog"
+        aria-modal="true">
+        <!-- Backdrop -->
+        <div class="absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity opacity-0" id="modal-backdrop">
+        </div>
+
+        <!-- Modal Panel -->
+        <div class="fixed inset-0 z-10 overflow-y-auto">
+            <div class="flex min-h-full items-center justify-center p-4 text-center sm:p-0">
+                <div id="modal-panel"
+                    class="relative transform overflow-hidden rounded-2xl bg-white dark:bg-[#1c2333] text-left shadow-2xl transition-all sm:my-8 sm:w-full sm:max-w-3xl opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95 border border-gray-200 dark:border-[#283045]">
+
+                    <!-- Close Button -->
+                    <button id="modal-close"
+                        class="absolute top-4 right-4 z-20 p-2 rounded-full bg-black/20 text-white hover:bg-black/40 transition-colors backdrop-blur-sm">
+                        <span class="material-symbols-outlined text-xl">close</span>
+                    </button>
+
+                    <!-- Image Section -->
+                    <div class="relative h-64 sm:h-80 w-full overflow-hidden">
+                        <img id="modal-image" src="" alt="Project Cover" class="w-full h-full object-cover">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-[#1c2333] via-transparent to-transparent opacity-90">
+                        </div>
+                        <div class="absolute bottom-6 left-6 right-6">
+                            <span id="modal-category"
+                                class="inline-block px-3 py-1 mb-3 text-xs font-bold tracking-wider text-white uppercase bg-primary/80 backdrop-blur-md rounded-full border border-white/20">
+                                Category
+                            </span>
+                            <h3 id="modal-title" class="text-3xl sm:text-4xl font-black text-white leading-tight">
+                                Project Title
+                            </h3>
+                        </div>
+                    </div>
+
+                    <!-- Content Section -->
+                    <div class="px-6 py-8 sm:px-10">
+                        <div class="flex flex-col gap-6">
+                            <!-- Tech Stack -->
+                            <div class="flex flex-wrap gap-2" id="modal-tags">
+                                <!-- Tags injected via JS -->
+                            </div>
+
+                            <!-- Description -->
+                            <div
+                                class="prose dark:prose-invert max-w-none text-slate-600 dark:text-slate-300 leading-relaxed">
+                                <p id="modal-description" class="text-lg">
+                                    Full project description goes here.
+                                </p>
+                            </div>
+
+                            <!-- Additional Info / Key Features -->
+                            <div
+                                class="grid md:grid-cols-2 gap-6 mt-4 pt-6 border-t border-gray-100 dark:border-[#283045]">
+                                <div>
+                                    <h4
+                                        class="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider mb-3 flex items-center gap-2">
+                                        <span class="material-symbols-outlined text-primary text-lg">star</span> Key
+                                        Features
+                                    </h4>
+                                    <ul id="modal-features"
+                                        class="space-y-2 text-sm text-slate-600 dark:text-slate-400">
+                                        <!-- Features list -->
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h4
+                                        class="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider mb-3 flex items-center gap-2">
+                                        <span class="material-symbols-outlined text-primary text-lg">code</span> Details
+                                    </h4>
+                                    <p id="modal-outcome" class="text-sm text-slate-600 dark:text-slate-400">
+                                        Outcome description.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Actions -->
+                            <div class="mt-4 pt-6 flex gap-4">
+                                <a id="modal-link" href="#" target="_blank"
+                                    class="flex-1 inline-flex justify-center items-center gap-2 px-6 py-3 border border-transparent text-base font-medium rounded-lg shadow-sm text-white bg-primary hover:bg-blue-600 transition-all hover:shadow-lg hover:shadow-primary/30 transform hover:-translate-y-0.5">
+                                    <span class="material-symbols-outlined">open_in_new</span>
+                                    View Project
+                                </a>
+                                <button id="modal-close-btn"
+                                    class="flex-1 inline-flex justify-center items-center gap-2 px-6 py-3 border border-gray-300 dark:border-gray-600 text-base font-medium rounded-lg text-slate-700 dark:text-white bg-white dark:bg-[#283045] hover:bg-gray-50 dark:hover:bg-[#323b52] transition-colors">
+                                    Close
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="w-full border-t border-gray-200 dark:border-[#282e39] py-8 bg-white dark:bg-[#111318] text-center">
+        <div class="flex items-center justify-center gap-6 mb-4">
+            <a class="text-slate-400 hover:text-primary transition-colors" href="#"><span
+                    class="material-symbols-outlined">mail</span></a>
+            <a class="text-slate-400 hover:text-primary transition-colors" href="#"><span
+                    class="material-symbols-outlined">link</span></a>
+            <a class="text-slate-400 hover:text-primary transition-colors" href="#"><span
+                    class="material-symbols-outlined">description</span></a>
+        </div>
+        <p class="text-slate-500 dark:text-slate-500 text-sm">© 2025 Navari Yashwanth Reddy. All rights reserved.</p>
+    </footer>
+
+    <!-- Modal Logic Script -->
+    <script>
+        // Modal & Animation Logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const modal = document.getElementById('project-modal');
+            const backdrop = document.getElementById('modal-backdrop');
+            const panel = document.getElementById('modal-panel');
+            const closeBtn = document.getElementById('modal-close');
+            const closeBtnSecondary = document.getElementById('modal-close-btn');
+
+            // Animation Observer
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            // Apply observer to static items initially
+            document.querySelectorAll('.project-item').forEach((item, index) => {
+                item.style.opacity = '0';
+                item.style.transform = 'translateY(20px)';
+                item.style.transition = 'all 0.6s cubic-bezier(0.16, 1, 0.3, 1)';
+                item.style.transitionDelay = `${index * 50}ms`;
+                observer.observe(item);
+            });
+
+            // Delegate Click for Projects
+            const container = document.getElementById('projects-list-container');
+            if (container) {
+                container.addEventListener('click', (e) => {
+                    const card = e.target.closest('.project-item');
+                    // Prevent if clicking the actual link button inside
+                    if (e.target.closest('a')) return;
+
+                    if (card) {
+                        openModal(card);
+                    }
+                });
+            }
+
+            function openModal(card) {
+                // Extract Data
+                const img = card.querySelector('.bg-cover')?.style.backgroundImage.slice(5, -2);
+                const title = card.querySelector('h3')?.innerText;
+                const category = card.querySelector('div.absolute.bottom-4 span')?.innerText;
+                const description = card.querySelector('p.leading-relaxed')?.innerText; // Might be truncated
+
+                // Try to get full description from data attribute if available, else use text
+                const fullDesc = card.dataset.description || description;
+                const outcome = card.dataset.outcome || "See project for detailed outcomes.";
+                const link = card.querySelector('a')?.href || '#';
+
+                // Get Tech Stack from the header paragraph (below title)
+                let techStackText = '';
+                const titleEl = card.querySelector('h3');
+                if (titleEl && titleEl.nextElementSibling && titleEl.nextElementSibling.tagName === 'P') {
+                    techStackText = titleEl.nextElementSibling.innerText;
+                }
+                const techTags = techStackText.split(',').map(t => t.trim()).filter(t => t);
+
+                const tagsHTML = techTags.map(tag =>
+                    `<span class="px-3 py-1 rounded-full bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-300 text-xs font-semibold border border-blue-100 dark:border-blue-800">${tag}</span>`
+                ).join('');
+
+                // Populate Modal
+                document.getElementById('modal-image').src = img || 'images/default-project.png'; // Fallback
+                document.getElementById('modal-title').innerText = title;
+                document.getElementById('modal-category').innerText = category;
+                document.getElementById('modal-description').innerText = fullDesc;
+                document.getElementById('modal-tags').innerHTML = tagsHTML;
+                document.getElementById('modal-link').href = link;
+                document.getElementById('modal-outcome').innerText = outcome;
+
+                // Populate Features List from "Key Features" section in card if parsed, otherwise generic
+                // For now, let's just use the tags as feature highlights or try to parse the 'Key Features' div
+                const keyFeaturesDiv = card.querySelector('.mt-auto .flex-wrap');
+                if (keyFeaturesDiv) {
+                    const featuresHTML = Array.from(keyFeaturesDiv.children).map(feat =>
+                        `<li class="flex items-start gap-2"><span class="material-symbols-outlined text-primary text-base mt-0.5">check_circle</span>${feat.innerText}</li>`
+                    ).join('');
+                    document.getElementById('modal-features').innerHTML = featuresHTML || '<li>View source for details</li>';
+                }
+
+                // Show Modal
+                modal.classList.remove('hidden');
+                // Animation frame for transition
+                requestAnimationFrame(() => {
+                    backdrop.classList.remove('opacity-0');
+                    panel.classList.remove('opacity-0', 'translate-y-4', 'sm:translate-y-0', 'sm:scale-95');
+                    panel.classList.add('opacity-100', 'translate-y-0', 'scale-100');
+                });
+                document.body.style.overflow = 'hidden'; // Lock scroll
+            }
+
+            function closeModal() {
+                backdrop.classList.add('opacity-0');
+                panel.classList.remove('opacity-100', 'translate-y-0', 'scale-100');
+                panel.classList.add('opacity-0', 'translate-y-4', 'sm:translate-y-0', 'sm:scale-95');
+
+                setTimeout(() => {
+                    modal.classList.add('hidden');
+                    document.body.style.overflow = ''; // Unlock scroll
+                }, 300); // Match transition duration
+            }
+
+            closeBtn.addEventListener('click', closeModal);
+            closeBtnSecondary.addEventListener('click', closeModal);
+            backdrop.addEventListener('click', closeModal);
+
+            // Close on ESC
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+                    closeModal();
+                }
+            });
+        });
+    </script>
+    <script src="js/dynamic-content.js"></script>
+    <script src="js/interactions.js"></script>
+</body>
+
+</html>
