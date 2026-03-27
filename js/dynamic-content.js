@@ -8,7 +8,7 @@ async function loadProjects() {
     if (!container) return;
 
     try {
-        const response = await fetch('/api/data/projects');
+        const response = await fetch('data/projects.json');
         const projects = await response.json();
 
         if (!Array.isArray(projects)) return;
@@ -84,7 +84,7 @@ async function loadCertifications() {
     if (!container) return;
 
     try {
-        const response = await fetch('/api/data/certifications');
+        const response = await fetch('data/certifications.json');
         const certs = await response.json();
 
         if (!Array.isArray(certs)) return;

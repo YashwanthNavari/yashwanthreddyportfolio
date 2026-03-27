@@ -13,20 +13,26 @@
         rel="stylesheet" />
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <script src="js/theme.js"></script>
-    <script id="tailwind-config">
+        <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
             theme: {
                 extend: {
                     colors: {
-                        "primary": "#3b82f6",
-                        "background-light": "#eff6ff",
-                        "background-dark": "#0f172a",
+                        "primary": "#2563eb", // Professional Blue (Tailwind blue-600)
+                        "secondary": "#10b981", // Emerald-500
+                        "background-light": "#f8fafc", // slate-50
+                        "background-dark": "#0f172a", // slate-900
+                        "surface-light": "#ffffff",
+                        "surface-dark": "#1e293b", // slate-800
+                        "card-dark": "rgba(30, 41, 59, 0.7)", 
+                        "card-light": "rgba(255, 255, 255, 0.7)" 
                     },
                     fontFamily: {
-                        "display": ["Spline Sans", "sans-serif"],
-                        "body": ["Noto Sans", "sans-serif"],
+                        "display": ["'Inter'", "sans-serif"],
+                        "body": ["'Inter'", "sans-serif"],
                     },
+                    borderRadius: { "DEFAULT": "0.5rem", "md": "0.75rem", "lg": "1rem", "xl": "1.5rem", "2xl": "2rem", "full": "9999px" },
                 },
             },
         }
@@ -76,8 +82,9 @@
                         href="skills.html">Skills</a>
                     <a class="text-lg font-medium text-[#172554] dark:text-white hover:text-primary transition-colors"
                         href="certifications.html">Certifications</a>
+                    
                     <a class="text-lg font-medium text-[#172554] dark:text-white hover:text-primary transition-colors"
-                        href="blog.html">Blog</a>
+                        href="resume.html">Resume</a>
                     <a class="text-lg font-medium text-[#172554] dark:text-white hover:text-primary transition-colors"
                         href="contact.html">Contact</a>
                 </nav>
@@ -153,6 +160,7 @@
 
     <script src="js/admin.js"></script>
     <script src="js/interactions.js"></script>
+    <script src="js/palette.js"></script>
 </body>
 
 </html>

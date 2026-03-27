@@ -21,6 +21,8 @@ document.addEventListener('DOMContentLoaded', () => {
     initKonamiCode();
     initLiveTime();
     initActivityHeatmap();
+    initCustomCursor();
+    initScrollProgress();
 });
 
 function initTypingEffect() {
@@ -282,11 +284,11 @@ function initCountUp() {
     stats.forEach(stat => observer.observe(stat));
 
     function startCount(element, target) {
-        let start = 0;
         const duration = 2000; // 2 seconds
-        const startTime = performance.now();
+        let startTime = null;
 
         function update(currentTime) {
+            if (!startTime) startTime = currentTime;
             const elapsed = currentTime - startTime;
             const progress = Math.min(elapsed / duration, 1);
 
@@ -294,10 +296,6 @@ function initCountUp() {
             const ease = 1 - Math.pow(1 - progress, 4);
 
             const current = Math.floor(ease * target);
-            element.innerText = current + (target >= 100 ? '+' : ''); // Add + if needed for some, but specific check might be better
-
-            // Logic for specific suffixes like '+' or '%' was handled in HTML structure,
-            // so we just set the number here.
             element.innerText = current;
 
             if (progress < 1) {
@@ -577,4 +575,210 @@ window.resetTTT = function() {
         cell.innerText = "";
         cell.className = "ttt-cell w-full aspect-square bg-white dark:bg-slate-800 border-2 border-slate-200 dark:border-slate-700 rounded-lg text-4xl font-black font-display text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors";
     });
+};
+
+// === Premium Unique Features ===
+
+function initCustomCursor() {
+    if ('ontouchstart' in window) return;
+
+    const cursorDot = document.createElement('div');
+    const cursorOutline = document.createElement('div');
+    
+    cursorDot.className = 'custom-cursor-dot';
+    cursorOutline.className = 'custom-cursor-outline';
+    
+    document.body.appendChild(cursorDot);
+    document.body.appendChild(cursorOutline);
+
+    const style = document.createElement('style');
+    style.innerHTML = `
+        body { cursor: none; }
+        a, button, input, textarea, select, [role="button"], .cursor-pointer { cursor: none !important; }
+        .custom-cursor-dot {
+            position: fixed; top: 0; left: 0; width: 6px; height: 6px; 
+            background-color: var(--primary, #2563eb); border-radius: 50%; 
+            pointer-events: none; z-index: 999999; transform: translate(-50%, -50%);
+            transition: width 0.2s, height 0.2s, background-color 0.2s;
+        }
+        .custom-cursor-outline {
+            position: fixed; top: 0; left: 0; width: 36px; height: 36px;
+            border: 2px solid var(--primary, #2563eb); border-radius: 50%;
+            pointer-events: none; z-index: 999998; transform: translate(-50%, -50%);
+            transition: width 0.2s, height 0.2s, border-color 0.2s, background-color 0.2s;
+            transition-timing-function: ease-out;
+        }
+        .cursor-hover .custom-cursor-dot { width: 0; height: 0; opacity: 0; }
+        .cursor-hover .custom-cursor-outline { 
+            width: 50px; height: 50px; 
+            background-color: rgba(37,99,235,0.15); border-color: transparent; 
+            backdrop-filter: blur(2px); 
+        }
+        .cursor-trail-particle {
+            position: fixed; pointer-events: none; z-index: 999997; 
+            font-family: monospace; font-size: 14px; font-weight: bold;
+            color: var(--primary, #2563eb); text-shadow: 0 0 5px var(--primary, #2563eb);
+        }
+    `;
+    document.head.appendChild(style);
+
+    let mouseX = 0, mouseY = 0;
+    let outlineX = 0, outlineY = 0;
+
+    let lastSpawnTime = 0;
+    const matrixChars = ['0', '1', '{', '}', '<', '>', '#', 'ƒ', 'λ'];
+
+    window.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+        cursorDot.style.transform = `translate(${mouseX}px, ${mouseY}px) translate(-50%, -50%)`;
+
+        // Matrix Trail Logic
+        const now = performance.now();
+        if (now - lastSpawnTime > 40 && !document.body.classList.contains('cursor-hover')) { 
+            lastSpawnTime = now;
+            const particle = document.createElement('div');
+            particle.className = 'cursor-trail-particle';
+            // Match current theme primary color dynamically by adding class if needed, or CSS handles var(--primary)
+            particle.innerText = matrixChars[Math.floor(Math.random() * matrixChars.length)];
+            particle.style.left = mouseX + 'px';
+            particle.style.top = mouseY + 'px';
+            document.body.appendChild(particle);
+            
+            const dx = (Math.random() - 0.5) * 30; // random drift X
+            const dy = (Math.random() - 0.2) * 40; // drift down/up
+            
+            particle.animate([
+                { transform: 'translate(-50%, -50%) scale(1)', opacity: 0.7 },
+                { transform: `translate(calc(-50% + ${dx}px), calc(-50% + ${dy}px)) scale(0.3)`, opacity: 0 }
+            ], {
+                duration: 600 + Math.random() * 400,
+                easing: 'ease-out',
+                fill: 'forwards'
+            }).onfinish = () => particle.remove();
+        }
+    });
+
+    function animate() {
+        outlineX += (mouseX - outlineX) * 0.2;
+        outlineY += (mouseY - outlineY) * 0.2;
+        cursorOutline.style.transform = `translate(${outlineX}px, ${outlineY}px) translate(-50%, -50%)`;
+        requestAnimationFrame(animate);
+    }
+    animate();
+
+    function attachHover(el) {
+        el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
+        el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
+    }
+
+    document.querySelectorAll('a, button, input, textarea, select, [onclick], .cursor-pointer').forEach(attachHover);
+
+    const observer = new MutationObserver(mutations => {
+        mutations.forEach(mutation => {
+            mutation.addedNodes.forEach(node => {
+                if (node.nodeType === 1) {
+                    node.querySelectorAll('a, button, input, textarea, select, [onclick], .cursor-pointer').forEach(attachHover);
+                    if(node.matches('a, button, input, textarea, select, [onclick], .cursor-pointer')) attachHover(node);
+                }
+            });
+        });
+    });
+    observer.observe(document.body, { childList: true, subtree: true });
+}
+
+function initScrollProgress() {
+    const progressBar = document.createElement('div');
+    progressBar.id = 'global-scroll-progress';
+    document.body.appendChild(progressBar);
+
+    const style = document.createElement('style');
+    style.innerHTML = `
+        #global-scroll-progress {
+            position: fixed; top: 0; left: 0; height: 4px; width: 0%;
+            background: linear-gradient(90deg, #2563eb, #10b981);
+            z-index: 9999999; pointer-events: none; transition: width 0.1s ease-out;
+            box-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+            border-top-right-radius: 4px; border-bottom-right-radius: 4px;
+        }
+    `;
+    document.head.appendChild(style);
+
+    window.addEventListener('scroll', () => {
+        const scrollTop = window.scrollY || document.documentElement.scrollTop;
+        const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const progress = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
+        progressBar.style.width = progress + '%';
+    });
+}
+
+/**
+ * Rocket Launch Animation
+ * Triggers a memorable "Hire Me" rocket takeoff before navigating or downloading.
+ */
+window.launchRocket = function(e, actionCallback) {
+    if (e) e.preventDefault();
+    
+    // Create Rocket Element
+    const rocket = document.createElement('div');
+    rocket.innerHTML = '🚀';
+    rocket.style.position = 'fixed';
+    rocket.style.fontSize = '40px';
+    rocket.style.zIndex = '999999';
+    rocket.style.pointerEvents = 'none';
+    rocket.style.filter = 'drop-shadow(0 0 10px rgba(239, 68, 68, 0.6))';
+    
+    // Position at mouse click or center bottom
+    let startX = window.innerWidth / 2;
+    let startY = window.innerHeight;
+    
+    if (e && e.clientX) {
+        startX = e.clientX;
+        startY = e.clientY;
+    }
+    
+    rocket.style.left = (startX - 20) + 'px';
+    rocket.style.top = (startY - 20) + 'px';
+    
+    document.body.appendChild(rocket);
+    
+    // Create a particle smoke interval
+    const smokeInterval = setInterval(() => {
+        const smoke = document.createElement('div');
+        smoke.className = 'w-3 h-3 rounded-full bg-slate-300 dark:bg-slate-600 absolute backdrop-blur-md';
+        smoke.style.zIndex = '999998';
+        smoke.style.pointerEvents = 'none';
+        
+        // Get current rocket position
+        const rect = rocket.getBoundingClientRect();
+        smoke.style.left = (rect.left + Math.random() * 20) + 'px';
+        smoke.style.top = (rect.top + 30) + 'px';
+        
+        document.body.appendChild(smoke);
+        
+        smoke.animate([
+            { transform: 'scale(1)', opacity: 0.8 },
+            { transform: `translate(${(Math.random() - 0.5) * 40}px, 60px) scale(3)`, opacity: 0 }
+        ], {
+            duration: 800,
+            easing: 'ease-out',
+            fill: 'forwards'
+        }).onfinish = () => smoke.remove();
+        
+    }, 40);
+
+    // Rocket Animation
+    rocket.animate([
+        { transform: 'translateY(0) rotate(-45deg)', offset: 0 },
+        { transform: 'translateY(10px) rotate(-45deg)', offset: 0.1 }, // windup
+        { transform: `translateY(-${window.innerHeight + 100}px) rotate(-45deg)`, offset: 1 } // shoot up
+    ], {
+        duration: 1000,
+        easing: 'cubic-bezier(.5,-0.5,.2,1)',
+        fill: 'forwards'
+    }).onfinish = () => {
+        clearInterval(smokeInterval);
+        rocket.remove();
+        if (actionCallback) actionCallback();
+    };
 };
