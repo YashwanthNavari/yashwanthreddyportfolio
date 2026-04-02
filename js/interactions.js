@@ -136,9 +136,15 @@ function initBackgroundAnimation() {
     const ctx = canvas.getContext('2d');
     let width, height;
     let particles = [];
+    
+    // Mouse tracking for parallax
+    let mouse = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
+    let targetMouse = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
 
-    // Symbols to float in background
-    const symbols = ['{ }', '</>', '01', '[]', '()', '=>', '#', 'db', 'AI', 'ML'];
+    window.addEventListener('mousemove', (e) => {
+        targetMouse.x = e.clientX;
+        targetMouse.y = e.clientY;
+    });
 
     // Resize handler
     function resize() {
@@ -149,54 +155,135 @@ function initBackgroundAnimation() {
     window.addEventListener('resize', resize);
     resize();
 
-    // Particle Class
-    class Particle {
+    // Geometric Shard Class (Wireframes)
+    class Shard {
         constructor() {
             this.x = Math.random() * width;
             this.y = Math.random() * height;
-            this.vx = (Math.random() - 0.5) * 0.5;
-            this.vy = (Math.random() - 0.5) * 0.5;
-            this.size = Math.random() * 14 + 10;
-            this.symbol = symbols[Math.floor(Math.random() * symbols.length)];
-            this.opacity = Math.random() * 0.3 + 0.1; // Increased visibility slightly
+            
+            // Depth/paralax layer (1 is back, 3 is front)
+            this.z = Math.random() * 2 + 1; 
+            
+            this.vx = ((Math.random() - 0.5) * 0.3) / this.z;
+            this.vy = ((Math.random() - 0.5) * 0.3) / this.z;
+            
+            this.size = (Math.random() * 40 + 10) / this.z;
+            this.rotation = Math.random() * Math.PI * 2;
+            this.rotSpeed = (Math.random() - 0.5) * 0.01;
+            
+            this.opacity = (Math.random() * 0.2 + 0.05) / this.z; 
+            this.vertices = Math.floor(Math.random() * 4) + 3; // 3 to 6 sides
+            
+            // Generate irregular polygon points
+            this.points = [];
+            for (let i = 0; i < this.vertices; i++) {
+                const angle = (i / this.vertices) * Math.PI * 2 + (Math.random() * 0.5);
+                const r = this.size * (0.4 + Math.random() * 0.6); // Irregular radius
+                this.points.push({ x: Math.cos(angle) * r, y: Math.sin(angle) * r });
+            }
         }
 
         update() {
             this.x += this.vx;
             this.y += this.vy;
+            this.rotation += this.rotSpeed;
+
+            // Subtle Parallax calculation (move slightly away from mouse center)
+            const dx = mouse.x - (width / 2);
+            const dy = mouse.y - (height / 2);
+            
+            // Apply parallax based on z-depth
+            const parallaxX = this.x - (dx * 0.01) / this.z;
+            const parallaxY = this.y - (dy * 0.01) / this.z;
 
             // Wrap around screen
-            if (this.x < -20) this.x = width + 20;
-            if (this.x > width + 20) this.x = -20;
-            if (this.y < -20) this.y = height + 20;
-            if (this.y > height + 20) this.y = -20;
+            if (this.x < -100) this.x = width + 100;
+            if (this.x > width + 100) this.x = -100;
+            if (this.y < -100) this.y = height + 100;
+            if (this.y > height + 100) this.y = -100;
+            
+            return { x: parallaxX, y: parallaxY };
         }
 
-        draw() {
-            ctx.font = `${this.size}px monospace`;
-
-            // Check for dark mode to set color
+        draw(px, py) {
+            ctx.save();
+            ctx.translate(px, py);
+            ctx.rotate(this.rotation);
+            
             const isDark = document.documentElement.classList.contains('dark');
-            ctx.fillStyle = isDark
-                ? `rgba(255, 255, 255, ${this.opacity})`
-                : `rgba(23, 37, 84, ${this.opacity})`; // Dark blue for light mode
+            ctx.strokeStyle = isDark 
+                ? `rgba(255, 255, 255, ${this.opacity})` 
+                : `rgba(15, 23, 42, ${this.opacity})`;
+            ctx.lineWidth = 1;
 
-            ctx.fillText(this.symbol, this.x, this.y);
+            ctx.beginPath();
+            ctx.moveTo(this.points[0].x, this.points[0].y);
+            for (let i = 1; i < this.vertices; i++) {
+                ctx.lineTo(this.points[i].x, this.points[i].y);
+            }
+            ctx.closePath();
+            ctx.stroke();
+            
+            ctx.restore();
+        }
+    }
+
+    // Micro Dust Particle Class
+    class Dust {
+        constructor() {
+            this.x = Math.random() * width;
+            this.y = Math.random() * height;
+            this.z = Math.random() * 3 + 1;
+            this.vx = ((Math.random() - 0.5) * 0.1) / this.z;
+            this.vy = ((Math.random() - 0.5) * 0.1) / this.z;
+            this.size = Math.random() * 1.5 + 0.5;
+            this.opacity = Math.random() * 0.3 + 0.1;
+        }
+
+        update() {
+            this.x += this.vx;
+            this.y += this.vy;
+            
+            const dx = mouse.x - (width / 2);
+            const dy = mouse.y - (height / 2);
+            const parallaxX = this.x - (dx * 0.005) / this.z;
+            const parallaxY = this.y - (dy * 0.005) / this.z;
+
+            if (this.x < -10) this.x = width + 10;
+            if (this.x > width + 10) this.x = -10;
+            if (this.y < -10) this.y = height + 10;
+            if (this.y > height + 10) this.y = -10;
+
+            return { x: parallaxX, y: parallaxY };
+        }
+
+        draw(px, py) {
+            const isDark = document.documentElement.classList.contains('dark');
+            ctx.fillStyle = isDark 
+                ? `rgba(255, 255, 255, ${this.opacity})` 
+                : `rgba(15, 23, 42, ${this.opacity})`;
+            
+            ctx.beginPath();
+            ctx.arc(px, py, this.size, 0, Math.PI * 2);
+            ctx.fill();
         }
     }
 
     // Initialize particles
-    for (let i = 0; i < 40; i++) {
-        particles.push(new Particle());
-    }
+    for (let i = 0; i < 30; i++) particles.push(new Shard());
+    for (let i = 0; i < 70; i++) particles.push(new Dust());
 
     // Animation Loop
     function animate() {
         ctx.clearRect(0, 0, width, height);
 
+        // Smooth mouse following
+        mouse.x += (targetMouse.x - mouse.x) * 0.05;
+        mouse.y += (targetMouse.y - mouse.y) * 0.05;
+
         particles.forEach(p => {
-            p.update();
-            p.draw();
+            const pos = p.update();
+            p.draw(pos.x, pos.y);
         });
 
         requestAnimationFrame(animate);
@@ -593,8 +680,13 @@ function initCustomCursor() {
 
     const style = document.createElement('style');
     style.innerHTML = `
-        body { cursor: none; }
-        a, button, input, textarea, select, [role="button"], .cursor-pointer { cursor: none !important; }
+        html:not(.modal-open) body { cursor: none; }
+        html:not(.modal-open) a, html:not(.modal-open) button, html:not(.modal-open) input, html:not(.modal-open) textarea, html:not(.modal-open) select, html:not(.modal-open) [role="button"], html:not(.modal-open) .cursor-pointer { cursor: none !important; }
+        
+        /* Restore system cursor in modal */
+        .modal-open #project-modal, .modal-open #project-modal * { cursor: auto !important; }
+        .modal-open .custom-cursor-dot, .modal-open .custom-cursor-outline { opacity: 0 !important; pointer-events: none; }
+
         .custom-cursor-dot {
             position: fixed; top: 0; left: 0; width: 6px; height: 6px; 
             background-color: var(--primary, #2563eb); border-radius: 50%; 

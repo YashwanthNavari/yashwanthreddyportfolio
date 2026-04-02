@@ -22,7 +22,7 @@
     <script src="js/theme.js"></script>
     <script src="js/filter.js" defer></script>
     <!-- Theme Configuration -->
-        <script id="tailwind-config">
+    <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
             theme: {
@@ -34,8 +34,8 @@
                         "background-dark": "#0f172a", // slate-900
                         "surface-light": "#ffffff",
                         "surface-dark": "#1e293b", // slate-800
-                        "card-dark": "rgba(30, 41, 59, 0.7)", 
-                        "card-light": "rgba(255, 255, 255, 0.7)" 
+                        "card-dark": "rgba(30, 41, 59, 0.7)",
+                        "card-light": "rgba(255, 255, 255, 0.7)"
                     },
                     fontFamily: {
                         "display": ["'Inter'", "sans-serif"],
@@ -100,22 +100,18 @@
             </div>
             <div class="hidden md:flex flex-1 justify-end gap-8 items-center">
                 <nav class="flex items-center gap-6">
-                    <a class="text-sm font-medium hover:text-primary transition-colors"
-                        href="index.html">Home</a>
+                    <a class="text-sm font-medium hover:text-primary transition-colors" href="index.html">Home</a>
                     <a class="text-sm font-medium hover:text-primary transition-colors" href="about.html">About</a>
                     <a class="text-sm font-medium hover:text-primary transition-colors"
                         href="experience.html">Experience</a>
                     <a class="text-sm font-medium text-primary" href="projects.html">Projects</a>
-                    <a class="text-sm font-medium hover:text-primary transition-colors"
-                        href="skills.html">Skills</a>
+                    <a class="text-sm font-medium hover:text-primary transition-colors" href="skills.html">Skills</a>
                     <a class="text-sm font-medium hover:text-primary transition-colors"
                         href="certifications.html">Certifications</a>
-                    
-                    
-                    <a class="text-sm font-medium hover:text-primary transition-colors"
-                        href="resume.html">Resume</a>
-                    <a class="text-sm font-medium hover:text-primary transition-colors"
-                        href="contact.html">Contact</a>
+
+
+                    <a class="text-sm font-medium hover:text-primary transition-colors" href="resume.html">Resume</a>
+                    <a class="text-sm font-medium hover:text-primary transition-colors" href="contact.html">Contact</a>
                 </nav>
                 <button onclick="window.open('resume.pdf', '_blank')"
                     class="flex items-center justify-center rounded-lg h-9 px-4 bg-primary text-white text-sm font-bold hover:bg-blue-600 transition-colors shadow-lg shadow-blue-500/20">
@@ -162,7 +158,7 @@
                     href="skills.html">Skills</a>
                 <a class="text-lg font-medium text-slate-900 dark:text-white hover:text-primary transition-colors"
                     href="certifications.html">Certifications</a>
-                
+
                 <a class="text-lg font-medium text-slate-900 dark:text-white hover:text-primary transition-colors"
                     href="resume.html">Resume</a>
                 <a class="text-lg font-medium text-slate-900 dark:text-white hover:text-primary transition-colors"
@@ -175,14 +171,16 @@
 
             <!-- Hero Header -->
             <section class="flex flex-col items-center text-center gap-4 py-4 animate-fade-in">
-                <div class="inline-flex items-center justify-center px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold tracking-wide uppercase">
+                <div
+                    class="inline-flex items-center justify-center px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold tracking-wide uppercase">
                     Portfolio Showcase
                 </div>
                 <h1 class="text-4xl md:text-5xl font-black tracking-tight text-slate-900 dark:text-white">
                     My <span class="text-primary">Projects</span>
                 </h1>
                 <p class="text-slate-500 dark:text-slate-400 max-w-2xl text-lg">
-                    A collection of 15 projects spanning Machine Learning, Systems Engineering, IoT, and Web Applications — built to solve real-world problems.
+                    A collection of 15 projects spanning Machine Learning, Systems Engineering, IoT, and Web
+                    Applications — built to solve real-world problems.
                 </p>
             </section>
 
@@ -215,66 +213,459 @@
                 <div class="flex items-center gap-3">
                     <div class="w-1 h-8 bg-violet-500 rounded-full"></div>
                     <h2 class="text-2xl font-black text-slate-900 dark:text-white">🤖 Machine Learning</h2>
-                    <span class="ml-2 px-3 py-0.5 rounded-full bg-violet-500/10 text-violet-600 dark:text-violet-400 border border-violet-500/20 text-xs font-bold">5 Projects</span>
+                    <span
+                        class="ml-2 px-3 py-0.5 rounded-full bg-violet-500/10 text-violet-600 dark:text-violet-400 border border-violet-500/20 text-xs font-bold">5
+                        Projects</span>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="grid-ml">
 
-                    <!-- Age & Gender Detection -->
-                    <div class="project-card" data-category="ml">
-                        <div class="card-icon bg-violet-500/10 text-violet-500"><span class="material-symbols-outlined">face</span></div>
-                        <h3 class="card-title">Age &amp; Gender Detection System</h3>
-                        <p class="card-desc">Real-time computer vision system that detects a person's age group and gender from a live webcam feed using deep learning.</p>
-                        <div class="card-tags">
-                            <span class="tag tag-violet">Python</span><span class="tag tag-violet">OpenCV</span><span class="tag tag-violet">Deep Learning</span><span class="tag tag-violet">CNN</span>
+
+                    <!-- Age & Gender Detection System -->
+                    <div class="project-card-gh project-item cursor-pointer bg-white dark:bg-[#0d1117] rounded-xl overflow-hidden border border-slate-200 dark:border-[#30363d] shadow-sm hover:shadow-xl transition-all duration-300 w-full flex flex-col group block" data-category="ml" data-repo="age-gender-detection" data-image="https://image2url.com/images/1765825518035-1dbec68f-23c2-4ad8-b356-fc06aeee01c2.jpeg">
+                        
+                        <!-- Top Social Preview Half -->
+                        <div class="block relative w-full h-48 bg-slate-100 dark:bg-slate-900 overflow-hidden border-b border-slate-200 dark:border-[#30363d] p-5 flex flex-col justify-between cursor-pointer">
+                            <!-- Background glow -->
+                            <div class="absolute -right-10 -bottom-10 w-48 h-48 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-violet-500 opacity-40 blur-2xl group-hover:scale-125 transition-transform duration-700 pointer-events-none"></div>
+                            
+                            <!-- Top Info bar -->
+                            <div class="relative z-10 flex justify-between items-start pointer-events-none">
+                                <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-violet-500 text-white font-bold text-[10px] uppercase tracking-wider shadow-sm">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-white animate-[pulse_2s_ease-in-out_infinite]"></span> ML
+                                </div>
+                                <div class="inline-flex items-center px-2 py-0.5 rounded bg-slate-600/80 text-white font-bold text-[10px] shadow-sm backdrop-blur">
+                                    Python
+                                </div>
+                            </div>
+                            
+                            <!-- Profile Picture floating right -->
+                            <div class="absolute right-5 inset-y-0 flex items-center z-10 pointer-events-none">
+                                <div class="w-16 h-16 rounded-full border-2 border-white dark:border-slate-800 overflow-hidden shadow-lg transform translate-y-2 opacity-90 group-hover:opacity-100 group-hover:-translate-y-1 transition-all duration-300">
+                                    <img src="https://image2url.com/images/1765825518035-1dbec68f-23c2-4ad8-b356-fc06aeee01c2.jpeg" class="w-full h-full object-cover" alt="Profile">
+                                </div>
+                            </div>
+
+                            <!-- Mid Info -->
+                            <div class="relative z-10 flex flex-col mt-auto w-[80%] drop-shadow-md pointer-events-none">
+                                <h4 class="text-sm text-slate-800 dark:text-slate-400 font-medium mb-0.5 opacity-80">eikomotsu /</h4>
+                                <h3 class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white leading-tight line-clamp-1 group-hover:text-primary transition-colors">
+                                    age-gender-detection-system
+                                </h3>
+                                <p class="text-[11px] text-slate-600 dark:text-slate-300 mt-1.5 line-clamp-1 font-medium">Real-time computer vision system that detects a person's age group and
+                            gender from a live webcam feed using deep learning.</p>
+                            </div>
+                            
+                            <!-- Bottom Stats -->
+                            <div class="relative z-10 flex justify-between items-center mt-3 text-slate-700 dark:text-slate-400 pb-1 pointer-events-none">
+                                <div class="flex flex-col items-center gap-0.5">
+                                    <span class="text-sm text-slate-900 dark:text-slate-200 font-bold leading-none">1</span>
+                                    <span class="text-[9px] font-medium uppercase tracking-wider">Contributor</span>
+                                </div>
+                                <div class="flex items-center gap-1.5 opacity-80">
+                                    <span class="material-symbols-outlined text-[14px]">adjust</span>
+                                    <span class="text-xs font-bold">12</span>
+                                </div>
+                                <div class="flex items-center gap-1.5 opacity-80">
+                                    <span class="material-symbols-outlined text-[14px]">star</span>
+                                    <span class="text-xs font-bold">13</span>
+                                </div>
+                                <div class="flex items-center gap-1.5 opacity-80">
+                                    <span class="material-symbols-outlined text-[14px]">fork_right</span>
+                                    <span class="text-xs font-bold">8</span>
+                                </div>
+                                <div class="w-4"></div>
+                            </div>
                         </div>
-                        <a href="#" class="card-btn">View Project <span class="material-symbols-outlined text-[16px]">arrow_forward</span></a>
+                        
+                        <!-- Bottom Info Half -->
+                        <div class="p-5 sm:p-6 flex flex-col flex-grow relative bg-slate-50 dark:bg-[#0d1117]">
+                            <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2 font-display line-clamp-1" title="Age & Gender Detection System">Age & Gender Detection System</h3>
+                            <p class="text-sm text-slate-600 dark:text-[#8b949e] leading-relaxed mb-6 flex-grow">Real-time computer vision system that detects a person's age group and
+                            gender from a live webcam feed using deep learning.</p>
+                            
+                            <!-- Language / Date row -->
+                            <div class="flex items-center gap-4 text-xs font-semibold text-slate-500 dark:text-[#8b949e] mb-5">
+                                <div class="flex items-center gap-1.5 cursor-pointer transition-colors group-hover:text-amber-500 dark:group-hover:text-amber-400">
+                                    <span class="w-2.5 h-2.5 bg-amber-400 rounded-full inline-block"></span> Python
+                                </div>
+                                <div class="flex items-center gap-1 cursor-pointer transition-colors group-hover:text-blue-500 dark:group-hover:text-blue-400">
+                                    <span class="material-symbols-outlined text-[14px]">fork_right</span> 8 forks
+                                </div>
+                                <div class="ml-auto opacity-70">
+                                    Mar 2026
+                                </div>
+                            </div>
+                            
+                            <!-- Action Footer row -->
+                            <div class="flex justify-between items-center pt-4 border-t border-slate-200 dark:border-[#30363d]">
+                                <span class="font-bold text-red-500 hover:text-red-700 dark:hover:text-red-400 flex items-center gap-2 group/link transition-colors cursor-pointer">
+                                    Explore <span class="material-symbols-outlined text-[18px] group-hover/link:translate-x-1 transition-transform">arrow_forward</span>
+                                </span>
+                                <span class="px-2.5 py-1 bg-violet-100 dark:bg-violet-900/30 text-violet-600 dark:text-violet-400 font-bold text-[11px] uppercase rounded-full shadow-sm">
+                                    ML
+                                </span>
+                            </div>
+                        </div>
                     </div>
+
 
                     <!-- StrokeGuard.ai -->
-                    <div class="project-card" data-category="ml">
-                        <div class="card-icon bg-red-500/10 text-red-500"><span class="material-symbols-outlined">monitor_heart</span></div>
-                        <h3 class="card-title">StrokeGuard.ai</h3>
-                        <p class="card-desc">ML-based stroke risk prediction system that analyzes patient health indicators to classify stroke probability using ensemble models.</p>
-                        <div class="card-tags">
-                            <span class="tag tag-violet">Python</span><span class="tag tag-violet">Scikit-learn</span><span class="tag tag-violet">Pandas</span><span class="tag tag-violet">Random Forest</span>
+                    <div class="project-card-gh project-item cursor-pointer bg-white dark:bg-[#0d1117] rounded-xl overflow-hidden border border-slate-200 dark:border-[#30363d] shadow-sm hover:shadow-xl transition-all duration-300 w-full flex flex-col group block" data-category="ml" data-repo="-Heart-Disease-Risk-Prediction-System" data-image="https://image2url.com/images/1765825518035-1dbec68f-23c2-4ad8-b356-fc06aeee01c2.jpeg">
+                        
+                        <!-- Top Social Preview Half -->
+                        <div class="block relative w-full h-48 bg-slate-100 dark:bg-slate-900 overflow-hidden border-b border-slate-200 dark:border-[#30363d] p-5 flex flex-col justify-between cursor-pointer">
+                            <!-- Background glow -->
+                            <div class="absolute -right-10 -bottom-10 w-48 h-48 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-violet-500 opacity-40 blur-2xl group-hover:scale-125 transition-transform duration-700 pointer-events-none"></div>
+                            
+                            <!-- Top Info bar -->
+                            <div class="relative z-10 flex justify-between items-start pointer-events-none">
+                                <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-violet-500 text-white font-bold text-[10px] uppercase tracking-wider shadow-sm">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-white animate-[pulse_2s_ease-in-out_infinite]"></span> ML
+                                </div>
+                                <div class="inline-flex items-center px-2 py-0.5 rounded bg-slate-600/80 text-white font-bold text-[10px] shadow-sm backdrop-blur">
+                                    Python
+                                </div>
+                            </div>
+                            
+                            <!-- Profile Picture floating right -->
+                            <div class="absolute right-5 inset-y-0 flex items-center z-10 pointer-events-none">
+                                <div class="w-16 h-16 rounded-full border-2 border-white dark:border-slate-800 overflow-hidden shadow-lg transform translate-y-2 opacity-90 group-hover:opacity-100 group-hover:-translate-y-1 transition-all duration-300">
+                                    <img src="https://image2url.com/images/1765825518035-1dbec68f-23c2-4ad8-b356-fc06aeee01c2.jpeg" class="w-full h-full object-cover" alt="Profile">
+                                </div>
+                            </div>
+
+                            <!-- Mid Info -->
+                            <div class="relative z-10 flex flex-col mt-auto w-[80%] drop-shadow-md pointer-events-none">
+                                <h4 class="text-sm text-slate-800 dark:text-slate-400 font-medium mb-0.5 opacity-80">eikomotsu /</h4>
+                                <h3 class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white leading-tight line-clamp-1 group-hover:text-primary transition-colors">
+                                    strokeguard.ai
+                                </h3>
+                                <p class="text-[11px] text-slate-600 dark:text-slate-300 mt-1.5 line-clamp-1 font-medium">ML-based stroke risk prediction system that analyzes patient health
+                            indicators to classify stroke probability using ensemble models.</p>
+                            </div>
+                            
+                            <!-- Bottom Stats -->
+                            <div class="relative z-10 flex justify-between items-center mt-3 text-slate-700 dark:text-slate-400 pb-1 pointer-events-none">
+                                <div class="flex flex-col items-center gap-0.5">
+                                    <span class="text-sm text-slate-900 dark:text-slate-200 font-bold leading-none">1</span>
+                                    <span class="text-[9px] font-medium uppercase tracking-wider">Contributor</span>
+                                </div>
+                                <div class="flex items-center gap-1.5 opacity-80">
+                                    <span class="material-symbols-outlined text-[14px]">adjust</span>
+                                    <span class="text-xs font-bold">9</span>
+                                </div>
+                                <div class="flex items-center gap-1.5 opacity-80">
+                                    <span class="material-symbols-outlined text-[14px]">star</span>
+                                    <span class="text-xs font-bold">40</span>
+                                </div>
+                                <div class="flex items-center gap-1.5 opacity-80">
+                                    <span class="material-symbols-outlined text-[14px]">fork_right</span>
+                                    <span class="text-xs font-bold">1</span>
+                                </div>
+                                <div class="w-4"></div>
+                            </div>
                         </div>
-                        <a href="#" class="card-btn">View Project <span class="material-symbols-outlined text-[16px]">arrow_forward</span></a>
+                        
+                        <!-- Bottom Info Half -->
+                        <div class="p-5 sm:p-6 flex flex-col flex-grow relative bg-slate-50 dark:bg-[#0d1117]">
+                            <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2 font-display line-clamp-1" title="StrokeGuard.ai">StrokeGuard.ai</h3>
+                            <p class="text-sm text-slate-600 dark:text-[#8b949e] leading-relaxed mb-6 flex-grow">ML-based stroke risk prediction system that analyzes patient health
+                            indicators to classify stroke probability using ensemble models.</p>
+                            
+                            <!-- Language / Date row -->
+                            <div class="flex items-center gap-4 text-xs font-semibold text-slate-500 dark:text-[#8b949e] mb-5">
+                                <div class="flex items-center gap-1.5 cursor-pointer transition-colors group-hover:text-amber-500 dark:group-hover:text-amber-400">
+                                    <span class="w-2.5 h-2.5 bg-amber-400 rounded-full inline-block"></span> Python
+                                </div>
+                                <div class="flex items-center gap-1 cursor-pointer transition-colors group-hover:text-blue-500 dark:group-hover:text-blue-400">
+                                    <span class="material-symbols-outlined text-[14px]">fork_right</span> 1 forks
+                                </div>
+                                <div class="ml-auto opacity-70">
+                                    Mar 2026
+                                </div>
+                            </div>
+                            
+                            <!-- Action Footer row -->
+                            <div class="flex justify-between items-center pt-4 border-t border-slate-200 dark:border-[#30363d]">
+                                <span class="font-bold text-red-500 hover:text-red-700 dark:hover:text-red-400 flex items-center gap-2 group/link transition-colors cursor-pointer">
+                                    Explore <span class="material-symbols-outlined text-[18px] group-hover/link:translate-x-1 transition-transform">arrow_forward</span>
+                                </span>
+                                <span class="px-2.5 py-1 bg-violet-100 dark:bg-violet-900/30 text-violet-600 dark:text-violet-400 font-bold text-[11px] uppercase rounded-full shadow-sm">
+                                    ML
+                                </span>
+                            </div>
+                        </div>
                     </div>
 
-                    <!-- Face Recognition Login -->
-                    <div class="project-card" data-category="ml">
-                        <div class="card-icon bg-blue-500/10 text-blue-500"><span class="material-symbols-outlined">face_unlock</span></div>
-                        <h3 class="card-title">Face Recognition Login System</h3>
-                        <p class="card-desc">Biometric authentication application that uses facial recognition to securely log in users without passwords.</p>
-                        <div class="card-tags">
-                            <span class="tag tag-violet">Python</span><span class="tag tag-violet">OpenCV</span><span class="tag tag-violet">face_recognition</span><span class="tag tag-violet">Tkinter</span>
+
+                    <!-- Face Recognition Login System -->
+                    <div class="project-card-gh project-item cursor-pointer bg-white dark:bg-[#0d1117] rounded-xl overflow-hidden border border-slate-200 dark:border-[#30363d] shadow-sm hover:shadow-xl transition-all duration-300 w-full flex flex-col group block" data-category="ml" data-repo="" data-image="https://image2url.com/images/1765825518035-1dbec68f-23c2-4ad8-b356-fc06aeee01c2.jpeg">
+                        
+                        <!-- Top Social Preview Half -->
+                        <div class="block relative w-full h-48 bg-slate-100 dark:bg-slate-900 overflow-hidden border-b border-slate-200 dark:border-[#30363d] p-5 flex flex-col justify-between cursor-pointer">
+                            <!-- Background glow -->
+                            <div class="absolute -right-10 -bottom-10 w-48 h-48 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-violet-500 opacity-40 blur-2xl group-hover:scale-125 transition-transform duration-700 pointer-events-none"></div>
+                            
+                            <!-- Top Info bar -->
+                            <div class="relative z-10 flex justify-between items-start pointer-events-none">
+                                <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-violet-500 text-white font-bold text-[10px] uppercase tracking-wider shadow-sm">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-white animate-[pulse_2s_ease-in-out_infinite]"></span> ML
+                                </div>
+                                <div class="inline-flex items-center px-2 py-0.5 rounded bg-slate-600/80 text-white font-bold text-[10px] shadow-sm backdrop-blur">
+                                    Python
+                                </div>
+                            </div>
+                            
+                            <!-- Profile Picture floating right -->
+                            <div class="absolute right-5 inset-y-0 flex items-center z-10 pointer-events-none">
+                                <div class="w-16 h-16 rounded-full border-2 border-white dark:border-slate-800 overflow-hidden shadow-lg transform translate-y-2 opacity-90 group-hover:opacity-100 group-hover:-translate-y-1 transition-all duration-300">
+                                    <img src="https://image2url.com/images/1765825518035-1dbec68f-23c2-4ad8-b356-fc06aeee01c2.jpeg" class="w-full h-full object-cover" alt="Profile">
+                                </div>
+                            </div>
+
+                            <!-- Mid Info -->
+                            <div class="relative z-10 flex flex-col mt-auto w-[80%] drop-shadow-md pointer-events-none">
+                                <h4 class="text-sm text-slate-800 dark:text-slate-400 font-medium mb-0.5 opacity-80">eikomotsu /</h4>
+                                <h3 class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white leading-tight line-clamp-1 group-hover:text-primary transition-colors">
+                                    face-recognition-login-system
+                                </h3>
+                                <p class="text-[11px] text-slate-600 dark:text-slate-300 mt-1.5 line-clamp-1 font-medium">Biometric authentication application that uses facial recognition to
+                            securely log in users without passwords.</p>
+                            </div>
+                            
+                            <!-- Bottom Stats -->
+                            <div class="relative z-10 flex justify-between items-center mt-3 text-slate-700 dark:text-slate-400 pb-1 pointer-events-none">
+                                <div class="flex flex-col items-center gap-0.5">
+                                    <span class="text-sm text-slate-900 dark:text-slate-200 font-bold leading-none">1</span>
+                                    <span class="text-[9px] font-medium uppercase tracking-wider">Contributor</span>
+                                </div>
+                                <div class="flex items-center gap-1.5 opacity-80">
+                                    <span class="material-symbols-outlined text-[14px]">adjust</span>
+                                    <span class="text-xs font-bold">7</span>
+                                </div>
+                                <div class="flex items-center gap-1.5 opacity-80">
+                                    <span class="material-symbols-outlined text-[14px]">star</span>
+                                    <span class="text-xs font-bold">32</span>
+                                </div>
+                                <div class="flex items-center gap-1.5 opacity-80">
+                                    <span class="material-symbols-outlined text-[14px]">fork_right</span>
+                                    <span class="text-xs font-bold">7</span>
+                                </div>
+                                <div class="w-4"></div>
+                            </div>
                         </div>
-                        <a href="#" class="card-btn">View Project <span class="material-symbols-outlined text-[16px]">arrow_forward</span></a>
+                        
+                        <!-- Bottom Info Half -->
+                        <div class="p-5 sm:p-6 flex flex-col flex-grow relative bg-slate-50 dark:bg-[#0d1117]">
+                            <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2 font-display line-clamp-1" title="Face Recognition Login System">Face Recognition Login System</h3>
+                            <p class="text-sm text-slate-600 dark:text-[#8b949e] leading-relaxed mb-6 flex-grow">Biometric authentication application that uses facial recognition to
+                            securely log in users without passwords.</p>
+                            
+                            <!-- Language / Date row -->
+                            <div class="flex items-center gap-4 text-xs font-semibold text-slate-500 dark:text-[#8b949e] mb-5">
+                                <div class="flex items-center gap-1.5 cursor-pointer transition-colors group-hover:text-amber-500 dark:group-hover:text-amber-400">
+                                    <span class="w-2.5 h-2.5 bg-amber-400 rounded-full inline-block"></span> Python
+                                </div>
+                                <div class="flex items-center gap-1 cursor-pointer transition-colors group-hover:text-blue-500 dark:group-hover:text-blue-400">
+                                    <span class="material-symbols-outlined text-[14px]">fork_right</span> 7 forks
+                                </div>
+                                <div class="ml-auto opacity-70">
+                                    Mar 2026
+                                </div>
+                            </div>
+                            
+                            <!-- Action Footer row -->
+                            <div class="flex justify-between items-center pt-4 border-t border-slate-200 dark:border-[#30363d]">
+                                <span class="font-bold text-red-500 hover:text-red-700 dark:hover:text-red-400 flex items-center gap-2 group/link transition-colors cursor-pointer">
+                                    Explore <span class="material-symbols-outlined text-[18px] group-hover/link:translate-x-1 transition-transform">arrow_forward</span>
+                                </span>
+                                <span class="px-2.5 py-1 bg-violet-100 dark:bg-violet-900/30 text-violet-600 dark:text-violet-400 font-bold text-[11px] uppercase rounded-full shadow-sm">
+                                    ML
+                                </span>
+                            </div>
+                        </div>
                     </div>
 
-                    <!-- ML Object Detection -->
-                    <div class="project-card" data-category="ml">
-                        <div class="card-icon bg-amber-500/10 text-amber-500"><span class="material-symbols-outlined">smart_toy</span></div>
-                        <h3 class="card-title">ML Object Detection System</h3>
-                        <p class="card-desc">Real-time object detection pipeline using a pre-trained YOLO model capable of identifying multiple object classes in live video streams.</p>
-                        <div class="card-tags">
-                            <span class="tag tag-violet">Python</span><span class="tag tag-violet">YOLOv8</span><span class="tag tag-violet">OpenCV</span><span class="tag tag-violet">NumPy</span>
+
+                    <!-- ML Object Detection System -->
+                    <div class="project-card-gh project-item cursor-pointer bg-white dark:bg-[#0d1117] rounded-xl overflow-hidden border border-slate-200 dark:border-[#30363d] shadow-sm hover:shadow-xl transition-all duration-300 w-full flex flex-col group block" data-category="ml" data-repo="ml-object-detection-system" data-image="https://image2url.com/images/1765825518035-1dbec68f-23c2-4ad8-b356-fc06aeee01c2.jpeg">
+                        
+                        <!-- Top Social Preview Half -->
+                        <div class="block relative w-full h-48 bg-slate-100 dark:bg-slate-900 overflow-hidden border-b border-slate-200 dark:border-[#30363d] p-5 flex flex-col justify-between cursor-pointer">
+                            <!-- Background glow -->
+                            <div class="absolute -right-10 -bottom-10 w-48 h-48 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-violet-500 opacity-40 blur-2xl group-hover:scale-125 transition-transform duration-700 pointer-events-none"></div>
+                            
+                            <!-- Top Info bar -->
+                            <div class="relative z-10 flex justify-between items-start pointer-events-none">
+                                <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-violet-500 text-white font-bold text-[10px] uppercase tracking-wider shadow-sm">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-white animate-[pulse_2s_ease-in-out_infinite]"></span> ML
+                                </div>
+                                <div class="inline-flex items-center px-2 py-0.5 rounded bg-slate-600/80 text-white font-bold text-[10px] shadow-sm backdrop-blur">
+                                    Python
+                                </div>
+                            </div>
+                            
+                            <!-- Profile Picture floating right -->
+                            <div class="absolute right-5 inset-y-0 flex items-center z-10 pointer-events-none">
+                                <div class="w-16 h-16 rounded-full border-2 border-white dark:border-slate-800 overflow-hidden shadow-lg transform translate-y-2 opacity-90 group-hover:opacity-100 group-hover:-translate-y-1 transition-all duration-300">
+                                    <img src="https://image2url.com/images/1765825518035-1dbec68f-23c2-4ad8-b356-fc06aeee01c2.jpeg" class="w-full h-full object-cover" alt="Profile">
+                                </div>
+                            </div>
+
+                            <!-- Mid Info -->
+                            <div class="relative z-10 flex flex-col mt-auto w-[80%] drop-shadow-md pointer-events-none">
+                                <h4 class="text-sm text-slate-800 dark:text-slate-400 font-medium mb-0.5 opacity-80">eikomotsu /</h4>
+                                <h3 class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white leading-tight line-clamp-1 group-hover:text-primary transition-colors">
+                                    ml-object-detection-system
+                                </h3>
+                                <p class="text-[11px] text-slate-600 dark:text-slate-300 mt-1.5 line-clamp-1 font-medium">Real-time object detection pipeline using a pre-trained YOLO model capable
+                            of identifying multiple object classes in live video streams.</p>
+                            </div>
+                            
+                            <!-- Bottom Stats -->
+                            <div class="relative z-10 flex justify-between items-center mt-3 text-slate-700 dark:text-slate-400 pb-1 pointer-events-none">
+                                <div class="flex flex-col items-center gap-0.5">
+                                    <span class="text-sm text-slate-900 dark:text-slate-200 font-bold leading-none">1</span>
+                                    <span class="text-[9px] font-medium uppercase tracking-wider">Contributor</span>
+                                </div>
+                                <div class="flex items-center gap-1.5 opacity-80">
+                                    <span class="material-symbols-outlined text-[14px]">adjust</span>
+                                    <span class="text-xs font-bold">5</span>
+                                </div>
+                                <div class="flex items-center gap-1.5 opacity-80">
+                                    <span class="material-symbols-outlined text-[14px]">star</span>
+                                    <span class="text-xs font-bold">4</span>
+                                </div>
+                                <div class="flex items-center gap-1.5 opacity-80">
+                                    <span class="material-symbols-outlined text-[14px]">fork_right</span>
+                                    <span class="text-xs font-bold">0</span>
+                                </div>
+                                <div class="w-4"></div>
+                            </div>
                         </div>
-                        <a href="#" class="card-btn">View Project <span class="material-symbols-outlined text-[16px]">arrow_forward</span></a>
+                        
+                        <!-- Bottom Info Half -->
+                        <div class="p-5 sm:p-6 flex flex-col flex-grow relative bg-slate-50 dark:bg-[#0d1117]">
+                            <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2 font-display line-clamp-1" title="ML Object Detection System">ML Object Detection System</h3>
+                            <p class="text-sm text-slate-600 dark:text-[#8b949e] leading-relaxed mb-6 flex-grow">Real-time object detection pipeline using a pre-trained YOLO model capable
+                            of identifying multiple object classes in live video streams.</p>
+                            
+                            <!-- Language / Date row -->
+                            <div class="flex items-center gap-4 text-xs font-semibold text-slate-500 dark:text-[#8b949e] mb-5">
+                                <div class="flex items-center gap-1.5 cursor-pointer transition-colors group-hover:text-amber-500 dark:group-hover:text-amber-400">
+                                    <span class="w-2.5 h-2.5 bg-amber-400 rounded-full inline-block"></span> Python
+                                </div>
+                                <div class="flex items-center gap-1 cursor-pointer transition-colors group-hover:text-blue-500 dark:group-hover:text-blue-400">
+                                    <span class="material-symbols-outlined text-[14px]">fork_right</span> 0 forks
+                                </div>
+                                <div class="ml-auto opacity-70">
+                                    Mar 2026
+                                </div>
+                            </div>
+                            
+                            <!-- Action Footer row -->
+                            <div class="flex justify-between items-center pt-4 border-t border-slate-200 dark:border-[#30363d]">
+                                <span class="font-bold text-red-500 hover:text-red-700 dark:hover:text-red-400 flex items-center gap-2 group/link transition-colors cursor-pointer">
+                                    Explore <span class="material-symbols-outlined text-[18px] group-hover/link:translate-x-1 transition-transform">arrow_forward</span>
+                                </span>
+                                <span class="px-2.5 py-1 bg-violet-100 dark:bg-violet-900/30 text-violet-600 dark:text-violet-400 font-bold text-[11px] uppercase rounded-full shadow-sm">
+                                    ML
+                                </span>
+                            </div>
+                        </div>
                     </div>
 
-                    <!-- AgriSathi -->
-                    <div class="project-card" data-category="ml">
-                        <div class="card-icon bg-green-500/10 text-green-500"><span class="material-symbols-outlined">eco</span></div>
-                        <h3 class="card-title">AgriSathi – Smart Farmer Assistant</h3>
-                        <p class="card-desc">Intelligent recommendation system for farmers that suggests crops, fertilizers, and weather-based farming strategies using ML models.</p>
-                        <div class="card-tags">
-                            <span class="tag tag-violet">Python</span><span class="tag tag-violet">Scikit-learn</span><span class="tag tag-violet">Flask</span><span class="tag tag-violet">Pandas</span>
+
+                    <!-- AgriSathi – Smart Farmer Assistant -->
+                    <div class="project-card-gh project-item cursor-pointer bg-white dark:bg-[#0d1117] rounded-xl overflow-hidden border border-slate-200 dark:border-[#30363d] shadow-sm hover:shadow-xl transition-all duration-300 w-full flex flex-col group block" data-category="ml" data-repo="agrisathi--smart-farmer-assistant" data-image="https://image2url.com/images/1765825518035-1dbec68f-23c2-4ad8-b356-fc06aeee01c2.jpeg">
+                        
+                        <!-- Top Social Preview Half -->
+                        <div class="block relative w-full h-48 bg-slate-100 dark:bg-slate-900 overflow-hidden border-b border-slate-200 dark:border-[#30363d] p-5 flex flex-col justify-between cursor-pointer">
+                            <!-- Background glow -->
+                            <div class="absolute -right-10 -bottom-10 w-48 h-48 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-violet-500 opacity-40 blur-2xl group-hover:scale-125 transition-transform duration-700 pointer-events-none"></div>
+                            
+                            <!-- Top Info bar -->
+                            <div class="relative z-10 flex justify-between items-start pointer-events-none">
+                                <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-violet-500 text-white font-bold text-[10px] uppercase tracking-wider shadow-sm">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-white animate-[pulse_2s_ease-in-out_infinite]"></span> ML
+                                </div>
+                                <div class="inline-flex items-center px-2 py-0.5 rounded bg-slate-600/80 text-white font-bold text-[10px] shadow-sm backdrop-blur">
+                                    Python
+                                </div>
+                            </div>
+                            
+                            <!-- Profile Picture floating right -->
+                            <div class="absolute right-5 inset-y-0 flex items-center z-10 pointer-events-none">
+                                <div class="w-16 h-16 rounded-full border-2 border-white dark:border-slate-800 overflow-hidden shadow-lg transform translate-y-2 opacity-90 group-hover:opacity-100 group-hover:-translate-y-1 transition-all duration-300">
+                                    <img src="https://image2url.com/images/1765825518035-1dbec68f-23c2-4ad8-b356-fc06aeee01c2.jpeg" class="w-full h-full object-cover" alt="Profile">
+                                </div>
+                            </div>
+
+                            <!-- Mid Info -->
+                            <div class="relative z-10 flex flex-col mt-auto w-[80%] drop-shadow-md pointer-events-none">
+                                <h4 class="text-sm text-slate-800 dark:text-slate-400 font-medium mb-0.5 opacity-80">eikomotsu /</h4>
+                                <h3 class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white leading-tight line-clamp-1 group-hover:text-primary transition-colors">
+                                    agrisathi
+                                </h3>
+                                <p class="text-[11px] text-slate-600 dark:text-slate-300 mt-1.5 line-clamp-1 font-medium">Intelligent recommendation system for farmers that suggests crops,
+                            fertilizers, and weather-based farming strategies using ML models.</p>
+                            </div>
+                            
+                            <!-- Bottom Stats -->
+                            <div class="relative z-10 flex justify-between items-center mt-3 text-slate-700 dark:text-slate-400 pb-1 pointer-events-none">
+                                <div class="flex flex-col items-center gap-0.5">
+                                    <span class="text-sm text-slate-900 dark:text-slate-200 font-bold leading-none">1</span>
+                                    <span class="text-[9px] font-medium uppercase tracking-wider">Contributor</span>
+                                </div>
+                                <div class="flex items-center gap-1.5 opacity-80">
+                                    <span class="material-symbols-outlined text-[14px]">adjust</span>
+                                    <span class="text-xs font-bold">8</span>
+                                </div>
+                                <div class="flex items-center gap-1.5 opacity-80">
+                                    <span class="material-symbols-outlined text-[14px]">star</span>
+                                    <span class="text-xs font-bold">18</span>
+                                </div>
+                                <div class="flex items-center gap-1.5 opacity-80">
+                                    <span class="material-symbols-outlined text-[14px]">fork_right</span>
+                                    <span class="text-xs font-bold">0</span>
+                                </div>
+                                <div class="w-4"></div>
+                            </div>
                         </div>
-                        <a href="#" class="card-btn">View Project <span class="material-symbols-outlined text-[16px]">arrow_forward</span></a>
+                        
+                        <!-- Bottom Info Half -->
+                        <div class="p-5 sm:p-6 flex flex-col flex-grow relative bg-slate-50 dark:bg-[#0d1117]">
+                            <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2 font-display line-clamp-1" title="AgriSathi – Smart Farmer Assistant">AgriSathi – Smart Farmer Assistant</h3>
+                            <p class="text-sm text-slate-600 dark:text-[#8b949e] leading-relaxed mb-6 flex-grow">Intelligent recommendation system for farmers that suggests crops,
+                            fertilizers, and weather-based farming strategies using ML models.</p>
+                            
+                            <!-- Language / Date row -->
+                            <div class="flex items-center gap-4 text-xs font-semibold text-slate-500 dark:text-[#8b949e] mb-5">
+                                <div class="flex items-center gap-1.5 cursor-pointer transition-colors group-hover:text-amber-500 dark:group-hover:text-amber-400">
+                                    <span class="w-2.5 h-2.5 bg-amber-400 rounded-full inline-block"></span> Python
+                                </div>
+                                <div class="flex items-center gap-1 cursor-pointer transition-colors group-hover:text-blue-500 dark:group-hover:text-blue-400">
+                                    <span class="material-symbols-outlined text-[14px]">fork_right</span> 0 forks
+                                </div>
+                                <div class="ml-auto opacity-70">
+                                    Mar 2026
+                                </div>
+                            </div>
+                            
+                            <!-- Action Footer row -->
+                            <div class="flex justify-between items-center pt-4 border-t border-slate-200 dark:border-[#30363d]">
+                                <span class="font-bold text-red-500 hover:text-red-700 dark:hover:text-red-400 flex items-center gap-2 group/link transition-colors cursor-pointer">
+                                    Explore <span class="material-symbols-outlined text-[18px] group-hover/link:translate-x-1 transition-transform">arrow_forward</span>
+                                </span>
+                                <span class="px-2.5 py-1 bg-violet-100 dark:bg-violet-900/30 text-violet-600 dark:text-violet-400 font-bold text-[11px] uppercase rounded-full shadow-sm">
+                                    ML
+                                </span>
+                            </div>
+                        </div>
                     </div>
 
-                </div>
+
+</div>
             </section>
 
             <!-- ── SYSTEMS ── -->
@@ -282,66 +673,459 @@
                 <div class="flex items-center gap-3">
                     <div class="w-1 h-8 bg-blue-500 rounded-full"></div>
                     <h2 class="text-2xl font-black text-slate-900 dark:text-white">⚙️ Systems</h2>
-                    <span class="ml-2 px-3 py-0.5 rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-400 border border-blue-500/20 text-xs font-bold">5 Projects</span>
+                    <span
+                        class="ml-2 px-3 py-0.5 rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-400 border border-blue-500/20 text-xs font-bold">5
+                        Projects</span>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="grid-systems">
 
-                    <!-- Disk Scheduling -->
-                    <div class="project-card" data-category="systems">
-                        <div class="card-icon bg-blue-500/10 text-blue-500"><span class="material-symbols-outlined">storage</span></div>
-                        <h3 class="card-title">Priority-Aware Disk Scheduling System</h3>
-                        <p class="card-desc">Advanced simulation of real-time disk scheduling algorithms (FCFS, SSTF, SCAN, LOOK) with priority awareness and animated seek-time visualisation.</p>
-                        <div class="card-tags">
-                            <span class="tag tag-blue">C</span><span class="tag tag-blue">OS Concepts</span><span class="tag tag-blue">Data Structures</span>
+
+                    <!-- Priority-Aware Disk Scheduling System -->
+                    <div class="project-card-gh project-item cursor-pointer bg-white dark:bg-[#0d1117] rounded-xl overflow-hidden border border-slate-200 dark:border-[#30363d] shadow-sm hover:shadow-xl transition-all duration-300 w-full flex flex-col group block" data-category="systems" data-repo="Real-Time-Priority-Aware-Disk-Scheduling-Using-Live-Folder-Monitoring-in-Gaming-Environments" data-image="https://image2url.com/images/1765825518035-1dbec68f-23c2-4ad8-b356-fc06aeee01c2.jpeg">
+                        
+                        <!-- Top Social Preview Half -->
+                        <div class="block relative w-full h-48 bg-slate-100 dark:bg-slate-900 overflow-hidden border-b border-slate-200 dark:border-[#30363d] p-5 flex flex-col justify-between cursor-pointer">
+                            <!-- Background glow -->
+                            <div class="absolute -right-10 -bottom-10 w-48 h-48 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-500 opacity-40 blur-2xl group-hover:scale-125 transition-transform duration-700 pointer-events-none"></div>
+                            
+                            <!-- Top Info bar -->
+                            <div class="relative z-10 flex justify-between items-start pointer-events-none">
+                                <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-blue-500 text-white font-bold text-[10px] uppercase tracking-wider shadow-sm">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-white animate-[pulse_2s_ease-in-out_infinite]"></span> SYSTEMS
+                                </div>
+                                <div class="inline-flex items-center px-2 py-0.5 rounded bg-slate-600/80 text-white font-bold text-[10px] shadow-sm backdrop-blur">
+                                    C
+                                </div>
+                            </div>
+                            
+                            <!-- Profile Picture floating right -->
+                            <div class="absolute right-5 inset-y-0 flex items-center z-10 pointer-events-none">
+                                <div class="w-16 h-16 rounded-full border-2 border-white dark:border-slate-800 overflow-hidden shadow-lg transform translate-y-2 opacity-90 group-hover:opacity-100 group-hover:-translate-y-1 transition-all duration-300">
+                                    <img src="https://image2url.com/images/1765825518035-1dbec68f-23c2-4ad8-b356-fc06aeee01c2.jpeg" class="w-full h-full object-cover" alt="Profile">
+                                </div>
+                            </div>
+
+                            <!-- Mid Info -->
+                            <div class="relative z-10 flex flex-col mt-auto w-[80%] drop-shadow-md pointer-events-none">
+                                <h4 class="text-sm text-slate-800 dark:text-slate-400 font-medium mb-0.5 opacity-80">eikomotsu /</h4>
+                                <h3 class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white leading-tight line-clamp-1 group-hover:text-primary transition-colors">
+                                    priority-aware-disk-scheduling-system
+                                </h3>
+                                <p class="text-[11px] text-slate-600 dark:text-slate-300 mt-1.5 line-clamp-1 font-medium">Advanced simulation of real-time disk scheduling algorithms (FCFS, SSTF,
+                            SCAN, LOOK) with priority awareness and animated seek-time visualisation.</p>
+                            </div>
+                            
+                            <!-- Bottom Stats -->
+                            <div class="relative z-10 flex justify-between items-center mt-3 text-slate-700 dark:text-slate-400 pb-1 pointer-events-none">
+                                <div class="flex flex-col items-center gap-0.5">
+                                    <span class="text-sm text-slate-900 dark:text-slate-200 font-bold leading-none">1</span>
+                                    <span class="text-[9px] font-medium uppercase tracking-wider">Contributor</span>
+                                </div>
+                                <div class="flex items-center gap-1.5 opacity-80">
+                                    <span class="material-symbols-outlined text-[14px]">adjust</span>
+                                    <span class="text-xs font-bold">0</span>
+                                </div>
+                                <div class="flex items-center gap-1.5 opacity-80">
+                                    <span class="material-symbols-outlined text-[14px]">star</span>
+                                    <span class="text-xs font-bold">5</span>
+                                </div>
+                                <div class="flex items-center gap-1.5 opacity-80">
+                                    <span class="material-symbols-outlined text-[14px]">fork_right</span>
+                                    <span class="text-xs font-bold">4</span>
+                                </div>
+                                <div class="w-4"></div>
+                            </div>
                         </div>
-                        <a href="#" class="card-btn">View Project <span class="material-symbols-outlined text-[16px]">arrow_forward</span></a>
+                        
+                        <!-- Bottom Info Half -->
+                        <div class="p-5 sm:p-6 flex flex-col flex-grow relative bg-slate-50 dark:bg-[#0d1117]">
+                            <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2 font-display line-clamp-1" title="Priority-Aware Disk Scheduling System">Priority-Aware Disk Scheduling System</h3>
+                            <p class="text-sm text-slate-600 dark:text-[#8b949e] leading-relaxed mb-6 flex-grow">Advanced simulation of real-time disk scheduling algorithms (FCFS, SSTF,
+                            SCAN, LOOK) with priority awareness and animated seek-time visualisation.</p>
+                            
+                            <!-- Language / Date row -->
+                            <div class="flex items-center gap-4 text-xs font-semibold text-slate-500 dark:text-[#8b949e] mb-5">
+                                <div class="flex items-center gap-1.5 cursor-pointer transition-colors group-hover:text-amber-500 dark:group-hover:text-amber-400">
+                                    <span class="w-2.5 h-2.5 bg-amber-400 rounded-full inline-block"></span> C
+                                </div>
+                                <div class="flex items-center gap-1 cursor-pointer transition-colors group-hover:text-blue-500 dark:group-hover:text-blue-400">
+                                    <span class="material-symbols-outlined text-[14px]">fork_right</span> 4 forks
+                                </div>
+                                <div class="ml-auto opacity-70">
+                                    Mar 2026
+                                </div>
+                            </div>
+                            
+                            <!-- Action Footer row -->
+                            <div class="flex justify-between items-center pt-4 border-t border-slate-200 dark:border-[#30363d]">
+                                <span class="font-bold text-red-500 hover:text-red-700 dark:hover:text-red-400 flex items-center gap-2 group/link transition-colors cursor-pointer">
+                                    Explore <span class="material-symbols-outlined text-[18px] group-hover/link:translate-x-1 transition-transform">arrow_forward</span>
+                                </span>
+                                <span class="px-2.5 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 font-bold text-[11px] uppercase rounded-full shadow-sm">
+                                    SYSTEMS
+                                </span>
+                            </div>
+                        </div>
                     </div>
 
-                    <!-- Smart Parking -->
-                    <div class="project-card" data-category="systems">
-                        <div class="card-icon bg-cyan-500/10 text-cyan-500"><span class="material-symbols-outlined">local_parking</span></div>
-                        <h3 class="card-title">Smart Parking System</h3>
-                        <p class="card-desc">Slot allocation engine using Stack and Queue data structures to efficiently manage vehicle entry, exit, and real-time slot availability.</p>
-                        <div class="card-tags">
-                            <span class="tag tag-blue">C++</span><span class="tag tag-blue">Stack</span><span class="tag tag-blue">Queue</span><span class="tag tag-blue">DSA</span>
+
+                    <!-- Smart Parking System -->
+                    <div class="project-card-gh project-item cursor-pointer bg-white dark:bg-[#0d1117] rounded-xl overflow-hidden border border-slate-200 dark:border-[#30363d] shadow-sm hover:shadow-xl transition-all duration-300 w-full flex flex-col group block" data-category="systems" data-repo="" data-image="https://image2url.com/images/1765825518035-1dbec68f-23c2-4ad8-b356-fc06aeee01c2.jpeg">
+                        
+                        <!-- Top Social Preview Half -->
+                        <div class="block relative w-full h-48 bg-slate-100 dark:bg-slate-900 overflow-hidden border-b border-slate-200 dark:border-[#30363d] p-5 flex flex-col justify-between cursor-pointer">
+                            <!-- Background glow -->
+                            <div class="absolute -right-10 -bottom-10 w-48 h-48 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-500 opacity-40 blur-2xl group-hover:scale-125 transition-transform duration-700 pointer-events-none"></div>
+                            
+                            <!-- Top Info bar -->
+                            <div class="relative z-10 flex justify-between items-start pointer-events-none">
+                                <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-blue-500 text-white font-bold text-[10px] uppercase tracking-wider shadow-sm">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-white animate-[pulse_2s_ease-in-out_infinite]"></span> SYSTEMS
+                                </div>
+                                <div class="inline-flex items-center px-2 py-0.5 rounded bg-slate-600/80 text-white font-bold text-[10px] shadow-sm backdrop-blur">
+                                    C++
+                                </div>
+                            </div>
+                            
+                            <!-- Profile Picture floating right -->
+                            <div class="absolute right-5 inset-y-0 flex items-center z-10 pointer-events-none">
+                                <div class="w-16 h-16 rounded-full border-2 border-white dark:border-slate-800 overflow-hidden shadow-lg transform translate-y-2 opacity-90 group-hover:opacity-100 group-hover:-translate-y-1 transition-all duration-300">
+                                    <img src="https://image2url.com/images/1765825518035-1dbec68f-23c2-4ad8-b356-fc06aeee01c2.jpeg" class="w-full h-full object-cover" alt="Profile">
+                                </div>
+                            </div>
+
+                            <!-- Mid Info -->
+                            <div class="relative z-10 flex flex-col mt-auto w-[80%] drop-shadow-md pointer-events-none">
+                                <h4 class="text-sm text-slate-800 dark:text-slate-400 font-medium mb-0.5 opacity-80">eikomotsu /</h4>
+                                <h3 class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white leading-tight line-clamp-1 group-hover:text-primary transition-colors">
+                                    smart-parking-system
+                                </h3>
+                                <p class="text-[11px] text-slate-600 dark:text-slate-300 mt-1.5 line-clamp-1 font-medium">Slot allocation engine using Stack and Queue data structures to efficiently
+                            manage vehicle entry, exit, and real-time slot availability.</p>
+                            </div>
+                            
+                            <!-- Bottom Stats -->
+                            <div class="relative z-10 flex justify-between items-center mt-3 text-slate-700 dark:text-slate-400 pb-1 pointer-events-none">
+                                <div class="flex flex-col items-center gap-0.5">
+                                    <span class="text-sm text-slate-900 dark:text-slate-200 font-bold leading-none">1</span>
+                                    <span class="text-[9px] font-medium uppercase tracking-wider">Contributor</span>
+                                </div>
+                                <div class="flex items-center gap-1.5 opacity-80">
+                                    <span class="material-symbols-outlined text-[14px]">adjust</span>
+                                    <span class="text-xs font-bold">9</span>
+                                </div>
+                                <div class="flex items-center gap-1.5 opacity-80">
+                                    <span class="material-symbols-outlined text-[14px]">star</span>
+                                    <span class="text-xs font-bold">2</span>
+                                </div>
+                                <div class="flex items-center gap-1.5 opacity-80">
+                                    <span class="material-symbols-outlined text-[14px]">fork_right</span>
+                                    <span class="text-xs font-bold">11</span>
+                                </div>
+                                <div class="w-4"></div>
+                            </div>
                         </div>
-                        <a href="#" class="card-btn">View Project <span class="material-symbols-outlined text-[16px]">arrow_forward</span></a>
+                        
+                        <!-- Bottom Info Half -->
+                        <div class="p-5 sm:p-6 flex flex-col flex-grow relative bg-slate-50 dark:bg-[#0d1117]">
+                            <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2 font-display line-clamp-1" title="Smart Parking System">Smart Parking System</h3>
+                            <p class="text-sm text-slate-600 dark:text-[#8b949e] leading-relaxed mb-6 flex-grow">Slot allocation engine using Stack and Queue data structures to efficiently
+                            manage vehicle entry, exit, and real-time slot availability.</p>
+                            
+                            <!-- Language / Date row -->
+                            <div class="flex items-center gap-4 text-xs font-semibold text-slate-500 dark:text-[#8b949e] mb-5">
+                                <div class="flex items-center gap-1.5 cursor-pointer transition-colors group-hover:text-amber-500 dark:group-hover:text-amber-400">
+                                    <span class="w-2.5 h-2.5 bg-amber-400 rounded-full inline-block"></span> C++
+                                </div>
+                                <div class="flex items-center gap-1 cursor-pointer transition-colors group-hover:text-blue-500 dark:group-hover:text-blue-400">
+                                    <span class="material-symbols-outlined text-[14px]">fork_right</span> 11 forks
+                                </div>
+                                <div class="ml-auto opacity-70">
+                                    Mar 2026
+                                </div>
+                            </div>
+                            
+                            <!-- Action Footer row -->
+                            <div class="flex justify-between items-center pt-4 border-t border-slate-200 dark:border-[#30363d]">
+                                <span class="font-bold text-red-500 hover:text-red-700 dark:hover:text-red-400 flex items-center gap-2 group/link transition-colors cursor-pointer">
+                                    Explore <span class="material-symbols-outlined text-[18px] group-hover/link:translate-x-1 transition-transform">arrow_forward</span>
+                                </span>
+                                <span class="px-2.5 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 font-bold text-[11px] uppercase rounded-full shadow-sm">
+                                    SYSTEMS
+                                </span>
+                            </div>
+                        </div>
                     </div>
 
-                    <!-- Shuttle Routing -->
-                    <div class="project-card" data-category="systems">
-                        <div class="card-icon bg-indigo-500/10 text-indigo-500"><span class="material-symbols-outlined">directions_bus</span></div>
-                        <h3 class="card-title">Shuttle Routing System</h3>
-                        <p class="card-desc">Optimized bus/shuttle routing system for campuses that calculates shortest paths and assigns buses to routes based on demand.</p>
-                        <div class="card-tags">
-                            <span class="tag tag-blue">Java</span><span class="tag tag-blue">Graph Algorithms</span><span class="tag tag-blue">Dijkstra</span>
+
+                    <!-- Shuttle Routing System -->
+                    <div class="project-card-gh project-item cursor-pointer bg-white dark:bg-[#0d1117] rounded-xl overflow-hidden border border-slate-200 dark:border-[#30363d] shadow-sm hover:shadow-xl transition-all duration-300 w-full flex flex-col group block" data-category="systems" data-repo="" data-image="https://image2url.com/images/1765825518035-1dbec68f-23c2-4ad8-b356-fc06aeee01c2.jpeg">
+                        
+                        <!-- Top Social Preview Half -->
+                        <div class="block relative w-full h-48 bg-slate-100 dark:bg-slate-900 overflow-hidden border-b border-slate-200 dark:border-[#30363d] p-5 flex flex-col justify-between cursor-pointer">
+                            <!-- Background glow -->
+                            <div class="absolute -right-10 -bottom-10 w-48 h-48 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-500 opacity-40 blur-2xl group-hover:scale-125 transition-transform duration-700 pointer-events-none"></div>
+                            
+                            <!-- Top Info bar -->
+                            <div class="relative z-10 flex justify-between items-start pointer-events-none">
+                                <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-blue-500 text-white font-bold text-[10px] uppercase tracking-wider shadow-sm">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-white animate-[pulse_2s_ease-in-out_infinite]"></span> SYSTEMS
+                                </div>
+                                <div class="inline-flex items-center px-2 py-0.5 rounded bg-slate-600/80 text-white font-bold text-[10px] shadow-sm backdrop-blur">
+                                    Java
+                                </div>
+                            </div>
+                            
+                            <!-- Profile Picture floating right -->
+                            <div class="absolute right-5 inset-y-0 flex items-center z-10 pointer-events-none">
+                                <div class="w-16 h-16 rounded-full border-2 border-white dark:border-slate-800 overflow-hidden shadow-lg transform translate-y-2 opacity-90 group-hover:opacity-100 group-hover:-translate-y-1 transition-all duration-300">
+                                    <img src="https://image2url.com/images/1765825518035-1dbec68f-23c2-4ad8-b356-fc06aeee01c2.jpeg" class="w-full h-full object-cover" alt="Profile">
+                                </div>
+                            </div>
+
+                            <!-- Mid Info -->
+                            <div class="relative z-10 flex flex-col mt-auto w-[80%] drop-shadow-md pointer-events-none">
+                                <h4 class="text-sm text-slate-800 dark:text-slate-400 font-medium mb-0.5 opacity-80">eikomotsu /</h4>
+                                <h3 class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white leading-tight line-clamp-1 group-hover:text-primary transition-colors">
+                                    shuttle-routing-system
+                                </h3>
+                                <p class="text-[11px] text-slate-600 dark:text-slate-300 mt-1.5 line-clamp-1 font-medium">Optimized bus/shuttle routing system for campuses that calculates shortest
+                            paths and assigns buses to routes based on demand.</p>
+                            </div>
+                            
+                            <!-- Bottom Stats -->
+                            <div class="relative z-10 flex justify-between items-center mt-3 text-slate-700 dark:text-slate-400 pb-1 pointer-events-none">
+                                <div class="flex flex-col items-center gap-0.5">
+                                    <span class="text-sm text-slate-900 dark:text-slate-200 font-bold leading-none">1</span>
+                                    <span class="text-[9px] font-medium uppercase tracking-wider">Contributor</span>
+                                </div>
+                                <div class="flex items-center gap-1.5 opacity-80">
+                                    <span class="material-symbols-outlined text-[14px]">adjust</span>
+                                    <span class="text-xs font-bold">14</span>
+                                </div>
+                                <div class="flex items-center gap-1.5 opacity-80">
+                                    <span class="material-symbols-outlined text-[14px]">star</span>
+                                    <span class="text-xs font-bold">26</span>
+                                </div>
+                                <div class="flex items-center gap-1.5 opacity-80">
+                                    <span class="material-symbols-outlined text-[14px]">fork_right</span>
+                                    <span class="text-xs font-bold">8</span>
+                                </div>
+                                <div class="w-4"></div>
+                            </div>
                         </div>
-                        <a href="#" class="card-btn">View Project <span class="material-symbols-outlined text-[16px]">arrow_forward</span></a>
+                        
+                        <!-- Bottom Info Half -->
+                        <div class="p-5 sm:p-6 flex flex-col flex-grow relative bg-slate-50 dark:bg-[#0d1117]">
+                            <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2 font-display line-clamp-1" title="Shuttle Routing System">Shuttle Routing System</h3>
+                            <p class="text-sm text-slate-600 dark:text-[#8b949e] leading-relaxed mb-6 flex-grow">Optimized bus/shuttle routing system for campuses that calculates shortest
+                            paths and assigns buses to routes based on demand.</p>
+                            
+                            <!-- Language / Date row -->
+                            <div class="flex items-center gap-4 text-xs font-semibold text-slate-500 dark:text-[#8b949e] mb-5">
+                                <div class="flex items-center gap-1.5 cursor-pointer transition-colors group-hover:text-amber-500 dark:group-hover:text-amber-400">
+                                    <span class="w-2.5 h-2.5 bg-amber-400 rounded-full inline-block"></span> Java
+                                </div>
+                                <div class="flex items-center gap-1 cursor-pointer transition-colors group-hover:text-blue-500 dark:group-hover:text-blue-400">
+                                    <span class="material-symbols-outlined text-[14px]">fork_right</span> 8 forks
+                                </div>
+                                <div class="ml-auto opacity-70">
+                                    Mar 2026
+                                </div>
+                            </div>
+                            
+                            <!-- Action Footer row -->
+                            <div class="flex justify-between items-center pt-4 border-t border-slate-200 dark:border-[#30363d]">
+                                <span class="font-bold text-red-500 hover:text-red-700 dark:hover:text-red-400 flex items-center gap-2 group/link transition-colors cursor-pointer">
+                                    Explore <span class="material-symbols-outlined text-[18px] group-hover/link:translate-x-1 transition-transform">arrow_forward</span>
+                                </span>
+                                <span class="px-2.5 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 font-bold text-[11px] uppercase rounded-full shadow-sm">
+                                    SYSTEMS
+                                </span>
+                            </div>
+                        </div>
                     </div>
 
-                    <!-- Attendance Tracking -->
-                    <div class="project-card" data-category="systems">
-                        <div class="card-icon bg-teal-500/10 text-teal-500"><span class="material-symbols-outlined">checklist</span></div>
-                        <h3 class="card-title">Student Attendance Tracking System</h3>
-                        <p class="card-desc">Desktop application that records, manages, and reports student attendance with subject-wise tracking and automated alerts for low attendance.</p>
-                        <div class="card-tags">
-                            <span class="tag tag-blue">Python</span><span class="tag tag-blue">MySQL</span><span class="tag tag-blue">Tkinter</span>
+
+                    <!-- Student Attendance Tracking System -->
+                    <div class="project-card-gh project-item cursor-pointer bg-white dark:bg-[#0d1117] rounded-xl overflow-hidden border border-slate-200 dark:border-[#30363d] shadow-sm hover:shadow-xl transition-all duration-300 w-full flex flex-col group block" data-category="systems" data-repo="attendance-tracking-system" data-image="https://image2url.com/images/1765825518035-1dbec68f-23c2-4ad8-b356-fc06aeee01c2.jpeg">
+                        
+                        <!-- Top Social Preview Half -->
+                        <div class="block relative w-full h-48 bg-slate-100 dark:bg-slate-900 overflow-hidden border-b border-slate-200 dark:border-[#30363d] p-5 flex flex-col justify-between cursor-pointer">
+                            <!-- Background glow -->
+                            <div class="absolute -right-10 -bottom-10 w-48 h-48 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-500 opacity-40 blur-2xl group-hover:scale-125 transition-transform duration-700 pointer-events-none"></div>
+                            
+                            <!-- Top Info bar -->
+                            <div class="relative z-10 flex justify-between items-start pointer-events-none">
+                                <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-blue-500 text-white font-bold text-[10px] uppercase tracking-wider shadow-sm">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-white animate-[pulse_2s_ease-in-out_infinite]"></span> SYSTEMS
+                                </div>
+                                <div class="inline-flex items-center px-2 py-0.5 rounded bg-slate-600/80 text-white font-bold text-[10px] shadow-sm backdrop-blur">
+                                    Python
+                                </div>
+                            </div>
+                            
+                            <!-- Profile Picture floating right -->
+                            <div class="absolute right-5 inset-y-0 flex items-center z-10 pointer-events-none">
+                                <div class="w-16 h-16 rounded-full border-2 border-white dark:border-slate-800 overflow-hidden shadow-lg transform translate-y-2 opacity-90 group-hover:opacity-100 group-hover:-translate-y-1 transition-all duration-300">
+                                    <img src="https://image2url.com/images/1765825518035-1dbec68f-23c2-4ad8-b356-fc06aeee01c2.jpeg" class="w-full h-full object-cover" alt="Profile">
+                                </div>
+                            </div>
+
+                            <!-- Mid Info -->
+                            <div class="relative z-10 flex flex-col mt-auto w-[80%] drop-shadow-md pointer-events-none">
+                                <h4 class="text-sm text-slate-800 dark:text-slate-400 font-medium mb-0.5 opacity-80">eikomotsu /</h4>
+                                <h3 class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white leading-tight line-clamp-1 group-hover:text-primary transition-colors">
+                                    student-attendance-tracking-system
+                                </h3>
+                                <p class="text-[11px] text-slate-600 dark:text-slate-300 mt-1.5 line-clamp-1 font-medium">Desktop application that records, manages, and reports student attendance
+                            with subject-wise tracking and automated alerts for low attendance.</p>
+                            </div>
+                            
+                            <!-- Bottom Stats -->
+                            <div class="relative z-10 flex justify-between items-center mt-3 text-slate-700 dark:text-slate-400 pb-1 pointer-events-none">
+                                <div class="flex flex-col items-center gap-0.5">
+                                    <span class="text-sm text-slate-900 dark:text-slate-200 font-bold leading-none">1</span>
+                                    <span class="text-[9px] font-medium uppercase tracking-wider">Contributor</span>
+                                </div>
+                                <div class="flex items-center gap-1.5 opacity-80">
+                                    <span class="material-symbols-outlined text-[14px]">adjust</span>
+                                    <span class="text-xs font-bold">4</span>
+                                </div>
+                                <div class="flex items-center gap-1.5 opacity-80">
+                                    <span class="material-symbols-outlined text-[14px]">star</span>
+                                    <span class="text-xs font-bold">34</span>
+                                </div>
+                                <div class="flex items-center gap-1.5 opacity-80">
+                                    <span class="material-symbols-outlined text-[14px]">fork_right</span>
+                                    <span class="text-xs font-bold">12</span>
+                                </div>
+                                <div class="w-4"></div>
+                            </div>
                         </div>
-                        <a href="#" class="card-btn">View Project <span class="material-symbols-outlined text-[16px]">arrow_forward</span></a>
+                        
+                        <!-- Bottom Info Half -->
+                        <div class="p-5 sm:p-6 flex flex-col flex-grow relative bg-slate-50 dark:bg-[#0d1117]">
+                            <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2 font-display line-clamp-1" title="Student Attendance Tracking System">Student Attendance Tracking System</h3>
+                            <p class="text-sm text-slate-600 dark:text-[#8b949e] leading-relaxed mb-6 flex-grow">Desktop application that records, manages, and reports student attendance
+                            with subject-wise tracking and automated alerts for low attendance.</p>
+                            
+                            <!-- Language / Date row -->
+                            <div class="flex items-center gap-4 text-xs font-semibold text-slate-500 dark:text-[#8b949e] mb-5">
+                                <div class="flex items-center gap-1.5 cursor-pointer transition-colors group-hover:text-amber-500 dark:group-hover:text-amber-400">
+                                    <span class="w-2.5 h-2.5 bg-amber-400 rounded-full inline-block"></span> Python
+                                </div>
+                                <div class="flex items-center gap-1 cursor-pointer transition-colors group-hover:text-blue-500 dark:group-hover:text-blue-400">
+                                    <span class="material-symbols-outlined text-[14px]">fork_right</span> 12 forks
+                                </div>
+                                <div class="ml-auto opacity-70">
+                                    Mar 2026
+                                </div>
+                            </div>
+                            
+                            <!-- Action Footer row -->
+                            <div class="flex justify-between items-center pt-4 border-t border-slate-200 dark:border-[#30363d]">
+                                <span class="font-bold text-red-500 hover:text-red-700 dark:hover:text-red-400 flex items-center gap-2 group/link transition-colors cursor-pointer">
+                                    Explore <span class="material-symbols-outlined text-[18px] group-hover/link:translate-x-1 transition-transform">arrow_forward</span>
+                                </span>
+                                <span class="px-2.5 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 font-bold text-[11px] uppercase rounded-full shadow-sm">
+                                    SYSTEMS
+                                </span>
+                            </div>
+                        </div>
                     </div>
 
-                    <!-- CPU Simulation -->
-                    <div class="project-card" data-category="systems">
-                        <div class="card-icon bg-orange-500/10 text-orange-500"><span class="material-symbols-outlined">memory</span></div>
-                        <h3 class="card-title">CPU Control Simulation System</h3>
-                        <p class="card-desc">Software simulation of CPU scheduling algorithms (Round Robin, Priority, SJF) paired with an Arduino-based hardware implementation for lab demonstrations.</p>
-                        <div class="card-tags">
-                            <span class="tag tag-blue">C</span><span class="tag tag-blue">Arduino</span><span class="tag tag-blue">OS Scheduling</span>
+
+                    <!-- CPU Control Simulation System -->
+                    <div class="project-card-gh project-item cursor-pointer bg-white dark:bg-[#0d1117] rounded-xl overflow-hidden border border-slate-200 dark:border-[#30363d] shadow-sm hover:shadow-xl transition-all duration-300 w-full flex flex-col group block" data-category="systems" data-repo="" data-image="https://image2url.com/images/1765825518035-1dbec68f-23c2-4ad8-b356-fc06aeee01c2.jpeg">
+                        
+                        <!-- Top Social Preview Half -->
+                        <div class="block relative w-full h-48 bg-slate-100 dark:bg-slate-900 overflow-hidden border-b border-slate-200 dark:border-[#30363d] p-5 flex flex-col justify-between cursor-pointer">
+                            <!-- Background glow -->
+                            <div class="absolute -right-10 -bottom-10 w-48 h-48 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-500 opacity-40 blur-2xl group-hover:scale-125 transition-transform duration-700 pointer-events-none"></div>
+                            
+                            <!-- Top Info bar -->
+                            <div class="relative z-10 flex justify-between items-start pointer-events-none">
+                                <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-blue-500 text-white font-bold text-[10px] uppercase tracking-wider shadow-sm">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-white animate-[pulse_2s_ease-in-out_infinite]"></span> SYSTEMS
+                                </div>
+                                <div class="inline-flex items-center px-2 py-0.5 rounded bg-slate-600/80 text-white font-bold text-[10px] shadow-sm backdrop-blur">
+                                    C
+                                </div>
+                            </div>
+                            
+                            <!-- Profile Picture floating right -->
+                            <div class="absolute right-5 inset-y-0 flex items-center z-10 pointer-events-none">
+                                <div class="w-16 h-16 rounded-full border-2 border-white dark:border-slate-800 overflow-hidden shadow-lg transform translate-y-2 opacity-90 group-hover:opacity-100 group-hover:-translate-y-1 transition-all duration-300">
+                                    <img src="https://image2url.com/images/1765825518035-1dbec68f-23c2-4ad8-b356-fc06aeee01c2.jpeg" class="w-full h-full object-cover" alt="Profile">
+                                </div>
+                            </div>
+
+                            <!-- Mid Info -->
+                            <div class="relative z-10 flex flex-col mt-auto w-[80%] drop-shadow-md pointer-events-none">
+                                <h4 class="text-sm text-slate-800 dark:text-slate-400 font-medium mb-0.5 opacity-80">eikomotsu /</h4>
+                                <h3 class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white leading-tight line-clamp-1 group-hover:text-primary transition-colors">
+                                    cpu-control-simulation-system
+                                </h3>
+                                <p class="text-[11px] text-slate-600 dark:text-slate-300 mt-1.5 line-clamp-1 font-medium">Software simulation of CPU scheduling algorithms (Round Robin, Priority,
+                            SJF) paired with an Arduino-based hardware implementation for lab demonstrations.</p>
+                            </div>
+                            
+                            <!-- Bottom Stats -->
+                            <div class="relative z-10 flex justify-between items-center mt-3 text-slate-700 dark:text-slate-400 pb-1 pointer-events-none">
+                                <div class="flex flex-col items-center gap-0.5">
+                                    <span class="text-sm text-slate-900 dark:text-slate-200 font-bold leading-none">1</span>
+                                    <span class="text-[9px] font-medium uppercase tracking-wider">Contributor</span>
+                                </div>
+                                <div class="flex items-center gap-1.5 opacity-80">
+                                    <span class="material-symbols-outlined text-[14px]">adjust</span>
+                                    <span class="text-xs font-bold">11</span>
+                                </div>
+                                <div class="flex items-center gap-1.5 opacity-80">
+                                    <span class="material-symbols-outlined text-[14px]">star</span>
+                                    <span class="text-xs font-bold">37</span>
+                                </div>
+                                <div class="flex items-center gap-1.5 opacity-80">
+                                    <span class="material-symbols-outlined text-[14px]">fork_right</span>
+                                    <span class="text-xs font-bold">8</span>
+                                </div>
+                                <div class="w-4"></div>
+                            </div>
                         </div>
-                        <a href="#" class="card-btn">View Project <span class="material-symbols-outlined text-[16px]">arrow_forward</span></a>
+                        
+                        <!-- Bottom Info Half -->
+                        <div class="p-5 sm:p-6 flex flex-col flex-grow relative bg-slate-50 dark:bg-[#0d1117]">
+                            <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2 font-display line-clamp-1" title="CPU Control Simulation System">CPU Control Simulation System</h3>
+                            <p class="text-sm text-slate-600 dark:text-[#8b949e] leading-relaxed mb-6 flex-grow">Software simulation of CPU scheduling algorithms (Round Robin, Priority,
+                            SJF) paired with an Arduino-based hardware implementation for lab demonstrations.</p>
+                            
+                            <!-- Language / Date row -->
+                            <div class="flex items-center gap-4 text-xs font-semibold text-slate-500 dark:text-[#8b949e] mb-5">
+                                <div class="flex items-center gap-1.5 cursor-pointer transition-colors group-hover:text-amber-500 dark:group-hover:text-amber-400">
+                                    <span class="w-2.5 h-2.5 bg-amber-400 rounded-full inline-block"></span> C
+                                </div>
+                                <div class="flex items-center gap-1 cursor-pointer transition-colors group-hover:text-blue-500 dark:group-hover:text-blue-400">
+                                    <span class="material-symbols-outlined text-[14px]">fork_right</span> 8 forks
+                                </div>
+                                <div class="ml-auto opacity-70">
+                                    Mar 2026
+                                </div>
+                            </div>
+                            
+                            <!-- Action Footer row -->
+                            <div class="flex justify-between items-center pt-4 border-t border-slate-200 dark:border-[#30363d]">
+                                <span class="font-bold text-red-500 hover:text-red-700 dark:hover:text-red-400 flex items-center gap-2 group/link transition-colors cursor-pointer">
+                                    Explore <span class="material-symbols-outlined text-[18px] group-hover/link:translate-x-1 transition-transform">arrow_forward</span>
+                                </span>
+                                <span class="px-2.5 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 font-bold text-[11px] uppercase rounded-full shadow-sm">
+                                    SYSTEMS
+                                </span>
+                            </div>
+                        </div>
                     </div>
 
-                </div>
+
+</div>
             </section>
 
             <!-- ── IoT ── -->
@@ -349,33 +1133,192 @@
                 <div class="flex items-center gap-3">
                     <div class="w-1 h-8 bg-emerald-500 rounded-full"></div>
                     <h2 class="text-2xl font-black text-slate-900 dark:text-white">📡 IoT</h2>
-                    <span class="ml-2 px-3 py-0.5 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 text-xs font-bold">2 Projects</span>
+                    <span
+                        class="ml-2 px-3 py-0.5 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 text-xs font-bold">2
+                        Projects</span>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="grid-iot">
 
-                    <!-- Smart Campus Network -->
-                    <div class="project-card" data-category="iot">
-                        <div class="card-icon bg-emerald-500/10 text-emerald-500"><span class="material-symbols-outlined">router</span></div>
-                        <h3 class="card-title">Smart Campus Network with Automated Access Control</h3>
-                        <p class="card-desc">IoT-based campus network with RFID/NFC-driven automated gate access control, real-time monitoring dashboard, and alert system.</p>
-                        <div class="card-tags">
-                            <span class="tag tag-green">Arduino</span><span class="tag tag-green">RFID</span><span class="tag tag-green">Python</span><span class="tag tag-green">IoT</span>
+
+                    <!-- Smart Campus Network with Automated Access Control -->
+                    <div class="project-card-gh project-item cursor-pointer bg-white dark:bg-[#0d1117] rounded-xl overflow-hidden border border-slate-200 dark:border-[#30363d] shadow-sm hover:shadow-xl transition-all duration-300 w-full flex flex-col group block" data-category="iot" data-repo="smart-campus-network" data-image="https://image2url.com/images/1765825518035-1dbec68f-23c2-4ad8-b356-fc06aeee01c2.jpeg">
+                        
+                        <!-- Top Social Preview Half -->
+                        <div class="block relative w-full h-48 bg-slate-100 dark:bg-slate-900 overflow-hidden border-b border-slate-200 dark:border-[#30363d] p-5 flex flex-col justify-between cursor-pointer">
+                            <!-- Background glow -->
+                            <div class="absolute -right-10 -bottom-10 w-48 h-48 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-orange-500 opacity-40 blur-2xl group-hover:scale-125 transition-transform duration-700 pointer-events-none"></div>
+                            
+                            <!-- Top Info bar -->
+                            <div class="relative z-10 flex justify-between items-start pointer-events-none">
+                                <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-orange-500 text-white font-bold text-[10px] uppercase tracking-wider shadow-sm">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-white animate-[pulse_2s_ease-in-out_infinite]"></span> IOT
+                                </div>
+                                <div class="inline-flex items-center px-2 py-0.5 rounded bg-slate-600/80 text-white font-bold text-[10px] shadow-sm backdrop-blur">
+                                    Arduino
+                                </div>
+                            </div>
+                            
+                            <!-- Profile Picture floating right -->
+                            <div class="absolute right-5 inset-y-0 flex items-center z-10 pointer-events-none">
+                                <div class="w-16 h-16 rounded-full border-2 border-white dark:border-slate-800 overflow-hidden shadow-lg transform translate-y-2 opacity-90 group-hover:opacity-100 group-hover:-translate-y-1 transition-all duration-300">
+                                    <img src="https://image2url.com/images/1765825518035-1dbec68f-23c2-4ad8-b356-fc06aeee01c2.jpeg" class="w-full h-full object-cover" alt="Profile">
+                                </div>
+                            </div>
+
+                            <!-- Mid Info -->
+                            <div class="relative z-10 flex flex-col mt-auto w-[80%] drop-shadow-md pointer-events-none">
+                                <h4 class="text-sm text-slate-800 dark:text-slate-400 font-medium mb-0.5 opacity-80">eikomotsu /</h4>
+                                <h3 class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white leading-tight line-clamp-1 group-hover:text-primary transition-colors">
+                                    smart-campus-network-with-automated-access-control
+                                </h3>
+                                <p class="text-[11px] text-slate-600 dark:text-slate-300 mt-1.5 line-clamp-1 font-medium">IoT-based campus network with RFID/NFC-driven automated gate access
+                            control, real-time monitoring dashboard, and alert system.</p>
+                            </div>
+                            
+                            <!-- Bottom Stats -->
+                            <div class="relative z-10 flex justify-between items-center mt-3 text-slate-700 dark:text-slate-400 pb-1 pointer-events-none">
+                                <div class="flex flex-col items-center gap-0.5">
+                                    <span class="text-sm text-slate-900 dark:text-slate-200 font-bold leading-none">1</span>
+                                    <span class="text-[9px] font-medium uppercase tracking-wider">Contributor</span>
+                                </div>
+                                <div class="flex items-center gap-1.5 opacity-80">
+                                    <span class="material-symbols-outlined text-[14px]">adjust</span>
+                                    <span class="text-xs font-bold">13</span>
+                                </div>
+                                <div class="flex items-center gap-1.5 opacity-80">
+                                    <span class="material-symbols-outlined text-[14px]">star</span>
+                                    <span class="text-xs font-bold">23</span>
+                                </div>
+                                <div class="flex items-center gap-1.5 opacity-80">
+                                    <span class="material-symbols-outlined text-[14px]">fork_right</span>
+                                    <span class="text-xs font-bold">9</span>
+                                </div>
+                                <div class="w-4"></div>
+                            </div>
                         </div>
-                        <a href="#" class="card-btn">View Project <span class="material-symbols-outlined text-[16px]">arrow_forward</span></a>
+                        
+                        <!-- Bottom Info Half -->
+                        <div class="p-5 sm:p-6 flex flex-col flex-grow relative bg-slate-50 dark:bg-[#0d1117]">
+                            <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2 font-display line-clamp-1" title="Smart Campus Network with Automated Access Control">Smart Campus Network with Automated Access Control</h3>
+                            <p class="text-sm text-slate-600 dark:text-[#8b949e] leading-relaxed mb-6 flex-grow">IoT-based campus network with RFID/NFC-driven automated gate access
+                            control, real-time monitoring dashboard, and alert system.</p>
+                            
+                            <!-- Language / Date row -->
+                            <div class="flex items-center gap-4 text-xs font-semibold text-slate-500 dark:text-[#8b949e] mb-5">
+                                <div class="flex items-center gap-1.5 cursor-pointer transition-colors group-hover:text-amber-500 dark:group-hover:text-amber-400">
+                                    <span class="w-2.5 h-2.5 bg-amber-400 rounded-full inline-block"></span> Arduino
+                                </div>
+                                <div class="flex items-center gap-1 cursor-pointer transition-colors group-hover:text-blue-500 dark:group-hover:text-blue-400">
+                                    <span class="material-symbols-outlined text-[14px]">fork_right</span> 9 forks
+                                </div>
+                                <div class="ml-auto opacity-70">
+                                    Mar 2026
+                                </div>
+                            </div>
+                            
+                            <!-- Action Footer row -->
+                            <div class="flex justify-between items-center pt-4 border-t border-slate-200 dark:border-[#30363d]">
+                                <span class="font-bold text-red-500 hover:text-red-700 dark:hover:text-red-400 flex items-center gap-2 group/link transition-colors cursor-pointer">
+                                    Explore <span class="material-symbols-outlined text-[18px] group-hover/link:translate-x-1 transition-transform">arrow_forward</span>
+                                </span>
+                                <span class="px-2.5 py-1 bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400 font-bold text-[11px] uppercase rounded-full shadow-sm">
+                                    IOT
+                                </span>
+                            </div>
+                        </div>
                     </div>
 
-                    <!-- Water Level Indicator -->
-                    <div class="project-card" data-category="iot">
-                        <div class="card-icon bg-sky-500/10 text-sky-500"><span class="material-symbols-outlined">water</span></div>
-                        <h3 class="card-title">Water Level Indicator System</h3>
-                        <p class="card-desc">Arduino-based automated water level monitoring system with sensor arrays that trigger alerts and motor control at critical levels.</p>
-                        <div class="card-tags">
-                            <span class="tag tag-green">Arduino</span><span class="tag tag-green">C++</span><span class="tag tag-green">Sensors</span><span class="tag tag-green">Embedded</span>
+
+                    <!-- Water Level Indicator System -->
+                    <div class="project-card-gh project-item cursor-pointer bg-white dark:bg-[#0d1117] rounded-xl overflow-hidden border border-slate-200 dark:border-[#30363d] shadow-sm hover:shadow-xl transition-all duration-300 w-full flex flex-col group block" data-category="iot" data-repo="" data-image="https://image2url.com/images/1765825518035-1dbec68f-23c2-4ad8-b356-fc06aeee01c2.jpeg">
+                        
+                        <!-- Top Social Preview Half -->
+                        <div class="block relative w-full h-48 bg-slate-100 dark:bg-slate-900 overflow-hidden border-b border-slate-200 dark:border-[#30363d] p-5 flex flex-col justify-between cursor-pointer">
+                            <!-- Background glow -->
+                            <div class="absolute -right-10 -bottom-10 w-48 h-48 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-orange-500 opacity-40 blur-2xl group-hover:scale-125 transition-transform duration-700 pointer-events-none"></div>
+                            
+                            <!-- Top Info bar -->
+                            <div class="relative z-10 flex justify-between items-start pointer-events-none">
+                                <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-orange-500 text-white font-bold text-[10px] uppercase tracking-wider shadow-sm">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-white animate-[pulse_2s_ease-in-out_infinite]"></span> IOT
+                                </div>
+                                <div class="inline-flex items-center px-2 py-0.5 rounded bg-slate-600/80 text-white font-bold text-[10px] shadow-sm backdrop-blur">
+                                    Arduino
+                                </div>
+                            </div>
+                            
+                            <!-- Profile Picture floating right -->
+                            <div class="absolute right-5 inset-y-0 flex items-center z-10 pointer-events-none">
+                                <div class="w-16 h-16 rounded-full border-2 border-white dark:border-slate-800 overflow-hidden shadow-lg transform translate-y-2 opacity-90 group-hover:opacity-100 group-hover:-translate-y-1 transition-all duration-300">
+                                    <img src="https://image2url.com/images/1765825518035-1dbec68f-23c2-4ad8-b356-fc06aeee01c2.jpeg" class="w-full h-full object-cover" alt="Profile">
+                                </div>
+                            </div>
+
+                            <!-- Mid Info -->
+                            <div class="relative z-10 flex flex-col mt-auto w-[80%] drop-shadow-md pointer-events-none">
+                                <h4 class="text-sm text-slate-800 dark:text-slate-400 font-medium mb-0.5 opacity-80">eikomotsu /</h4>
+                                <h3 class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white leading-tight line-clamp-1 group-hover:text-primary transition-colors">
+                                    water-level-indicator-system
+                                </h3>
+                                <p class="text-[11px] text-slate-600 dark:text-slate-300 mt-1.5 line-clamp-1 font-medium">Arduino-based automated water level monitoring system with sensor arrays
+                            that trigger alerts and motor control at critical levels.</p>
+                            </div>
+                            
+                            <!-- Bottom Stats -->
+                            <div class="relative z-10 flex justify-between items-center mt-3 text-slate-700 dark:text-slate-400 pb-1 pointer-events-none">
+                                <div class="flex flex-col items-center gap-0.5">
+                                    <span class="text-sm text-slate-900 dark:text-slate-200 font-bold leading-none">1</span>
+                                    <span class="text-[9px] font-medium uppercase tracking-wider">Contributor</span>
+                                </div>
+                                <div class="flex items-center gap-1.5 opacity-80">
+                                    <span class="material-symbols-outlined text-[14px]">adjust</span>
+                                    <span class="text-xs font-bold">11</span>
+                                </div>
+                                <div class="flex items-center gap-1.5 opacity-80">
+                                    <span class="material-symbols-outlined text-[14px]">star</span>
+                                    <span class="text-xs font-bold">19</span>
+                                </div>
+                                <div class="flex items-center gap-1.5 opacity-80">
+                                    <span class="material-symbols-outlined text-[14px]">fork_right</span>
+                                    <span class="text-xs font-bold">5</span>
+                                </div>
+                                <div class="w-4"></div>
+                            </div>
                         </div>
-                        <a href="#" class="card-btn">View Project <span class="material-symbols-outlined text-[16px]">arrow_forward</span></a>
+                        
+                        <!-- Bottom Info Half -->
+                        <div class="p-5 sm:p-6 flex flex-col flex-grow relative bg-slate-50 dark:bg-[#0d1117]">
+                            <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2 font-display line-clamp-1" title="Water Level Indicator System">Water Level Indicator System</h3>
+                            <p class="text-sm text-slate-600 dark:text-[#8b949e] leading-relaxed mb-6 flex-grow">Arduino-based automated water level monitoring system with sensor arrays
+                            that trigger alerts and motor control at critical levels.</p>
+                            
+                            <!-- Language / Date row -->
+                            <div class="flex items-center gap-4 text-xs font-semibold text-slate-500 dark:text-[#8b949e] mb-5">
+                                <div class="flex items-center gap-1.5 cursor-pointer transition-colors group-hover:text-amber-500 dark:group-hover:text-amber-400">
+                                    <span class="w-2.5 h-2.5 bg-amber-400 rounded-full inline-block"></span> Arduino
+                                </div>
+                                <div class="flex items-center gap-1 cursor-pointer transition-colors group-hover:text-blue-500 dark:group-hover:text-blue-400">
+                                    <span class="material-symbols-outlined text-[14px]">fork_right</span> 5 forks
+                                </div>
+                                <div class="ml-auto opacity-70">
+                                    Mar 2026
+                                </div>
+                            </div>
+                            
+                            <!-- Action Footer row -->
+                            <div class="flex justify-between items-center pt-4 border-t border-slate-200 dark:border-[#30363d]">
+                                <span class="font-bold text-red-500 hover:text-red-700 dark:hover:text-red-400 flex items-center gap-2 group/link transition-colors cursor-pointer">
+                                    Explore <span class="material-symbols-outlined text-[18px] group-hover/link:translate-x-1 transition-transform">arrow_forward</span>
+                                </span>
+                                <span class="px-2.5 py-1 bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400 font-bold text-[11px] uppercase rounded-full shadow-sm">
+                                    IOT
+                                </span>
+                            </div>
+                        </div>
                     </div>
 
-                </div>
+
+</div>
             </section>
 
             <!-- ── WEB APPLICATIONS ── -->
@@ -383,44 +1326,281 @@
                 <div class="flex items-center gap-3">
                     <div class="w-1 h-8 bg-rose-500 rounded-full"></div>
                     <h2 class="text-2xl font-black text-slate-900 dark:text-white">🌐 Web Applications</h2>
-                    <span class="ml-2 px-3 py-0.5 rounded-full bg-rose-500/10 text-rose-600 dark:text-rose-400 border border-rose-500/20 text-xs font-bold">3 Projects</span>
+                    <span
+                        class="ml-2 px-3 py-0.5 rounded-full bg-rose-500/10 text-rose-600 dark:text-rose-400 border border-rose-500/20 text-xs font-bold">3
+                        Projects</span>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="grid-web">
 
-                    <!-- Finance Management -->
-                    <div class="project-card" data-category="web">
-                        <div class="card-icon bg-rose-500/10 text-rose-500"><span class="material-symbols-outlined">account_balance_wallet</span></div>
-                        <h3 class="card-title">Finance Management System</h3>
-                        <p class="card-desc">Full-featured personal finance tracker with income/expense logging, category budgeting, visual reports, and monthly summary exports.</p>
-                        <div class="card-tags">
-                            <span class="tag tag-rose">Python</span><span class="tag tag-rose">MySQL</span><span class="tag tag-rose">Tkinter</span><span class="tag tag-rose">Matplotlib</span>
+
+                    <!-- Finance Management System -->
+                    <div class="project-card-gh project-item cursor-pointer bg-white dark:bg-[#0d1117] rounded-xl overflow-hidden border border-slate-200 dark:border-[#30363d] shadow-sm hover:shadow-xl transition-all duration-300 w-full flex flex-col group block" data-category="web" data-repo="" data-image="https://image2url.com/images/1765825518035-1dbec68f-23c2-4ad8-b356-fc06aeee01c2.jpeg">
+                        
+                        <!-- Top Social Preview Half -->
+                        <div class="block relative w-full h-48 bg-slate-100 dark:bg-slate-900 overflow-hidden border-b border-slate-200 dark:border-[#30363d] p-5 flex flex-col justify-between cursor-pointer">
+                            <!-- Background glow -->
+                            <div class="absolute -right-10 -bottom-10 w-48 h-48 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-rose-500 opacity-40 blur-2xl group-hover:scale-125 transition-transform duration-700 pointer-events-none"></div>
+                            
+                            <!-- Top Info bar -->
+                            <div class="relative z-10 flex justify-between items-start pointer-events-none">
+                                <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-rose-500 text-white font-bold text-[10px] uppercase tracking-wider shadow-sm">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-white animate-[pulse_2s_ease-in-out_infinite]"></span> WEB
+                                </div>
+                                <div class="inline-flex items-center px-2 py-0.5 rounded bg-slate-600/80 text-white font-bold text-[10px] shadow-sm backdrop-blur">
+                                    Python
+                                </div>
+                            </div>
+                            
+                            <!-- Profile Picture floating right -->
+                            <div class="absolute right-5 inset-y-0 flex items-center z-10 pointer-events-none">
+                                <div class="w-16 h-16 rounded-full border-2 border-white dark:border-slate-800 overflow-hidden shadow-lg transform translate-y-2 opacity-90 group-hover:opacity-100 group-hover:-translate-y-1 transition-all duration-300">
+                                    <img src="https://image2url.com/images/1765825518035-1dbec68f-23c2-4ad8-b356-fc06aeee01c2.jpeg" class="w-full h-full object-cover" alt="Profile">
+                                </div>
+                            </div>
+
+                            <!-- Mid Info -->
+                            <div class="relative z-10 flex flex-col mt-auto w-[80%] drop-shadow-md pointer-events-none">
+                                <h4 class="text-sm text-slate-800 dark:text-slate-400 font-medium mb-0.5 opacity-80">eikomotsu /</h4>
+                                <h3 class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white leading-tight line-clamp-1 group-hover:text-primary transition-colors">
+                                    finance-management-system
+                                </h3>
+                                <p class="text-[11px] text-slate-600 dark:text-slate-300 mt-1.5 line-clamp-1 font-medium">Full-featured personal finance tracker with income/expense logging,
+                            category budgeting, visual reports, and monthly summary exports.</p>
+                            </div>
+                            
+                            <!-- Bottom Stats -->
+                            <div class="relative z-10 flex justify-between items-center mt-3 text-slate-700 dark:text-slate-400 pb-1 pointer-events-none">
+                                <div class="flex flex-col items-center gap-0.5">
+                                    <span class="text-sm text-slate-900 dark:text-slate-200 font-bold leading-none">1</span>
+                                    <span class="text-[9px] font-medium uppercase tracking-wider">Contributor</span>
+                                </div>
+                                <div class="flex items-center gap-1.5 opacity-80">
+                                    <span class="material-symbols-outlined text-[14px]">adjust</span>
+                                    <span class="text-xs font-bold">15</span>
+                                </div>
+                                <div class="flex items-center gap-1.5 opacity-80">
+                                    <span class="material-symbols-outlined text-[14px]">star</span>
+                                    <span class="text-xs font-bold">40</span>
+                                </div>
+                                <div class="flex items-center gap-1.5 opacity-80">
+                                    <span class="material-symbols-outlined text-[14px]">fork_right</span>
+                                    <span class="text-xs font-bold">7</span>
+                                </div>
+                                <div class="w-4"></div>
+                            </div>
                         </div>
-                        <a href="#" class="card-btn">View Project <span class="material-symbols-outlined text-[16px]">arrow_forward</span></a>
+                        
+                        <!-- Bottom Info Half -->
+                        <div class="p-5 sm:p-6 flex flex-col flex-grow relative bg-slate-50 dark:bg-[#0d1117]">
+                            <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2 font-display line-clamp-1" title="Finance Management System">Finance Management System</h3>
+                            <p class="text-sm text-slate-600 dark:text-[#8b949e] leading-relaxed mb-6 flex-grow">Full-featured personal finance tracker with income/expense logging,
+                            category budgeting, visual reports, and monthly summary exports.</p>
+                            
+                            <!-- Language / Date row -->
+                            <div class="flex items-center gap-4 text-xs font-semibold text-slate-500 dark:text-[#8b949e] mb-5">
+                                <div class="flex items-center gap-1.5 cursor-pointer transition-colors group-hover:text-amber-500 dark:group-hover:text-amber-400">
+                                    <span class="w-2.5 h-2.5 bg-amber-400 rounded-full inline-block"></span> Python
+                                </div>
+                                <div class="flex items-center gap-1 cursor-pointer transition-colors group-hover:text-blue-500 dark:group-hover:text-blue-400">
+                                    <span class="material-symbols-outlined text-[14px]">fork_right</span> 7 forks
+                                </div>
+                                <div class="ml-auto opacity-70">
+                                    Mar 2026
+                                </div>
+                            </div>
+                            
+                            <!-- Action Footer row -->
+                            <div class="flex justify-between items-center pt-4 border-t border-slate-200 dark:border-[#30363d]">
+                                <span class="font-bold text-red-500 hover:text-red-700 dark:hover:text-red-400 flex items-center gap-2 group/link transition-colors cursor-pointer">
+                                    Explore <span class="material-symbols-outlined text-[18px] group-hover/link:translate-x-1 transition-transform">arrow_forward</span>
+                                </span>
+                                <span class="px-2.5 py-1 bg-rose-100 dark:bg-rose-900/30 text-rose-600 dark:text-rose-400 font-bold text-[11px] uppercase rounded-full shadow-sm">
+                                    WEB
+                                </span>
+                            </div>
+                        </div>
                     </div>
 
-                    <!-- Organ Donation -->
-                    <div class="project-card" data-category="web">
-                        <div class="card-icon bg-pink-500/10 text-pink-500"><span class="material-symbols-outlined">favorite</span></div>
-                        <h3 class="card-title">Organ Donation Management Application</h3>
-                        <p class="card-desc">Web application connecting organ donors and recipients with hospital administration, real-time availability tracking, and matching logic.</p>
-                        <div class="card-tags">
-                            <span class="tag tag-rose">Python</span><span class="tag tag-rose">Flask</span><span class="tag tag-rose">MySQL</span><span class="tag tag-rose">HTML/CSS</span>
+
+                    <!-- Organ Donation Management Application -->
+                    <div class="project-card-gh project-item cursor-pointer bg-white dark:bg-[#0d1117] rounded-xl overflow-hidden border border-slate-200 dark:border-[#30363d] shadow-sm hover:shadow-xl transition-all duration-300 w-full flex flex-col group block" data-category="web" data-repo="organ-donation-app" data-image="https://image2url.com/images/1765825518035-1dbec68f-23c2-4ad8-b356-fc06aeee01c2.jpeg">
+                        
+                        <!-- Top Social Preview Half -->
+                        <div class="block relative w-full h-48 bg-slate-100 dark:bg-slate-900 overflow-hidden border-b border-slate-200 dark:border-[#30363d] p-5 flex flex-col justify-between cursor-pointer">
+                            <!-- Background glow -->
+                            <div class="absolute -right-10 -bottom-10 w-48 h-48 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-rose-500 opacity-40 blur-2xl group-hover:scale-125 transition-transform duration-700 pointer-events-none"></div>
+                            
+                            <!-- Top Info bar -->
+                            <div class="relative z-10 flex justify-between items-start pointer-events-none">
+                                <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-rose-500 text-white font-bold text-[10px] uppercase tracking-wider shadow-sm">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-white animate-[pulse_2s_ease-in-out_infinite]"></span> WEB
+                                </div>
+                                <div class="inline-flex items-center px-2 py-0.5 rounded bg-slate-600/80 text-white font-bold text-[10px] shadow-sm backdrop-blur">
+                                    Python
+                                </div>
+                            </div>
+                            
+                            <!-- Profile Picture floating right -->
+                            <div class="absolute right-5 inset-y-0 flex items-center z-10 pointer-events-none">
+                                <div class="w-16 h-16 rounded-full border-2 border-white dark:border-slate-800 overflow-hidden shadow-lg transform translate-y-2 opacity-90 group-hover:opacity-100 group-hover:-translate-y-1 transition-all duration-300">
+                                    <img src="https://image2url.com/images/1765825518035-1dbec68f-23c2-4ad8-b356-fc06aeee01c2.jpeg" class="w-full h-full object-cover" alt="Profile">
+                                </div>
+                            </div>
+
+                            <!-- Mid Info -->
+                            <div class="relative z-10 flex flex-col mt-auto w-[80%] drop-shadow-md pointer-events-none">
+                                <h4 class="text-sm text-slate-800 dark:text-slate-400 font-medium mb-0.5 opacity-80">eikomotsu /</h4>
+                                <h3 class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white leading-tight line-clamp-1 group-hover:text-primary transition-colors">
+                                    organ-donation-management-application
+                                </h3>
+                                <p class="text-[11px] text-slate-600 dark:text-slate-300 mt-1.5 line-clamp-1 font-medium">Web application connecting organ donors and recipients with hospital
+                            administration, real-time availability tracking, and matching logic.</p>
+                            </div>
+                            
+                            <!-- Bottom Stats -->
+                            <div class="relative z-10 flex justify-between items-center mt-3 text-slate-700 dark:text-slate-400 pb-1 pointer-events-none">
+                                <div class="flex flex-col items-center gap-0.5">
+                                    <span class="text-sm text-slate-900 dark:text-slate-200 font-bold leading-none">1</span>
+                                    <span class="text-[9px] font-medium uppercase tracking-wider">Contributor</span>
+                                </div>
+                                <div class="flex items-center gap-1.5 opacity-80">
+                                    <span class="material-symbols-outlined text-[14px]">adjust</span>
+                                    <span class="text-xs font-bold">4</span>
+                                </div>
+                                <div class="flex items-center gap-1.5 opacity-80">
+                                    <span class="material-symbols-outlined text-[14px]">star</span>
+                                    <span class="text-xs font-bold">5</span>
+                                </div>
+                                <div class="flex items-center gap-1.5 opacity-80">
+                                    <span class="material-symbols-outlined text-[14px]">fork_right</span>
+                                    <span class="text-xs font-bold">1</span>
+                                </div>
+                                <div class="w-4"></div>
+                            </div>
                         </div>
-                        <a href="#" class="card-btn">View Project <span class="material-symbols-outlined text-[16px]">arrow_forward</span></a>
+                        
+                        <!-- Bottom Info Half -->
+                        <div class="p-5 sm:p-6 flex flex-col flex-grow relative bg-slate-50 dark:bg-[#0d1117]">
+                            <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2 font-display line-clamp-1" title="Organ Donation Management Application">Organ Donation Management Application</h3>
+                            <p class="text-sm text-slate-600 dark:text-[#8b949e] leading-relaxed mb-6 flex-grow">Web application connecting organ donors and recipients with hospital
+                            administration, real-time availability tracking, and matching logic.</p>
+                            
+                            <!-- Language / Date row -->
+                            <div class="flex items-center gap-4 text-xs font-semibold text-slate-500 dark:text-[#8b949e] mb-5">
+                                <div class="flex items-center gap-1.5 cursor-pointer transition-colors group-hover:text-amber-500 dark:group-hover:text-amber-400">
+                                    <span class="w-2.5 h-2.5 bg-amber-400 rounded-full inline-block"></span> Python
+                                </div>
+                                <div class="flex items-center gap-1 cursor-pointer transition-colors group-hover:text-blue-500 dark:group-hover:text-blue-400">
+                                    <span class="material-symbols-outlined text-[14px]">fork_right</span> 1 forks
+                                </div>
+                                <div class="ml-auto opacity-70">
+                                    Mar 2026
+                                </div>
+                            </div>
+                            
+                            <!-- Action Footer row -->
+                            <div class="flex justify-between items-center pt-4 border-t border-slate-200 dark:border-[#30363d]">
+                                <span class="font-bold text-red-500 hover:text-red-700 dark:hover:text-red-400 flex items-center gap-2 group/link transition-colors cursor-pointer">
+                                    Explore <span class="material-symbols-outlined text-[18px] group-hover/link:translate-x-1 transition-transform">arrow_forward</span>
+                                </span>
+                                <span class="px-2.5 py-1 bg-rose-100 dark:bg-rose-900/30 text-rose-600 dark:text-rose-400 font-bold text-[11px] uppercase rounded-full shadow-sm">
+                                    WEB
+                                </span>
+                            </div>
+                        </div>
                     </div>
 
-                    <!-- Hospital Management -->
-                    <div class="project-card" data-category="web">
-                        <div class="card-icon bg-fuchsia-500/10 text-fuchsia-500"><span class="material-symbols-outlined">local_hospital</span></div>
-                        <h3 class="card-title">Hospital Management System</h3>
-                        <p class="card-desc">End-to-end hospital administration platform managing patient records, doctor schedules, billing, and bed availability in real time.</p>
-                        <div class="card-tags">
-                            <span class="tag tag-rose">PHP</span><span class="tag tag-rose">MySQL</span><span class="tag tag-rose">HTML/CSS</span><span class="tag tag-rose">JavaScript</span>
+
+                    <!-- Hospital Management System -->
+                    <div class="project-card-gh project-item cursor-pointer bg-white dark:bg-[#0d1117] rounded-xl overflow-hidden border border-slate-200 dark:border-[#30363d] shadow-sm hover:shadow-xl transition-all duration-300 w-full flex flex-col group block" data-category="web" data-repo="Hospital-Management-System" data-image="https://image2url.com/images/1765825518035-1dbec68f-23c2-4ad8-b356-fc06aeee01c2.jpeg">
+                        
+                        <!-- Top Social Preview Half -->
+                        <div class="block relative w-full h-48 bg-slate-100 dark:bg-slate-900 overflow-hidden border-b border-slate-200 dark:border-[#30363d] p-5 flex flex-col justify-between cursor-pointer">
+                            <!-- Background glow -->
+                            <div class="absolute -right-10 -bottom-10 w-48 h-48 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-rose-500 opacity-40 blur-2xl group-hover:scale-125 transition-transform duration-700 pointer-events-none"></div>
+                            
+                            <!-- Top Info bar -->
+                            <div class="relative z-10 flex justify-between items-start pointer-events-none">
+                                <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-rose-500 text-white font-bold text-[10px] uppercase tracking-wider shadow-sm">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-white animate-[pulse_2s_ease-in-out_infinite]"></span> WEB
+                                </div>
+                                <div class="inline-flex items-center px-2 py-0.5 rounded bg-slate-600/80 text-white font-bold text-[10px] shadow-sm backdrop-blur">
+                                    PHP
+                                </div>
+                            </div>
+                            
+                            <!-- Profile Picture floating right -->
+                            <div class="absolute right-5 inset-y-0 flex items-center z-10 pointer-events-none">
+                                <div class="w-16 h-16 rounded-full border-2 border-white dark:border-slate-800 overflow-hidden shadow-lg transform translate-y-2 opacity-90 group-hover:opacity-100 group-hover:-translate-y-1 transition-all duration-300">
+                                    <img src="https://image2url.com/images/1765825518035-1dbec68f-23c2-4ad8-b356-fc06aeee01c2.jpeg" class="w-full h-full object-cover" alt="Profile">
+                                </div>
+                            </div>
+
+                            <!-- Mid Info -->
+                            <div class="relative z-10 flex flex-col mt-auto w-[80%] drop-shadow-md pointer-events-none">
+                                <h4 class="text-sm text-slate-800 dark:text-slate-400 font-medium mb-0.5 opacity-80">eikomotsu /</h4>
+                                <h3 class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white leading-tight line-clamp-1 group-hover:text-primary transition-colors">
+                                    hospital-management-system
+                                </h3>
+                                <p class="text-[11px] text-slate-600 dark:text-slate-300 mt-1.5 line-clamp-1 font-medium">End-to-end hospital administration platform managing patient records,
+                            doctor schedules, billing, and bed availability in real time.</p>
+                            </div>
+                            
+                            <!-- Bottom Stats -->
+                            <div class="relative z-10 flex justify-between items-center mt-3 text-slate-700 dark:text-slate-400 pb-1 pointer-events-none">
+                                <div class="flex flex-col items-center gap-0.5">
+                                    <span class="text-sm text-slate-900 dark:text-slate-200 font-bold leading-none">1</span>
+                                    <span class="text-[9px] font-medium uppercase tracking-wider">Contributor</span>
+                                </div>
+                                <div class="flex items-center gap-1.5 opacity-80">
+                                    <span class="material-symbols-outlined text-[14px]">adjust</span>
+                                    <span class="text-xs font-bold">2</span>
+                                </div>
+                                <div class="flex items-center gap-1.5 opacity-80">
+                                    <span class="material-symbols-outlined text-[14px]">star</span>
+                                    <span class="text-xs font-bold">31</span>
+                                </div>
+                                <div class="flex items-center gap-1.5 opacity-80">
+                                    <span class="material-symbols-outlined text-[14px]">fork_right</span>
+                                    <span class="text-xs font-bold">0</span>
+                                </div>
+                                <div class="w-4"></div>
+                            </div>
                         </div>
-                        <a href="#" class="card-btn">View Project <span class="material-symbols-outlined text-[16px]">arrow_forward</span></a>
+                        
+                        <!-- Bottom Info Half -->
+                        <div class="p-5 sm:p-6 flex flex-col flex-grow relative bg-slate-50 dark:bg-[#0d1117]">
+                            <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2 font-display line-clamp-1" title="Hospital Management System">Hospital Management System</h3>
+                            <p class="text-sm text-slate-600 dark:text-[#8b949e] leading-relaxed mb-6 flex-grow">End-to-end hospital administration platform managing patient records,
+                            doctor schedules, billing, and bed availability in real time.</p>
+                            
+                            <!-- Language / Date row -->
+                            <div class="flex items-center gap-4 text-xs font-semibold text-slate-500 dark:text-[#8b949e] mb-5">
+                                <div class="flex items-center gap-1.5 cursor-pointer transition-colors group-hover:text-amber-500 dark:group-hover:text-amber-400">
+                                    <span class="w-2.5 h-2.5 bg-amber-400 rounded-full inline-block"></span> PHP
+                                </div>
+                                <div class="flex items-center gap-1 cursor-pointer transition-colors group-hover:text-blue-500 dark:group-hover:text-blue-400">
+                                    <span class="material-symbols-outlined text-[14px]">fork_right</span> 0 forks
+                                </div>
+                                <div class="ml-auto opacity-70">
+                                    Mar 2026
+                                </div>
+                            </div>
+                            
+                            <!-- Action Footer row -->
+                            <div class="flex justify-between items-center pt-4 border-t border-slate-200 dark:border-[#30363d]">
+                                <span class="font-bold text-red-500 hover:text-red-700 dark:hover:text-red-400 flex items-center gap-2 group/link transition-colors cursor-pointer">
+                                    Explore <span class="material-symbols-outlined text-[18px] group-hover/link:translate-x-1 transition-transform">arrow_forward</span>
+                                </span>
+                                <span class="px-2.5 py-1 bg-rose-100 dark:bg-rose-900/30 text-rose-600 dark:text-rose-400 font-bold text-[11px] uppercase rounded-full shadow-sm">
+                                    WEB
+                                </span>
+                            </div>
+                        </div>
                     </div>
 
-                </div>
+
+</div>
             </section>
 
         </div><!-- /max-w-6xl -->
@@ -429,11 +1609,15 @@
     <!-- Footer -->
     <footer class="border-t border-gray-200 dark:border-[#282e39] bg-white dark:bg-[#111318] py-8 px-6 md:px-10 mt-8">
         <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
-            <p class="text-sm text-slate-500 dark:text-slate-400">© 2026 Navari Yashwanth Reddy. All rights reserved.</p>
+            <p class="text-sm text-slate-500 dark:text-slate-400">© 2026 Navari Yashwanth Reddy. All rights reserved.
+            </p>
             <div class="flex gap-6">
-                <a class="text-sm text-slate-500 dark:text-slate-400 hover:text-primary transition-colors" href="https://github.com/eikomotsu" target="_blank">GitHub</a>
-                <a class="text-sm text-slate-500 dark:text-slate-400 hover:text-primary transition-colors" href="https://www.linkedin.com/in/navari-yashwanth-reddy-4a7065357/" target="_blank">LinkedIn</a>
-                <a class="text-sm text-slate-500 dark:text-slate-400 hover:text-primary transition-colors" href="contact.html">Contact</a>
+                <a class="text-sm text-slate-500 dark:text-slate-400 hover:text-primary transition-colors"
+                    href="https://github.com/eikomotsu" target="_blank">GitHub</a>
+                <a class="text-sm text-slate-500 dark:text-slate-400 hover:text-primary transition-colors"
+                    href="https://www.linkedin.com/in/navari-yashwanth-reddy-4a7065357/" target="_blank">LinkedIn</a>
+                <a class="text-sm text-slate-500 dark:text-slate-400 hover:text-primary transition-colors"
+                    href="contact.html">Contact</a>
             </div>
         </div>
     </footer>
@@ -451,15 +1635,18 @@
             transition: all 0.25s ease;
             animation: fadeIn 0.5s ease-out forwards;
         }
+
         .dark .project-card {
             background: rgba(28, 35, 51, 0.8);
             border-color: #283045;
         }
+
         .project-card:hover {
             transform: translateY(-4px);
             box-shadow: 0 12px 40px rgba(37, 99, 235, 0.12);
             border-color: #2563eb55;
         }
+
         .card-icon {
             width: 2.75rem;
             height: 2.75rem;
@@ -468,39 +1655,86 @@
             align-items: center;
             justify-content: center;
         }
+
         .card-title {
             font-size: 1rem;
             font-weight: 700;
             color: #0f172a;
             line-height: 1.4;
         }
-        .dark .card-title { color: #f1f5f9; }
+
+        .dark .card-title {
+            color: #f1f5f9;
+        }
+
         .card-desc {
             font-size: 0.875rem;
             color: #64748b;
             line-height: 1.6;
             flex-grow: 1;
         }
-        .dark .card-desc { color: #94a3b8; }
+
+        .dark .card-desc {
+            color: #94a3b8;
+        }
+
         .card-tags {
             display: flex;
             flex-wrap: wrap;
             gap: 0.375rem;
         }
+
         .tag {
             padding: 0.2rem 0.6rem;
             border-radius: 9999px;
             font-size: 0.7rem;
             font-weight: 600;
         }
-        .tag-violet { background: rgba(139,92,246,0.1); color: #7c3aed; border: 1px solid rgba(139,92,246,0.2); }
-        .dark .tag-violet { color: #c4b5fd; background: rgba(139,92,246,0.15); }
-        .tag-blue { background: rgba(37,99,235,0.08); color: #2563eb; border: 1px solid rgba(37,99,235,0.2); }
-        .dark .tag-blue { color: #93c5fd; background: rgba(37,99,235,0.12); }
-        .tag-green { background: rgba(16,185,129,0.08); color: #059669; border: 1px solid rgba(16,185,129,0.2); }
-        .dark .tag-green { color: #6ee7b7; background: rgba(16,185,129,0.12); }
-        .tag-rose { background: rgba(244,63,94,0.08); color: #e11d48; border: 1px solid rgba(244,63,94,0.2); }
-        .dark .tag-rose { color: #fda4af; background: rgba(244,63,94,0.12); }
+
+        .tag-violet {
+            background: rgba(139, 92, 246, 0.1);
+            color: #7c3aed;
+            border: 1px solid rgba(139, 92, 246, 0.2);
+        }
+
+        .dark .tag-violet {
+            color: #c4b5fd;
+            background: rgba(139, 92, 246, 0.15);
+        }
+
+        .tag-blue {
+            background: rgba(37, 99, 235, 0.08);
+            color: #2563eb;
+            border: 1px solid rgba(37, 99, 235, 0.2);
+        }
+
+        .dark .tag-blue {
+            color: #93c5fd;
+            background: rgba(37, 99, 235, 0.12);
+        }
+
+        .tag-green {
+            background: rgba(16, 185, 129, 0.08);
+            color: #059669;
+            border: 1px solid rgba(16, 185, 129, 0.2);
+        }
+
+        .dark .tag-green {
+            color: #6ee7b7;
+            background: rgba(16, 185, 129, 0.12);
+        }
+
+        .tag-rose {
+            background: rgba(244, 63, 94, 0.08);
+            color: #e11d48;
+            border: 1px solid rgba(244, 63, 94, 0.2);
+        }
+
+        .dark .tag-rose {
+            color: #fda4af;
+            background: rgba(244, 63, 94, 0.12);
+        }
+
         .card-btn {
             display: inline-flex;
             align-items: center;
@@ -511,8 +1745,14 @@
             margin-top: 0.25rem;
             transition: gap 0.2s;
         }
-        .card-btn:hover { gap: 0.5rem; }
-        .dark .card-btn { color: #60a5fa; }
+
+        .card-btn:hover {
+            gap: 0.5rem;
+        }
+
+        .dark .card-btn {
+            color: #60a5fa;
+        }
 
         /* Filter active state */
         .active-filter {
@@ -520,10 +1760,12 @@
             color: white !important;
             border-color: #2563eb !important;
         }
+
         /* Hidden project card */
         .project-card.hidden-card {
             display: none;
         }
+
         /* Hidden section */
         section.hidden-section {
             display: none;
@@ -544,10 +1786,10 @@
 
             // Map filter → section IDs
             const sections = {
-                'ml':      'section-ml',
+                'ml': 'section-ml',
                 'systems': 'section-systems',
-                'iot':     'section-iot',
-                'web':     'section-web'
+                'iot': 'section-iot',
+                'web': 'section-web'
             };
 
             // Show/hide sections
@@ -562,6 +1804,107 @@
         }
     </script>
 
+    <!-- Project Details Modal -->
+    <dialog id="project-modal" class="p-0 bg-transparent backdrop:bg-slate-900/80 backdrop:backdrop-blur-sm w-full h-full max-w-none max-h-none overflow-hidden border-none outline-none">
+        <div class="fixed inset-0 flex items-center justify-center p-4 sm:p-6 md:p-8">
+            <div class="bg-white dark:bg-[#0d1117] w-full max-w-5xl h-full max-h-[90vh] rounded-2xl shadow-2xl overflow-hidden flex flex-col border border-slate-200 dark:border-slate-800 animate-in zoom-in-95 duration-200">
+                
+                <!-- Modal Header -->
+                <div class="p-4 sm:p-6 border-b border-slate-200 dark:border-slate-800 flex justify-between items-center bg-slate-50 dark:bg-[#161b22] sticky top-0 z-20">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
+                            <span class="material-symbols-outlined font-bold">description</span>
+                        </div>
+                        <div>
+                            <h2 id="modal-title" class="text-xl font-black text-slate-900 dark:text-white leading-tight">Project Title</h2>
+                            <p id="modal-repo-path" class="text-xs text-slate-500 dark:text-slate-400 font-mono mt-0.5">YashwanthNavari / repository-name</p>
+                        </div>
+                    </div>
+                    <button id="modal-close" class="p-2 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors text-slate-500 dark:text-slate-400">
+                        <span class="material-symbols-outlined">close</span>
+                    </button>
+                </div>
+                
+                <!-- Modal Content Scrollable -->
+                <div class="flex-grow overflow-y-auto p-0 scroll-smooth custom-scrollbar">
+                    <div class="flex flex-col lg:flex-row h-full">
+                        
+                        <!-- Left Panel: README & Files -->
+                        <div class="flex-grow lg:w-2/3 p-6 sm:p-8 border-r border-slate-200 dark:border-slate-800">
+                            <!-- Tabs / Navigation -->
+                            <div class="flex items-center gap-6 border-b border-slate-200 dark:border-slate-800 mb-8">
+                                <button class="pb-3 border-b-2 border-primary text-primary font-bold text-sm flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-[18px]">article</span> README.md
+                                </button>
+                                <a id="modal-files-link" href="#" target="_blank" class="pb-3 border-b-2 border-transparent text-slate-500 hover:text-slate-700 dark:hover:text-slate-300 font-bold text-sm flex items-center gap-2 transition-colors">
+                                    <span class="material-symbols-outlined text-[18px]">folder</span> Files <span class="material-symbols-outlined text-[14px]">open_in_new</span>
+                                </a>
+                            </div>
+                            
+                            <!-- README Content -->
+                            <div id="modal-readme-container" class="prose dark:prose-invert prose-slate max-w-none">
+                                <div class="flex flex-col items-center justify-center py-20 text-slate-400">
+                                    <div class="animate-spin rounded-full h-10 w-10 border-b-2 border-primary mb-4"></div>
+                                    <p class="font-mono text-sm tracking-widest uppercase font-bold animate-pulse">Syncing with GitHub...</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Right Panel: Meta & Stats -->
+                        <div class="lg:w-1/3 bg-slate-50 dark:bg-[#0d1117] p-6 sm:p-8 flex flex-col gap-8 h-full">
+                            
+                            <!-- Project Image Preview -->
+                            <div class="rounded-xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-sm aspect-video bg-slate-200 dark:bg-slate-900 relative group">
+                                <img id="modal-image" src="" alt="Project Preview" class="w-full h-full object-cover">
+                                <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                                    <span id="modal-category" class="bg-white/90 dark:bg-slate-900/90 text-primary px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest shadow-lg">ML</span>
+                                </div>
+                            </div>
+                            
+                            <!-- Stats / Badges -->
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="bg-white dark:bg-[#161b22] p-4 rounded-xl border border-slate-200 dark:border-slate-800 flex flex-col items-center justify-center gap-1 shadow-sm">
+                                    <span class="material-symbols-outlined text-amber-500 text-xl font-bold">star</span>
+                                    <span id="modal-stars" class="text-lg font-black text-slate-900 dark:text-white leading-none">0</span>
+                                    <span class="text-[9px] font-bold text-slate-500 uppercase tracking-widest">Stars</span>
+                                </div>
+                                <div class="bg-white dark:bg-[#161b22] p-4 rounded-xl border border-slate-200 dark:border-slate-800 flex flex-col items-center justify-center gap-1 shadow-sm">
+                                    <span class="material-symbols-outlined text-blue-500 text-xl font-bold">fork_right</span>
+                                    <span id="modal-forks" class="text-lg font-black text-slate-900 dark:text-white leading-none">0</span>
+                                    <span class="text-[9px] font-bold text-slate-500 uppercase tracking-widest">Forks</span>
+                                </div>
+                            </div>
+                            
+                            <!-- Tech Stack Labels -->
+                            <div class="space-y-3">
+                                <h4 class="text-xs font-black text-slate-400 uppercase tracking-widest">Technologies</h4>
+                                <div id="modal-tech-list" class="flex flex-wrap gap-2">
+                                    <!-- Dynamic Tech Tags -->
+                                </div>
+                            </div>
+                            
+                            <p id="modal-desc" class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed italic">...</p>
+                            
+                            <!-- Actions Footer -->
+                            <div class="mt-auto space-y-3">
+                                <a id="modal-repo-btn" href="#" target="_blank" class="w-full py-4 rounded-xl bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-bold text-sm shadow-xl flex items-center justify-center gap-3 hover:scale-[1.02] active:scale-95 transition-all">
+                                    View Repository <span class="material-symbols-outlined text-lg">code</span>
+                                </a>
+                                <a id="modal-live-btn" href="#" target="_blank" class="w-full py-3 rounded-xl bg-transparent border-2 border-primary text-primary font-bold text-sm flex items-center justify-center gap-3 hover:bg-primary hover:text-white transition-all">
+                                    Live Demo <span class="material-symbols-outlined text-lg text-inherit">bolt</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </dialog>
+
+    <!-- Markdown Parser CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+    <script src="js/project-modal.js"></script>
     <script src="js/interactions.js"></script>
     <script src="js/palette.js"></script>
 </body>

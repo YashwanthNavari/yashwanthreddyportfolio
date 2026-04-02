@@ -1,29 +1,47 @@
 [
     {
         "id": 1,
-        "title": "Python for Data Science",
-        "category": "IBM",
-        "description": "Mastered data analysis using Pandas, NumPy, and Matplotlib. Completed complex capstone projects.",
-        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCcQ8s9i77Q0Zexx1a5pJthBz5iKuWW2FtQg5tVR4yAGAD5jAHlNIOD9ulYjdW3smnubMizXHNnas5GqtZe37Z3HbJ4sixZMqqyDg0lJSVNej6AQX9Yl-GGayDEo7SXx5JDiwRCQElSa8LSnC9fkEhd_U07XEpJF7x06Eq8RBEhpdT58zqPTJDiG7dOA6LIRtd8-48P06FqCqpd2QBSOS0up9-_S_QCibmOONfDZdBJBneQV_nCbg3Dt5s3tvg9YuULgnWRscyv6-x2",
-        "link": "#",
-        "createdAt": "2023-10-01"
+        "title": "Java Programming: Solving Problems with Software",
+        "category": "Duke University",
+        "description": "An online course authorized by Duke University and offered through Coursera. Completed with honors.",
+        "image": "images/certs/4D1TI8E5IT7M.jpeg",
+        "link": "https://coursera.org/verify/4D1TI8E5IT7M",
+        "createdAt": "2025-04-16"
     },
     {
         "id": 2,
-        "title": "Machine Learning A-Z",
-        "category": "Udemy",
-        "description": "In-depth coverage of regression, classification, clustering, and deep learning algorithms.",
-        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuDNYLW54qN9mXjjuT84fV5wjigPq46CJBZcM32ywVz8WsMt_sw1AUlm9Mn01pWhEjcZp3zIF-32UpiiROVD8aBRxn0pBUeKZRw28ryTj3qsZMdEIkH7usWZePq_7ITU2o-tWNmX_PTkXaModyacBhKxO3v4m9QNyyDqr809xaiBfmU1MZEkZ4KTRpIp6UH6Lxp9QYhCGDpDUnJzirsWdmzDvX-7PG2yVSenOvRQJJHBsRVxX-zwbFJnrOGTaPDJ5CkO9gWwN8uDxvqZ",
-        "link": "#",
-        "createdAt": "2023-08-01"
+        "title": "Data Structures Using Python - An Introduction",
+        "category": "Packt",
+        "description": "An online course authorized by Packt and offered through Coursera.",
+        "image": "images/certs/ZJHP4YUYR19C.jpeg",
+        "link": "https://coursera.org/verify/ZJHP4YUYR19C",
+        "createdAt": "2025-03-17"
     },
     {
         "id": 3,
-        "title": "Advanced SQL Masterclass",
-        "category": "Coursera",
-        "description": "Focused on complex queries, optimization, and database architecture for scalable apps.",
-        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuC9Sa4pZAZa0F4jvg1jEg2TsrWbxkshCyc0_P-_WLm5GI5fJVLrscmex6dNtNzu6qnQBT7gWvD2WCohbRAaZjf5O1qQAYUtPF0ZwreQnr-skFWNBsvzYgdYSTOh3hX7X8SuPXvqmcos2yEoE1aAhgmMrG0j9255MQyaAaqx71y0ph3MyrZ1syK9NCGzLPkKj3O62XgPeLo9oFl5lSnBBr0p8NqkP3WqF3eHqqkN_B9D_to7hVBGjWbGcUdAwOywKlLi0w5Ub9LMTZ-C",
-        "link": "#",
-        "createdAt": "2023-06-01"
+        "title": "Quantum Computing For Everyone - An Introduction",
+        "category": "Fractal Analytics",
+        "description": "An online course authorized by Fractal Analytics and offered through Coursera.",
+        "image": "images/certs/G3U3V5GZURCB.jpeg",
+        "link": "https://coursera.org/verify/G3U3V5GZURCB",
+        "createdAt": "2025-04-24"
+    },
+    {
+        "id": 4,
+        "title": "Interfacing with the Arduino",
+        "category": "University of California, Irvine",
+        "description": "An online course authorized by University of California, Irvine and offered through Coursera.",
+        "image": "images/certs/1S8JSJJZ6AU7.jpeg",
+        "link": "https://coursera.org/verify/1S8JSJJZ6AU7",
+        "createdAt": "2025-03-29"
+    },
+    {
+        "id": 5,
+        "title": "Object-Oriented Design",
+        "category": "University of Alberta",
+        "description": "An online course authorized by University of Alberta and offered through Coursera.",
+        "image": "images/certs/0GBZ4JJCYYUL.jpeg",
+        "link": "https://coursera.org/verify/0GBZ4JJCYYUL",
+        "createdAt": "2024-11-27"
     }
 ]
