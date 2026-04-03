@@ -1,430 +1,335 @@
 <!DOCTYPE html>
-
-<html class="light" lang="en">
-
+<html lang="en">
 <head>
-    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
-    <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resume - Navari Yashwanth Reddy</title>
-    <!-- Google Fonts -->
+    <!-- Professional Typography -->
     <link href="https://fonts.googleapis.com" rel="preconnect" />
     <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap"
-        rel="stylesheet" />
-    <!-- Material Symbols -->
-    <link
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
-        rel="stylesheet" />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
-        rel="stylesheet" />
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <script src="js/theme.js"></script>
-        <script id="tailwind-config">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    <!-- Global Framework -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
         tailwind.config = {
-            darkMode: "class",
+            darkMode: 'class',
             theme: {
                 extend: {
                     colors: {
-                        "primary": "#2563eb", // Professional Blue (Tailwind blue-600)
-                        "secondary": "#10b981", // Emerald-500
-                        "background-light": "#f8fafc", // slate-50
-                        "background-dark": "#0f172a", // slate-900
-                        "surface-light": "#ffffff",
-                        "surface-dark": "#1e293b", // slate-800
-                        "card-dark": "rgba(30, 41, 59, 0.7)", 
-                        "card-light": "rgba(255, 255, 255, 0.7)" 
-                    },
-                    fontFamily: {
-                        "display": ["'Inter'", "sans-serif"],
-                        "body": ["'Inter'", "sans-serif"],
-                    },
-                    borderRadius: { "DEFAULT": "0.5rem", "md": "0.75rem", "lg": "1rem", "xl": "1.5rem", "2xl": "2rem", "full": "9999px" },
-                },
-            },
+                        primary: '#2563eb',
+                        gold: '#b45309',
+                        navy: '#0f172a'
+                    }
+                }
+            }
         }
     </script>
     <style>
-        /* Custom scrollbar for webkit */
-        ::-webkit-scrollbar {
-            width: 8px;
-            height: 8px;
+        body { font-family: 'Inter', sans-serif; background-color: #f1f5f9; }
+        .resume-shadow { box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); }
+        .page-header { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(10px); }
+        .dark .page-header { background: rgba(15, 23, 42, 0.8); border-color: #1e293b; }
+        
+        /* Precision Visual Elements */
+        .section-bar { width: 3px; height: 20px; border-radius: 4px; background: #b45309; }
+        .project-circle { width: 11px; height: 11px; border-radius: 50%; border: 3px solid #b45309; background: white; margin-left: -7px; margin-top: 5px; z-index: 10; }
+        .dark .project-circle { background: #1c2333; }
+        .project-tag { font-size: 9px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; padding: 2px 10px; border-radius: 40px; background: #f1f5f9; color: #475569; border: 1px solid #e2e8f0; }
+        .dark .project-tag { background: #1e293b; color: #94a3b8; border-color: #334155; }
+        
+        .sidebar-title { font-size: 10px; font-weight: 900; text-transform: uppercase; letter-spacing: 0.35em; color: #b45309; border-bottom: 1.5px solid rgba(180, 83, 9, 0.15); padding-bottom: 8px; margin-bottom: 24px; }
+        
+        @media print {
+            .no-print { display: none !important; }
+            body { background: white !important; }
+            .resume-container { box-shadow: none !important; border: none !important; width: 100% !important; margin: 0 !important; border-radius: 0 !important; height: auto !important; }
+            .resume-sidebar { background: #0f172a !important; color: white !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .page-header, footer { display: none !important; }
+            main { padding: 0 !important; margin: 0 !important; max-width: 100% !important; width: 100% !important; }
         }
-
-        ::-webkit-scrollbar-track {
-            background: transparent;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: #cbd5e1;
-            border-radius: 4px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: #94a3b8;
-        }
-
-        /* Subtle fade-in animation */
-        .fade-in-up {
-            animation: fadeInUp 0.6s ease-out forwards;
-            opacity: 0;
-            transform: translateY(20px);
-        }
-
-        @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .delay-100 {
-            animation-delay: 0.1s;
-        }
-
-        .delay-200 {
-            animation-delay: 0.2s;
-        }
-
-        .delay-300 {
-            animation-delay: 0.3s;
+        @media (max-width: 768px) {
+            .resume-container { flex-direction: column; }
+            .resume-sidebar { width: 100% !important; }
         }
     </style>
 </head>
+<body class="text-slate-900 bg-[#f1f5f9] dark:bg-slate-950 dark:text-slate-100 transition-colors duration-300">
 
-<body
-    class="bg-background-light dark:bg-background-dark font-display text-text-main antialiased selection:bg-primary/20 selection:text-primary overflow-x-hidden">
-    <div class="relative flex h-auto min-h-screen w-full flex-col">
-        <!-- Navigation -->
-        <header
-            class="sticky top-0 z-50 w-full border-b border-gray-100 bg-white/90 backdrop-blur-md dark:border-gray-800 dark:bg-gray-900/90">
-            <div class="flex items-center justify-between px-6 py-4 lg:px-10 max-w-7xl mx-auto w-full">
-                <div class="flex items-center gap-4">
-                    <div class="flex items-center justify-center size-8 rounded-lg bg-primary/10 text-primary">
-                        <span class="material-symbols-outlined text-[20px]">code</span>
+    <!-- Navigation Bar -->
+    <header class="page-header sticky top-0 z-50 border-b border-slate-200 px-6 py-4 flex justify-between items-center no-print">
+        <div class="flex items-center gap-3">
+            <span class="material-symbols-outlined text-primary text-3xl">data_object</span>
+            <span class="font-black text-lg tracking-tight text-slate-900 dark:text-white">DS Portfolio</span>
+        </div>
+        <nav class="hidden md:flex gap-8 text-sm font-semibold text-slate-600 dark:text-slate-400">
+            <a href="index.html" class="hover:text-primary transition-colors">Home</a>
+            <a href="about.html" class="hover:text-primary transition-colors">About</a>
+            <a href="experience.html" class="hover:text-primary transition-colors">Experience</a>
+            <a href="projects.html" class="hover:text-primary transition-colors">Projects</a>
+            <a href="resume.html" class="text-primary font-black">Resume</a>
+        </nav>
+        <div class="flex items-center gap-4">
+            <button onclick="window.toggleTheme()" class="theme-toggle p-2 rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors text-slate-600 dark:text-slate-300">
+                <span class="material-symbols-outlined">dark_mode</span>
+            </button>
+            <button onclick="window.print()" class="bg-navy dark:bg-primary text-white px-5 py-2.5 rounded-xl font-bold flex items-center gap-2 hover:opacity-90 transition-all shadow-xl text-xs">
+                <span class="material-symbols-outlined text-[18px]">print</span>
+                Download PDF
+            </button>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto py-12 px-6">
+        <!-- Professional Resume Document -->
+        <div id="resume-document" class="resume-container flex flex-col md:flex-row bg-white dark:bg-slate-900 rounded-2xl overflow-hidden resume-shadow border border-slate-200 dark:border-slate-800 transition-all duration-500">
+            <!-- SIDEBAR: Navy -->
+            <aside class="resume-sidebar w-full md:w-[32%] bg-[#0f172a] text-white p-10 space-y-12 shrink-0 transition-all duration-500 border-r border-[#1e293b]">
+                <div class="flex flex-col md:flex-row items-center md:items-end justify-between mb-8">
+                    <div>
+                        <h2 class="text-[34px] font-black leading-tight tracking-tighter mb-1 uppercase">Navari</h2>
+                        <h2 class="text-[34px] font-black leading-[0.8] tracking-tighter mb-5 uppercase">Yashwanth Reddy</h2>
                     </div>
-                    <h2 class="text-lg font-bold tracking-tight text-gray-900 dark:text-white">Navari Yashwanth Reddy
-                    </h2>
+                    <div class="mb-4 md:mb-5">
+                        <span class="bg-amber-500/10 border border-amber-500/30 text-amber-500 text-[9px] font-black uppercase tracking-widest px-3 py-1.5 rounded-full flex items-center gap-1.5 shadow-[0_0_15px_rgba(245,158,11,0.1)]">
+                            <span class="material-symbols-outlined text-[14px]">workspace_premium</span>
+                            Design Patent Holder
+                        </span>
+                    </div>
                 </div>
-                <nav class="hidden md:flex items-center gap-6">
-                    <a class="text-sm font-medium text-gray-600 hover:text-primary transition-colors dark:text-gray-300 dark:hover:text-primary"
-                        href="index.html">Home</a>
-                    <a class="text-sm font-medium text-gray-600 hover:text-primary transition-colors dark:text-gray-300 dark:hover:text-primary"
-                        href="about.html">About</a>
-                    <a class="text-sm font-medium text-gray-600 hover:text-primary transition-colors dark:text-gray-300 dark:hover:text-primary"
-                        href="experience.html">Experience</a>
-                    <a class="text-sm font-medium text-gray-600 hover:text-primary transition-colors dark:text-gray-300 dark:hover:text-primary"
-                        href="projects.html">Projects</a>
-                    <a class="text-sm font-medium text-gray-600 hover:text-primary transition-colors dark:text-gray-300 dark:hover:text-primary"
-                        href="skills.html">Skills</a>
-                    <a class="text-sm font-medium text-gray-600 hover:text-primary transition-colors dark:text-gray-300 dark:hover:text-primary"
-                        href="certifications.html">Certifications</a>
-                    
-                    
-                    <a class="text-sm font-medium text-primary font-bold" href="resume.html">Resume</a>
-                    <a class="text-sm font-medium text-gray-600 hover:text-primary transition-colors dark:text-gray-300 dark:hover:text-primary"
-                        href="contact.html">Contact</a>
-                </nav>
-                <div class="flex items-center gap-4">
-                    <button onclick="window.toggleTheme()"
-                        class="theme-toggle flex items-center justify-center p-2 rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors text-gray-900 dark:text-white"
-                        aria-label="Toggle Dark Mode">
-                        <span class="material-symbols-outlined">dark_mode</span>
-                    </button>
-                    <button
-                        class="hidden sm:flex h-9 items-center justify-center rounded-lg bg-primary px-4 text-sm font-bold text-white transition-all hover:bg-blue-700 shadow-sm hover:shadow-md">
-                        <span class="material-symbols-outlined mr-2 text-[18px]">download</span>
-                        Download Resume
-                    </button>
-                    <!-- Mobile Menu Button -->
-                    <button id="mobile-menu-btn" class="md:hidden p-2 text-gray-600 dark:text-gray-300">
-                        <span class="material-symbols-outlined">menu</span>
-                    </button>
-                </div>
-            </div>
-        </header>
+                <p class="text-[10px] font-black tracking-[0.45em] text-amber-500 uppercase opacity-90 text-center md:text-left">Technology · Data · Design</p>
 
-        <!-- Mobile Navigation Menu (Hidden by default) -->
-        <div id="mobile-menu"
-            class="fixed inset-0 z-50 transform translate-x-full transition-transform duration-300 md:hidden">
-            <div class="absolute inset-0 bg-black/50 backdrop-blur-sm" onclick="toggleMobileMenu()"></div>
-            <div
-                class="absolute right-0 top-0 h-full w-[250px] bg-white dark:bg-[#101622] shadow-xl p-6 flex flex-col gap-6">
-                <div class="flex justify-end">
-                    <button onclick="toggleMobileMenu()" class="p-2 text-[#111318] dark:text-white">
-                        <span class="material-symbols-outlined">close</span>
-                    </button>
+                <div class="space-y-12">
+                    <!-- Contact -->
+                    <section>
+                        <h3 class="sidebar-title">Contact</h3>
+                        <ul class="space-y-4 text-[12px] font-medium opacity-90">
+                            <li class="flex items-center gap-4"><span class="material-symbols-outlined text-amber-500 text-[18px]">call</span> +91 6303 236 366</li>
+                            <li class="flex items-center gap-4 underline underline-offset-4"><span class="material-symbols-outlined text-amber-500 text-[18px]">alternate_email</span> navariyashwanthreddy@gmail.com</li>
+                            <li class="flex items-center gap-4"><span class="material-symbols-outlined text-amber-500 text-[18px]">location_on</span> Hyderabad, India</li>
+                            <li class="flex items-center gap-4"><span class="material-symbols-outlined text-amber-500 text-[18px]">link</span> linkedin.com/in/navari-yashwanth-r</li>
+                            <li class="flex items-center gap-4"><span class="material-symbols-outlined text-amber-500 text-[18px]">terminal</span> github.com/YashwanthNavari</li>
+                            <li class="flex items-center gap-4 italic opacity-70"><span class="material-symbols-outlined text-amber-500 text-[18px]">open_in_new</span> Portfolio Website ↗</li>
+                        </ul>
+                    </section>
+
+                    <!-- Skills -->
+                    <section>
+                        <h3 class="sidebar-title">Skills</h3>
+                        <div class="space-y-8">
+                            <div>
+                                <p class="text-[9px] font-black text-slate-500 uppercase tracking-widest mb-3">Technical</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="bg-white/5 border border-white/10 px-2.5 py-1 rounded text-[10px] font-bold">Python</span>
+                                    <span class="bg-white/5 border border-white/10 px-2.5 py-1 rounded text-[10px] font-bold">SQL</span>
+                                    <span class="bg-white/5 border border-white/10 px-2.5 py-1 rounded text-[10px] font-bold">HTML</span>
+                                    <span class="bg-white/5 border border-white/10 px-2.5 py-1 rounded text-[10px] font-bold">CSS</span>
+                                    <span class="bg-white/5 border border-white/10 px-2.5 py-1 rounded text-[10px] font-bold">Git</span>
+                                </div>
+                            </div>
+                            <div>
+                                <p class="text-[9px] font-black text-slate-500 uppercase tracking-widest mb-3">Data & Analysis</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="bg-white/5 border border-white/10 px-2.5 py-1 rounded text-[10px] font-bold">Pandas</span>
+                                    <span class="bg-white/5 border border-white/10 px-2.5 py-1 rounded text-[10px] font-bold">NumPy</span>
+                                    <span class="bg-white/5 border border-white/10 px-2.5 py-1 rounded text-[10px] font-bold">Matplotlib</span>
+                                    <span class="bg-white/5 border border-white/10 px-2.5 py-1 rounded text-[10px] font-bold">Seaborn</span>
+                                    <span class="bg-white/5 border border-white/10 px-2.5 py-1 rounded text-[10px] font-bold">Excel</span>
+                                </div>
+                            </div>
+                            <div>
+                                <p class="text-[9px] font-black text-slate-500 uppercase tracking-widest mb-3">BI & Design</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="bg-white/5 border border-white/10 px-2.5 py-1 rounded text-[10px] font-bold">Power BI</span>
+                                    <span class="bg-white/5 border border-white/10 px-2.5 py-1 rounded text-[10px] font-bold">Tableau</span>
+                                    <span class="bg-white/5 border border-white/10 px-2.5 py-1 rounded text-[10px] font-bold">Figma</span>
+                                    <span class="bg-white/5 border border-white/10 px-2.5 py-1 rounded text-[10px] font-bold">Wireframing</span>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Education -->
+                    <section>
+                        <h3 class="sidebar-title">Education</h3>
+                        <p class="font-black text-sm">B.Tech — Data Science</p>
+                        <p class="text-[11px] text-amber-500 font-bold opacity-90 leading-relaxed uppercase tracking-tighter">Woxsen University</p>
+                        <p class="text-[10px] text-slate-500 mt-1 font-medium">Hyderabad, India</p>
+                    </section>
+
+                    <!-- Certifications -->
+                    <section>
+                        <h3 class="sidebar-title">Certifications</h3>
+                        <div class="space-y-6">
+                            <div class="group">
+                                <p class="font-bold text-[11px] leading-tight mb-1">Java Programming: Solving Problems</p>
+                                <p class="text-[9px] text-slate-400 font-medium italic">Duke University · Apr 2025</p>
+                                <a href="#" class="text-[8px] text-amber-500 underline font-black uppercase tracking-tighter opacity-70 group-hover:opacity-100 transition-opacity">Verify ↗</a>
+                            </div>
+                            <div class="group">
+                                <p class="font-bold text-[11px] leading-tight mb-1">Data Structures Using Python</p>
+                                <p class="text-[9px] text-slate-400 font-medium italic">Packt · Mar 2025</p>
+                                <a href="#" class="text-[8px] text-amber-500 underline font-black uppercase tracking-tighter opacity-70 group-hover:opacity-100 transition-opacity">Verify ↗</a>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Strengths -->
+                    <section>
+                        <h3 class="sidebar-title">Strengths</h3>
+                        <ul class="space-y-2 text-[10px] font-medium opacity-90 pl-1 leading-relaxed">
+                            <li class="flex items-start gap-2">✔ <span>Structured analytical thinking</span></li>
+                            <li class="flex items-start gap-2">✔ <span>Fast learner across domains</span></li>
+                            <li class="flex items-start gap-2">✔ <span>Detail-oriented & thorough</span></li>
+                            <li class="flex items-start gap-2">✔ <span>Clear cross-team communicator</span></li>
+                        </ul>
+                    </section>
                 </div>
-                <nav class="flex flex-col gap-4">
-                    <a class="text-lg font-medium text-[#111318] dark:text-white hover:text-primary transition-colors"
-                        href="index.html">Home</a>
-                    <a class="text-lg font-medium text-[#111318] dark:text-white hover:text-primary transition-colors"
-                        href="about.html">About</a>
-                    <a class="text-lg font-medium text-[#111318] dark:text-white hover:text-primary transition-colors"
-                        href="experience.html">Experience</a>
-                    <a class="text-lg font-medium text-[#111318] dark:text-white hover:text-primary transition-colors"
-                        href="projects.html">Projects</a>
-                    <a class="text-lg font-medium text-[#111318] dark:text-white hover:text-primary transition-colors"
-                        href="skills.html">Skills</a>
-                    <a class="text-lg font-medium text-[#111318] dark:text-white hover:text-primary transition-colors"
-                        href="certifications.html">Certifications</a>
-                    
-                    <a class="text-lg font-medium text-[#111318] dark:text-white hover:text-primary transition-colors"
-                        href="contact.html">Contact</a>
-                </nav>
+            </aside>
+
+            <!-- MAIN BODY: White -->
+            <div class="main-content flex-1 p-10 md:p-14 space-y-12 bg-white dark:bg-slate-900 transition-colors">
+                
+                <!-- Intellectual Property (ELEVATED) -->
+                <section>
+                    <div class="flex items-center justify-between gap-4 mb-8">
+                        <div class="flex items-center gap-4">
+                            <div class="section-bar"></div>
+                            <h3 class="text-[11px] font-black uppercase tracking-[0.45em] text-slate-900 dark:text-white">Intellectual Property</h3>
+                        </div>
+                        <span class="bg-amber-600 dark:bg-amber-500/20 text-white dark:text-amber-500 text-[8px] font-black px-3 py-1 rounded shadow-lg uppercase tracking-widest">Priority Highlight</span>
+                    </div>
+                    <div class="group relative pl-10 border-l-2 border-slate-100 dark:border-slate-800">
+                        <div class="project-circle absolute"></div>
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="font-black text-navy dark:text-white text-[20px]">IoT Connectivity Device Design Patent</h4>
+                        </div>
+                        <p class="text-[11.5px] font-black text-amber-700 dark:text-amber-500 mb-3 italic tracking-tight uppercase">Design No: 470097-001 · Issued Aug 19, 2025 (India)</p>
+                        <p class="text-[12.5px] text-slate-600 dark:text-slate-400 font-medium leading-[1.7] text-justify opacity-90">
+                            Successfully registered a design patent officially recognized under the Designs Act, 2000. Innovations focused on scalable architecture for machine-to-machine communication and energy-efficient data transmission. This is a globally verified and official intellectual property filing.
+                        </p>
+                    </div>
+                </section>
+
+                <!-- Professional Summary -->
+                <section>
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="section-bar"></div>
+                        <h3 class="text-[11px] font-black uppercase tracking-[0.45em] text-slate-900 dark:text-white">Professional Summary</h3>
+                    </div>
+                    <p class="text-[13.5px] leading-[1.8] text-slate-600 dark:text-slate-400 text-justify font-medium">
+                        Motivated and versatile Data Science undergraduate with practical experience across software development, data analysis, UI/UX design, and operational system building. Comfortable contributing in any role — from writing clean code and analysing datasets to designing intuitive interfaces and coordinating workflows. Brings structured thinking, a fast learning curve, and genuine enthusiasm for delivering quality outcomes in any team or project environment.
+                    </p>
+                </section>
+
+                <!-- Projects & Work -->
+                <section>
+                    <div class="flex items-center gap-4 mb-12">
+                        <div class="section-bar"></div>
+                        <h3 class="text-[11px] font-black uppercase tracking-[0.45em] text-slate-900 dark:text-white">Projects & Work</h3>
+                    </div>
+
+                    <div class="space-y-16">
+                        <!-- Project 1 -->
+                        <div class="group relative pl-10 border-l-2 border-slate-100 dark:border-slate-800">
+                            <div class="project-circle absolute"></div>
+                            <div class="flex justify-between items-center mb-2">
+                                <h4 class="font-black text-navy dark:text-white text-[19px]">ML Object Detection System</h4>
+                                <span class="project-tag shrink-0">Python · ML · Visualisation</span>
+                            </div>
+                            <div class="flex items-center gap-2 mb-4">
+                                <p class="text-[11.5px] font-black text-amber-700 dark:text-amber-500 italic tracking-tight uppercase">End-to-end data pipeline · model output analysis</p>
+                                <span class="text-[9px] bg-emerald-500/10 text-emerald-600 px-2 py-0.5 rounded font-black border border-emerald-500/20 uppercase tracking-tighter">98.2% Accuracy Reached</span>
+                            </div>
+                            <ul class="list-disc list-outside ml-4 text-[13px] text-slate-600 dark:text-slate-400 space-y-3 font-medium opacity-90 leading-[1.6]">
+                                <li>Preprocessed and cleaned large image & label datasets to ensure training accuracy and data integrity.</li>
+                                <li>Conducted exploratory analysis on confidence scores to surface patterns, outliers, and model gaps.</li>
+                                <li>Built visual dashboards communicating accuracy trends to both technical and non-technical stakeholders.</li>
+                            </ul>
+                        </div>
+
+                        <!-- Project 2 -->
+                        <div class="group relative pl-10 border-l-2 border-slate-100 dark:border-slate-800">
+                            <div class="project-circle absolute"></div>
+                            <div class="flex justify-between items-center mb-2">
+                                <h4 class="font-black text-navy dark:text-white text-[19px]">Student Attendance Dashboard</h4>
+                                <span class="project-tag shrink-0">Excel · Power BI · Reporting</span>
+                            </div>
+                            <div class="flex items-center gap-2 mb-4">
+                                <p class="text-[11.5px] font-black text-amber-700 dark:text-amber-500 italic tracking-tight uppercase">Interactive reporting system · decision-making</p>
+                                <span class="text-[9px] bg-primary/10 text-primary px-2 py-0.5 rounded font-black border border-primary/20 uppercase tracking-tighter">Automated 1,000+ Daily Records</span>
+                            </div>
+                            <ul class="list-disc list-outside ml-4 text-[13px] text-slate-600 dark:text-slate-400 space-y-3 font-medium opacity-90 leading-[1.6]">
+                                <li>Collected and structured multi-source attendance data, resolving inconsistencies and null entries.</li>
+                                <li>Applied statistical analysis to identify absenteeism trends and peak absence windows.</li>
+                                <li>Designed daily, weekly, and cumulative dashboard views actively adopted by administration.</li>
+                            </ul>
+                        </div>
+
+                        <!-- Project 3 -->
+                        <div class="group relative pl-10 border-l-2 border-slate-100 dark:border-slate-800">
+                            <div class="project-circle absolute"></div>
+                            <div class="flex justify-between items-center mb-2">
+                                <h4 class="font-black text-navy dark:text-white text-[19px]">Smart Parking Booking System</h4>
+                                <span class="project-tag shrink-0">Python · SQL · UX Design</span>
+                            </div>
+                            <div class="flex items-center gap-2 mb-4">
+                                <p class="text-[11.5px] font-black text-amber-700 dark:text-amber-500 italic tracking-tight uppercase">Full-stack platform · real-time slot tracking</p>
+                                <span class="text-[9px] bg-secondary/10 text-secondary px-2 py-0.5 rounded font-black border border-secondary/20 uppercase tracking-tighter">Real-time DB Sync</span>
+                            </div>
+                            <ul class="list-disc list-outside ml-4 text-[13px] text-slate-600 dark:text-slate-400 space-y-3 font-medium opacity-90 leading-[1.6]">
+                                <li>Designed a normalised database schema to track bookings, slot usage, and peak-hour occupancy.</li>
+                                <li>Wrote optimised SQL queries to extract usage trends and generate concise operational reports.</li>
+                                <li>Built a user-facing interface applying UX principles to minimise friction and cognitive load.</li>
+                            </ul>
+                        </div>
+
+                        <!-- All other projects in continuous timeline -->
+                        <div class="group relative pl-10 border-l-2 border-slate-100 dark:border-slate-800">
+                            <div class="project-circle absolute"></div>
+                            <div class="flex justify-between items-center mb-2">
+                                <h4 class="font-black text-navy dark:text-white text-[19px]">AgriSathi: Smart Farmer Assistant</h4>
+                                <span class="project-tag">IoT · Data Science</span>
+                            </div>
+                            <p class="text-[12.5px] text-slate-600 dark:text-slate-400 font-medium italic mb-2">Preprocessed soil, weather, and crop-yield datasets and translated findings into actionable insights for non-technical users.</p>
+                        </div>
+
+                        <div class="group relative pl-10 border-l-2 border-slate-100 dark:border-slate-800">
+                            <div class="project-circle absolute"></div>
+                            <div class="flex justify-between items-center mb-2">
+                                <h4 class="font-black text-navy dark:text-white text-[19px]">Shuttle Routing Optimisation</h4>
+                                <span class="project-tag">Modelling · Ops</span>
+                            </div>
+                            <p class="text-[12.5px] text-slate-600 dark:text-slate-400 font-medium italic">Modelled and compared route performance across multiple operational parameters to improve transit efficiency.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Additional Info -->
+                <section class="opacity-80 pt-10 border-t-2 border-slate-100 dark:border-slate-800">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="section-bar"></div>
+                        <h3 class="text-[11px] font-black uppercase tracking-[0.45em] text-slate-900 dark:text-white">Additional Information</h3>
+                    </div>
+                    <p class="text-[13px] leading-[1.8] text-slate-600 dark:text-slate-400 font-medium italic text-justify bg-slate-50 dark:bg-slate-800/50 p-6 rounded-2xl border border-slate-200 dark:border-slate-700">
+                        Comfortable working independently or within cross-functional teams, in structured or fast-paced environments. Committed to delivering professional outcomes across <span class="text-amber-700 font-black">technology, data, design, and operations</span>. Continuously developing through hands-on experimentation.
+                    </p>
+                </section>
             </div>
         </div>
-        <main class="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-12">
-            <!-- Page Heading -->
-            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-12 fade-in-up">
-                <div class="max-w-2xl">
-                    <h1 class="text-4xl md:text-5xl font-black tracking-tight text-primary mb-3">Resume</h1>
-                    <p class="text-lg text-text-muted dark:text-gray-400 leading-relaxed">
-                        Data Science &amp; Software Engineer specializing in machine learning pipelines and scalable
-                        backend systems.
-                    </p>
-                </div>
-                <div class="flex gap-3">
-                    <button
-                        class="flex h-11 items-center justify-center rounded-lg border border-gray-200 bg-white px-5 text-sm font-bold text-gray-700 shadow-sm hover:bg-gray-50 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-gray-700 transition-all">
-                        <span class="material-symbols-outlined mr-2 text-[20px]">print</span>
-                        Print
-                    </button>
-                    <button
-                        class="flex h-11 items-center justify-center rounded-lg bg-primary px-5 text-sm font-bold text-white shadow-md hover:bg-blue-700 hover:shadow-lg transition-all">
-                        <span class="material-symbols-outlined mr-2 text-[20px]">download</span>
-                        Download PDF
-                    </button>
-                </div>
-            </div>
-            <!-- Main Content Grid -->
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
-                <!-- Left Column: Highlights (Timeline & Skills) -->
-                <div class="lg:col-span-5 flex flex-col gap-10">
-                    <!-- Highlights Summary Header -->
-                    <div class="fade-in-up delay-100">
-                        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6 flex items-center gap-2">
-                            <span class="material-symbols-outlined text-primary">verified</span>
-                            Resume Highlights
-                        </h2>
-                        <!-- Experience Timeline -->
-                        <div
-                            class="bg-background-alt dark:bg-gray-800/50 rounded-xl p-6 border border-gray-100 dark:border-gray-800 shadow-sm mb-8">
-                            <h3 class="text-sm font-bold uppercase tracking-wider text-text-muted mb-4">Experience</h3>
-                            <div class="grid grid-cols-[32px_1fr] gap-x-3">
-                                <!-- Item 1 -->
-                                <div class="flex flex-col items-center pt-1">
-                                    <div class="size-3 rounded-full bg-primary ring-4 ring-primary/20"></div>
-                                    <div class="w-[2px] bg-gray-200 dark:bg-gray-700 h-full my-1"></div>
-                                </div>
-                                <div class="pb-8">
-                                    <p class="text-base font-bold text-gray-900 dark:text-white">Senior Data Engineer
-                                    </p>
-                                    <p class="text-sm text-primary font-medium">TechCorp</p>
-                                    <p class="text-xs text-text-muted mt-1">2022 - Present</p>
-                                    <p class="text-sm text-gray-600 dark:text-gray-400 mt-2 leading-snug">
-                                        Architecting scalable ETL pipelines and managing a team of 4 data engineers.
-                                    </p>
-                                </div>
-                                <!-- Item 2 -->
-                                <div class="flex flex-col items-center pt-1">
-                                    <div class="size-3 rounded-full bg-gray-300 dark:bg-gray-600"></div>
-                                    <div class="w-[2px] bg-gray-200 dark:bg-gray-700 h-full my-1"></div>
-                                </div>
-                                <div class="pb-8">
-                                    <p class="text-base font-bold text-gray-900 dark:text-white">Software Engineer</p>
-                                    <p class="text-sm text-primary font-medium">StartupInc</p>
-                                    <p class="text-xs text-text-muted mt-1">2020 - 2022</p>
-                                    <p class="text-sm text-gray-600 dark:text-gray-400 mt-2 leading-snug">
-                                        Developed microservices using Go and Python. Reduced API latency by 40%.
-                                    </p>
-                                </div>
-                                <!-- Item 3 -->
-                                <div class="flex flex-col items-center pt-1">
-                                    <div class="size-3 rounded-full bg-gray-300 dark:bg-gray-600"></div>
-                                </div>
-                                <div class="">
-                                    <p class="text-base font-bold text-gray-900 dark:text-white">Junior Developer</p>
-                                    <p class="text-sm text-primary font-medium">DevStudio</p>
-                                    <p class="text-xs text-text-muted mt-1">2018 - 2020</p>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Technical Skills Chips -->
-                        <div
-                            class="bg-background-alt dark:bg-gray-800/50 rounded-xl p-6 border border-gray-100 dark:border-gray-800 shadow-sm">
-                            <h3 class="text-sm font-bold uppercase tracking-wider text-text-muted mb-4">Technical Skills
-                            </h3>
-                            <div class="flex flex-wrap gap-2">
-                                <span
-                                    class="inline-flex items-center rounded-md bg-white border border-gray-200 px-2.5 py-1.5 text-sm font-medium text-gray-900 shadow-sm hover:border-primary hover:text-primary transition-colors cursor-default dark:bg-gray-800 dark:border-gray-700 dark:text-gray-100">
-                                    Python
-                                </span>
-                                <span
-                                    class="inline-flex items-center rounded-md bg-white border border-gray-200 px-2.5 py-1.5 text-sm font-medium text-gray-900 shadow-sm hover:border-primary hover:text-primary transition-colors cursor-default dark:bg-gray-800 dark:border-gray-700 dark:text-gray-100">
-                                    SQL
-                                </span>
-                                <span
-                                    class="inline-flex items-center rounded-md bg-white border border-gray-200 px-2.5 py-1.5 text-sm font-medium text-gray-900 shadow-sm hover:border-primary hover:text-primary transition-colors cursor-default dark:bg-gray-800 dark:border-gray-700 dark:text-gray-100">
-                                    TensorFlow
-                                </span>
-                                <span
-                                    class="inline-flex items-center rounded-md bg-white border border-gray-200 px-2.5 py-1.5 text-sm font-medium text-gray-900 shadow-sm hover:border-primary hover:text-primary transition-colors cursor-default dark:bg-gray-800 dark:border-gray-700 dark:text-gray-100">
-                                    AWS
-                                </span>
-                                <span
-                                    class="inline-flex items-center rounded-md bg-white border border-gray-200 px-2.5 py-1.5 text-sm font-medium text-gray-900 shadow-sm hover:border-primary hover:text-primary transition-colors cursor-default dark:bg-gray-800 dark:border-gray-700 dark:text-gray-100">
-                                    Docker
-                                </span>
-                                <span
-                                    class="inline-flex items-center rounded-md bg-white border border-gray-200 px-2.5 py-1.5 text-sm font-medium text-gray-900 shadow-sm hover:border-primary hover:text-primary transition-colors cursor-default dark:bg-gray-800 dark:border-gray-700 dark:text-gray-100">
-                                    React
-                                </span>
-                                <span
-                                    class="inline-flex items-center rounded-md bg-white border border-gray-200 px-2.5 py-1.5 text-sm font-medium text-gray-900 shadow-sm hover:border-primary hover:text-primary transition-colors cursor-default dark:bg-gray-800 dark:border-gray-700 dark:text-gray-100">
-                                    Kubernetes
-                                </span>
-                                <span
-                                    class="inline-flex items-center rounded-md bg-white border border-gray-200 px-2.5 py-1.5 text-sm font-medium text-gray-900 shadow-sm hover:border-primary hover:text-primary transition-colors cursor-default dark:bg-gray-800 dark:border-gray-700 dark:text-gray-100">
-                                    PyTorch
-                                </span>
-                            </div>
-                        </div>
-                        <!-- Education & Certs Small Cards -->
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">
-                            <div
-                                class="rounded-xl border border-gray-100 bg-white p-4 shadow-sm dark:bg-gray-800 dark:border-gray-700 flex flex-col gap-2">
-                                <div
-                                    class="size-8 rounded-full bg-blue-50 flex items-center justify-center text-primary dark:bg-blue-900/20">
-                                    <span class="material-symbols-outlined text-[20px]">school</span>
-                                </div>
-                                <div>
-                                    <p class="font-bold text-sm text-gray-900 dark:text-white">M.S. Comp Sci</p>
-                                    <p class="text-xs text-text-muted">University of Tech, 2021</p>
-                                </div>
-                            </div>
-                            <div
-                                class="rounded-xl border border-gray-100 bg-white p-4 shadow-sm dark:bg-gray-800 dark:border-gray-700 flex flex-col gap-2">
-                                <div
-                                    class="size-8 rounded-full bg-blue-50 flex items-center justify-center text-primary dark:bg-blue-900/20">
-                                    <span class="material-symbols-outlined text-[20px]">workspace_premium</span>
-                                </div>
-                                <div>
-                                    <p class="font-bold text-sm text-gray-900 dark:text-white">AWS Architect</p>
-                                    <p class="text-xs text-text-muted">Certified Solutions Assoc.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Right Column: PDF Viewer -->
-                <div class="lg:col-span-7 fade-in-up delay-200">
-                    <div class="flex items-center justify-between mb-4">
-                        <h2 class="text-xl font-bold text-gray-900 dark:text-white">Document Preview</h2>
-                        <div class="flex gap-2">
-                            <button
-                                class="p-2 text-gray-500 hover:text-primary hover:bg-gray-100 rounded-lg transition-colors dark:text-gray-400 dark:hover:bg-gray-800">
-                                <span class="material-symbols-outlined text-[20px]">zoom_out</span>
-                            </button>
-                            <button
-                                class="p-2 text-gray-500 hover:text-primary hover:bg-gray-100 rounded-lg transition-colors dark:text-gray-400 dark:hover:bg-gray-800">
-                                <span class="material-symbols-outlined text-[20px]">zoom_in</span>
-                            </button>
-                            <button
-                                class="p-2 text-gray-500 hover:text-primary hover:bg-gray-100 rounded-lg transition-colors dark:text-gray-400 dark:hover:bg-gray-800">
-                                <span class="material-symbols-outlined text-[20px]">open_in_new</span>
-                            </button>
-                        </div>
-                    </div>
-                    <!-- PDF Viewer Container -->
-                    <div
-                        class="relative w-full aspect-[8.5/11] bg-gray-200 dark:bg-gray-800 rounded-xl overflow-hidden shadow-inner border border-gray-300 dark:border-gray-700 flex flex-col group">
-                        <!-- Loading / Fallback Placeholder (Visual only, simulates a loaded PDF) -->
-                        <div class="flex-1 w-full bg-gray-500/10 flex items-center justify-center p-8 overflow-y-auto">
-                            <!-- Simulated Resume Page Paper -->
-                            <div
-                                class="w-full h-full max-w-[600px] bg-white shadow-2xl transition-transform duration-300 ease-out group-hover:scale-[1.01] flex flex-col">
-                                <!-- Paper Header -->
-                                <div
-                                    class="h-24 bg-primary/5 p-8 flex justify-between items-center border-b border-gray-100">
-                                    <div class="w-1/2">
-                                        <div class="h-6 w-32 bg-primary/20 rounded mb-2"></div>
-                                        <div class="h-3 w-48 bg-gray-200 rounded"></div>
-                                    </div>
-                                    <div class="size-12 rounded-full bg-gray-200"></div>
-                                </div>
-                                <!-- Paper Body -->
-                                <div class="p-8 flex-1 space-y-6">
-                                    <!-- Section 1 -->
-                                    <div class="space-y-2">
-                                        <div class="h-4 w-24 bg-gray-300 rounded"></div>
-                                        <div class="h-2 w-full bg-gray-100 rounded"></div>
-                                        <div class="h-2 w-full bg-gray-100 rounded"></div>
-                                        <div class="h-2 w-5/6 bg-gray-100 rounded"></div>
-                                    </div>
-                                    <!-- Section 2 -->
-                                    <div class="space-y-3 pt-2">
-                                        <div class="flex justify-between">
-                                            <div class="h-4 w-32 bg-gray-300 rounded"></div>
-                                            <div class="h-3 w-16 bg-gray-200 rounded"></div>
-                                        </div>
-                                        <div class="h-2 w-full bg-gray-100 rounded"></div>
-                                        <div class="h-2 w-11/12 bg-gray-100 rounded"></div>
-                                    </div>
-                                    <!-- Section 3 -->
-                                    <div class="space-y-3 pt-2">
-                                        <div class="flex justify-between">
-                                            <div class="h-4 w-40 bg-gray-300 rounded"></div>
-                                            <div class="h-3 w-16 bg-gray-200 rounded"></div>
-                                        </div>
-                                        <div class="h-2 w-full bg-gray-100 rounded"></div>
-                                        <div class="h-2 w-10/12 bg-gray-100 rounded"></div>
-                                        <div class="h-2 w-11/12 bg-gray-100 rounded"></div>
-                                    </div>
-                                    <!-- Section 4 -->
-                                    <div class="grid grid-cols-2 gap-4 pt-2">
-                                        <div class="space-y-2">
-                                            <div class="h-3 w-20 bg-gray-300 rounded"></div>
-                                            <div class="h-2 w-full bg-gray-100 rounded"></div>
-                                            <div class="h-2 w-full bg-gray-100 rounded"></div>
-                                        </div>
-                                        <div class="space-y-2">
-                                            <div class="h-3 w-20 bg-gray-300 rounded"></div>
-                                            <div class="h-2 w-full bg-gray-100 rounded"></div>
-                                            <div class="h-2 w-full bg-gray-100 rounded"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Overlay Button (If PDF not supported or for mobile) -->
-                        <div
-                            class="absolute inset-0 bg-black/5 pointer-events-none flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            <!-- Can add overlay controls here if needed -->
-                        </div>
-                    </div>
-                    <p class="text-xs text-center text-text-muted mt-3">Preview of resume.pdf (2.4 MB)</p>
-                </div>
-            </div>
-        </main>
-        <!-- Footer -->
-        <footer class="border-t border-gray-100 bg-white py-12 px-10 dark:border-gray-800 dark:bg-gray-900 mt-12">
-            <div class="flex flex-col md:flex-row justify-between items-center gap-6 max-w-7xl mx-auto">
-                <div class="flex items-center gap-2 text-text-main dark:text-white">
-                    <span class="font-bold text-lg">Navari Yashwanth Reddy</span>
-                    <span class="text-text-muted text-sm">— Portfolio 2026</span>
-                </div>
-                <div class="flex gap-6">
-                    <a class="text-text-muted hover:text-primary transition-colors text-sm" href="https://www.linkedin.com/in/navari-yashwanth-reddy-4a7065357/" target="_blank">LinkedIn</a>
-                    <a class="text-text-muted hover:text-primary transition-colors text-sm" href="https://github.com/eikomotsu" target="_blank">GitHub</a>
-                </div>
-            </div>
-        </footer>
-    </div>
-    <script src="js/interactions.js"></script>
+    </main>
+
+    <footer class="py-12 text-center no-print text-slate-400 dark:text-slate-600 text-xs font-bold tracking-widest uppercase flex flex-col items-center gap-4">
+        <div class="flex items-center gap-2 opacity-40">
+            <span class="w-12 h-px bg-slate-300"></span>
+            <span class="material-symbols-outlined text-[14px]">verified_user</span>
+            <span class="tracking-tighter">Digital Integrity Verified</span>
+            <span class="w-12 h-px bg-slate-300"></span>
+        </div>
+        <span>© 2026 Navari Yashwanth Reddy · Precision Build v8.0-Pro</span>
+    </footer>
+
+    <script src="js/theme.js"></script>
     <script src="js/palette.js"></script>
 </body>
-
 </html>
